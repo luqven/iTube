@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let store = createStore(preloadState);
 
+  // TESTING START
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  // TESTING END
+
   ReactDOM.render(<Root store={store}/>, root);
   // ReactDOM.render(<h1>iTube</h1>, root);
 });
