@@ -1,8 +1,6 @@
 import {merge} from 'lodash';
 import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER} from '../actions/session';
-const _nullErrors = {
-  errors: null,
-};
+const _nullErrors = [];
 
 export default (state = _nullErrors, action) => {
   Object.freeze(state);
@@ -11,7 +9,7 @@ export default (state = _nullErrors, action) => {
     case RECEIVE_ERRORS:
       return action.errors;
     case RECEIVE_CURRENT_USER:
-      return {};
+      return [];
     default:
       return state;
   }

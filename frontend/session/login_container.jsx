@@ -1,16 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/session';
-import Login from './login';
+import SessionForm from './session_form';
 
-const msp = state => {
+const msp = (state, ownProps) => {
+  
   return {
-    errors: Object.values(state.errors)
+    user: {
+      username: '',
+      password: '', 
+    },
+    errors: state.errors.session,
+    formType: 'Sign in',
+    message: {
+      text: 'Create account',
+      url: '/signup'}
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user)),
+  action: formUser => dispatch(login(formUser)),
 });
 
-export default connect(msp, mapDispatchToProps)(Login);
+export default connect(msp, mapDispatchToProps)(SessionForm);

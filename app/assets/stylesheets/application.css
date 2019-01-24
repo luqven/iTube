@@ -53,6 +53,10 @@ time, mark, audio, video {
   align-items: center;
 }
 
+.error-message {
+  color: lightcoral;
+}
+
 /* ################################### */
 /* Navigation styling */
 /* ################################### */

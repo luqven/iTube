@@ -1,13 +1,26 @@
 import { connect } from 'react-redux';
 import { createNewUser } from '../actions/session';
-import { Signup } from './signup';
+import SessionForm from './session_form';
 
-// dont' need access to state in this controller
-
-const mdp = dispatch => {
+const msp = (state, ownProps) => {
   return {
-    createNewUser: formUser => dispatch(createNewUser(formUser))
+    user: {
+      username: '',
+      password: '',
+    },
+    errors: state.errors.session,
+    formType: 'Sign up',
+    message: {
+      text: 'Sign in',
+      url: '/login'
+    }
   };
 };
 
-export default connect(null, mdp)(Signup);
+const mdp = dispatch => {
+  return {
+    aciton: formUser => dispatch(createNewUser(formUser))
+  };
+};
+
+export default connect(msp, mdp)(SessionForm);

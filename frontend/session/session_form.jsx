@@ -4,12 +4,8 @@ import {Link} from 'react-router-dom';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: '',
-      password: '',
-      errors: this.props.errors.errors
-    };
-    debugger
+    this.state = this.props.user;
+    
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,17 +17,16 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ errors: this.props.errors.errors});
-    this.props.login(this.state).then(
+    this.props.action(this.state).then(
       () => this.props.history.push('/'));
   }
 
   render() {
     return (
       <div className="login-form-container">
-        <h2>Sign in</h2>
+        <h2>{this.props.formType}</h2>
         <p>to continue to iTube</p>
-        <p>{this.state.errors}</p>
+        <p className="error-message">{this.props.errors}</p>
         <form className="session-form">
           <input
               className="form-input"
@@ -48,7 +43,7 @@ class Login extends React.Component {
               onChange={this.handleInput('password')}
             />
           <div className="form-submit-container">
-            <Link className="blue-hover-btn" to="/signup"> Create account</Link>
+            <Link className="blue-hover-btn" to={this.props.message.url}> {this.props.message.text} </Link>
             <button className="blue-btn" onClick={this.handleSubmit}>Next</button>
           </div>
         </form>
