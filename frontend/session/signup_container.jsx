@@ -19,7 +19,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    aciton: formUser => dispatch(createNewUser(formUser))
+    action: formUser => dispatch(createNewUser(formUser))
   };
 };
 
