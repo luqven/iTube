@@ -4,17 +4,17 @@ import LoginContainer from '../session/login_container';
 import {Route} from 'react-router-dom';
 import Home from './home/home';
 import NavBarContainer from './nav_bar/nav_bar_container';
-// import AuthButtons from './nav_bar/auth_button';
+import AuthRoute from '../utils/route_util';
 import Greeting from './greeting/greeting';
 
-export default () => {
-  
+export default (props) => {
   return(
   <div className="app-container">
     <NavBarContainer/>
     <Route exact path="/" component={Home} />
     <Route exact path="/" component={Greeting} />
-    <Route path="/signup" component={SignupContainer}/>
-    <Route path="/login" component={LoginContainer}/>
+    <AuthRoute component={LoginContainer} path="/login" loggedIn={props.loggedIn} exact={true} />
+    <AuthRoute component={SignupContainer} path="/signup" loggedIn={props.loggedIn} exact={true} />
+
   </div>)
 }

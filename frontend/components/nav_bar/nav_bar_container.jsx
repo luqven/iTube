@@ -10,4 +10,4 @@ const NavBarContainer = (props, ownProps) => {
   }
 };
 
-export default withRouter(NavBarContainer)
+export default withRouter(NavBarContainer);
