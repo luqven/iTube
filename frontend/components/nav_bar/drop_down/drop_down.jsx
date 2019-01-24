@@ -37,7 +37,7 @@ export default class DropDown extends React.Component{
         <ul className={this.state.className}>
           <li >{this.props.user.username}</li>
           <li><Link className="dropdown-li-ele" to={`/users/${this.state.user.username}/`}>My channel</Link></li>
-          {/* <li > <a onClick={this.props.logout} href="#"> Sign out </a></li> */}
+          <li > <a onClick={this.props.logout} href="#"> Sign out </a></li>
         </ul>
       </section>
     )

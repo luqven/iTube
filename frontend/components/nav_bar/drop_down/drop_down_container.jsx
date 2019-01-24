@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import DropDown from './drop_down';
-import logout from '../../../actions/session';
+import {logout} from '../../../actions/session';
 
 const msp = state => {
   return {
