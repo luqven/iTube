@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session";
-import merge from 'lodash';
+import {merge} from 'lodash';
 const _nullSession = {
   id: null,
 };

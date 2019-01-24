@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session";
-import merge from 'lodash';
+import {merge} from 'lodash';
 const _nullUser = {}
 
 export default (state = _nullUser, action) => {
