@@ -1,22 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DropDownContainer from './drop_down/drop_down_container';
 
 export default (props) => {
-  const loggedIn = props.loggedIn;
-  let sign_in_link;
 
-  if (loggedIn === true) {
-    
-     sign_in_link = ''
+  const loggedIn = props.loggedIn;
+  let drop_down;
+
+  if (loggedIn) {
+     drop_down = (<DropDownContainer user={props.user} />)
     } else {
-      sign_in_link = (<Link className="btn" to="/login">Sign In</Link>)
+      drop_down = (<Link className="btn" to="/login">Sign In</Link>)
     }
 
   return (
     <div className="nav-container">
       <h1 className="title-logo">iTube</h1>
       <section className="nav-auth-buttons">
-        {sign_in_link}
+        {drop_down}
       </section>
     </div>
   )

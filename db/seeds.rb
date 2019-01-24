@@ -11,5 +11,10 @@ user1 = {
   username: Faker::DragonBall.character,
   password_digest: BCrypt::Password.create('hunter12')
  }
+user2 = {
+  username: "testuser1",
+  password_digest: BCrypt::Password.create('hunter12')
+ }
 
 User.create(user1)
+User.create(user2)

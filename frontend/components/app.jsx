@@ -11,7 +11,7 @@ export default (props) => {
   
   return(
   <div className="app-container">
-    <NavBarContainer loggedIn={props.loggedIn}/>
+    <NavBarContainer/>
     <Route exact path="/" component={Home} />
     <Route exact path="/" component={Greeting} />
     <AuthRoute component={LoginContainer} path="/login" loggedIn={props.loggedIn} exact={true} />
