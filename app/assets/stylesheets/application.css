@@ -13,29 +13,61 @@
  *= require_tree .
  *= require_self
  */
-/* box-shadow:         inset 0 0 10px #000000; */
+
+ /* ################################### */
+/* CSS reset  */
+/* ################################### */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* ################################### */
+/* Whole app container styling */
+/* ################################### */
+
 
 .app-container {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center;
 }
 
+/* ################################### */
+/* Navigation styling */
+/* ################################### */
+
+
 .nav-container {
-  /* width: 600px; */
-  display: flex;
+  width: 100%;
+  height: 55px;
+  /* display: flex; */
   margin: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-clip: border-box;
-  /* box-shadow: 0.1px .5px 1.5px .5px #ccc; */
-
-}
-
-.nav-bar-shadow {
-  /* position: absolute; */
-  width: 100%;
-  box-shadow: 0.1px .5px 1.5px .5px #ccc;
+  box-shadow: 0px 5.5px 5.5px -5.5px #ccc;
 
 }
 
@@ -50,17 +82,22 @@
 }
 
 .title-logo, h1 {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 10px;
+  padding-top: 20px;
+  height: 90%;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .title-logo::first-letter{
   color: black;
 }
+/* ################################### */
+/*  buttons styling  */
+/* ################################### */
 
-.btn {
-  font-family: Arial, Helvetica, sans-serif;
+.btn, .blue-btn {
   text-transform: uppercase;
   display: flex;
   color: #065fd4;
@@ -75,15 +112,119 @@
   align-items: center;
 }
 
-/* .btn:hover {
+.blue-btn {
+  justify-content: center;  
   color: white;
   background-color: #065fd4;
-} */
+  text-transform: none;
+  width: 80px;
+  height: 40px;
+  border-radius: 6px;
+  margin: 0px;
+}
+.blue-hover-btn {
+  font-size: small;
+  text-decoration: none;
+  text-align: center;
+  color: #065fd4;
+  background-color: white;
+  text-transform: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border-color: white;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-btn:hover {
+  box-shadow: inset 0 0 10px #3b8af0;
+  border: 1px solid #3b8af0;
+}
+
+.blue-hover-btn:hover {
+  background-color: #dcebff;
+  transition: background-color .5s;
+}
+
 
 .btn+.btn {
     margin-left: 10px;
 }
-   
+/* ################################### */
+/*  form styling  */
+/* ################################### */
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 120px;
+}
+
+.login-form-container h2 {
+  font-weight: lighter;
+  font-size: x-large;
+  padding-bottom: 10px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.form-submit-container {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.session-form input {
+  width: 100%;
+  height: 40px;
+  padding: 12px 20px;
+  margin: 10px;
+  border: 0;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input::placeholder {
+  color: rgb(131, 131, 131);
+  font-size: medium;
+  box-sizing: border-box;
+  transition: color 0.4s;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 8px 0;
+}
+
+.form-input {
+  border-color: none;
+  transition: border-color 1s;
+}
+
+.form-input:focus {
+  outline: 1px solid #3b8af0;
+}
+
+input:focus::placeholder {
+  color: rgb(244, 244, 244);
+}
+
+.form-label {
+  color: rgb(255, 255, 255);
+  transition: color 1s;
+}
+
 
 .hidden {
   display: none;
