@@ -8,9 +8,10 @@ import AuthRoute from '../utils/route_util';
 import Greeting from './greeting/greeting';
 
 export default (props) => {
+  
   return(
   <div className="app-container">
-    <NavBarContainer/>
+    <NavBarContainer loggedIn={props.loggedIn}/>
     <Route exact path="/" component={Home} />
     <Route exact path="/" component={Greeting} />
     <AuthRoute component={LoginContainer} path="/login" loggedIn={props.loggedIn} exact={true} />

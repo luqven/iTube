@@ -4,7 +4,7 @@ import NavBar from './nav_bar';
 
 const NavBarContainer = (props, ownProps) => {
   if (props.location.pathname !== "/login" && props.location.pathname !== "/signup") {
-    return (<NavBar />)
+    return (<NavBar loggedIn={props.loggedIn}/>)
   } else {
     return null;
   }

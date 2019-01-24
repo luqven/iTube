@@ -4,7 +4,8 @@ import { HashRouter } from 'react-router-dom';
 import App from './app';
 
 export default ({store}) => {
-  const loggedIn = store.getState().entities.users != null;
+  const loggedIn = (store.getState().session.id != null)
+  
   return (
     <Provider store={store}>
       <HashRouter>
