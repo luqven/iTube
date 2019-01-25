@@ -1,9 +1,9 @@
 import UserProfile from './user_profile';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-const msp = (state, ownProps) => {
+const msp = (state) => {
   return {
-    user: state.entity.users[ownProps.match.params.userId]
+    user: state.entities.users[state.session.id]
   };
 };
 

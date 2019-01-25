@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, withRouter} from 'react-router-dom';
+import { Route, withRouter, Switch} from 'react-router-dom';
 
 import SignupContainer from '../session/signup_container';
 import LoginContainer from '../session/login_container';
@@ -8,7 +8,7 @@ import Home from './home/home';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import AuthRoute from '../utils/route_util';
 import Greeting from './greeting/greeting';
-import UserProfile from './user_show/user_profile';
+import UserProfile from './user_show/profile_page_container';
 
 
 class App extends React.Component {

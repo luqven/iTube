@@ -13,13 +13,13 @@ const msp = (state, ownProps) => {
     message: {
       text: 'Sign in',
       url: '/login'
-    }
+    },
   };
 };
 
 const mdp = dispatch => {
   return {
-    action: formUser => dispatch(createNewUser(formUser))
+    action: formUser => dispatch(createNewUser(formUser)),
   };
 };
 

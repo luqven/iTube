@@ -344,9 +344,17 @@ ul {
   padding-left: 0px;
 }
 
+
 li:first-child {
   background-color: #eeeeee;
   height: 60px;
+}
+
+li:hover {
+  background-color: #f5f3f3;
+}
+li:first-child:hover {
+  background-color: #eeeeee;
 }
 
 .dropdown-icon-container {
@@ -365,4 +373,46 @@ li:first-child {
     color: white;
     margin-left: 2px;
     margin-right: 22px;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+/* ################################### */
+/* User show page styling */
+/* ################################### */
+
+.showpage-container {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  margin-top: 10px;
+}
+
+.showpage-user-icon {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #3b8af0;
+  border-radius: 50px;
+  background-color: #3b8af0;
+  width: 50px;
+  height: 50px;
+  margin: 2px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+.showpage-user-icon p {
+  text-align: center;
+  font-size: x-large;
+  margin: auto;
+  color: white;
 }

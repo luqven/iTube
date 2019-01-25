@@ -3,7 +3,8 @@ import React from 'react';
 export default class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {user: this.props.user};
+    this.userInitial = this.props.user.username[0];   
   }
 
   handleEventType(type) {
@@ -12,7 +13,11 @@ export default class UserProfile extends React.Component {
 
   render() {
     return (
-      <h1>HELLO WORLD</h1>
+      <div className="showpage-container">
+        <div className="showpage-user-icon">
+          <p>{this.userInitial}</p>
+        </div>
+      </div>
     );
   }
 }

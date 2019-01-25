@@ -19,7 +19,8 @@ class Login extends React.Component {
     e.preventDefault();
     const newUrl = `/`;
     this.props.action(this.state).then(
-      () => this.props.history.push(newUrl));
+      () => {this.props.history.push(newUrl);}
+      );
   }
 
   render() {

@@ -1,14 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DropDownContainer from './drop_down/drop_down_container';
+import Modal from "../modal/modal";
 
-export default (props) => {
+export default class NavBar extends React.Component{
+  constructor(props) {
+    super(props);
+    this.display = false
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  const loggedIn = props.loggedIn;
+  handleClick() {
+    if (this.display) {
+      this.display = false;
+      return this.props.closeModal();
+    } else {
+      this.display = true;
+      return this.props.openModal(this.props.modal);
+    }
+  };
+
+  render() {
   let drop_down;
 
-  if (loggedIn) {
-     drop_down = (<DropDownContainer user={props.user} />)
+  if (this.props.loggedIn) {
+    let userInitial = this.props.user.username[0];
+    drop_down = (  
+      <section onClick={this.handleClick} className="nav-user-icon-container">
+        <div className="nav-user-icon">
+          <p >{userInitial}</p>
+          <Modal />
+        </div>
+      </section>
+    )
     } else {
       drop_down = (<Link className="btn" to="/login">Sign In</Link>)
     }
@@ -21,4 +44,5 @@ export default (props) => {
       </section>
     </div>
   )
+  }
 }

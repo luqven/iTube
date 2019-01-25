@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/session';
 import SessionForm from './session_form';
+import { openModal } from '../actions/modal_actions';
 
 const msp = (state, ownProps) => {
   
@@ -14,7 +15,7 @@ const msp = (state, ownProps) => {
     formType: 'Sign in',
     message: {
       text: 'Create account',
-      url: '/signup'}
+      url: '/signup'},
   };
 };
 
