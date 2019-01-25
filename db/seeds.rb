@@ -19,7 +19,12 @@ user3 = {
   username: "Uub",
   password_digest: BCrypt::Password.create('hunter12')
  }
+test_user = {
+  username: "guest",
+  password_digest: BCrypt::Password.create('hunter12')
+ }
 
 User.create(user1)
 User.create(user2)
 User.create(user3)
+User.create(test_user)

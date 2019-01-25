@@ -5,14 +5,25 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.user;
-    
+    this.testUser = {
+      username: 'guest',
+      password: 'hunter12',
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestSignIn = this.guestSignIn.bind(this);
   }
 
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
     };
+  }
+
+  guestSignIn(e) {
+    const newUrl = `/`;
+    this.props.action(this.testUser).then(
+      () => { this.props.history.push(newUrl); }
+    );
   }
 
   handleSubmit(e) {
@@ -51,6 +62,7 @@ class Login extends React.Component {
               value={this.state.password}
               onChange={this.handleInput('password')}
             />
+          <a onClick={this.guestSignIn} className="blue-hover-btn" href="#">Guest sign in</a>
           <div className="form-submit-container">
             <Link className="blue-hover-btn" to={this.props.message.url}> {this.props.message.text} </Link>
             <button className="blue-btn" onClick={this.handleSubmit}>Next</button>
