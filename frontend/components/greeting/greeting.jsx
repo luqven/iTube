@@ -8,7 +8,7 @@ class Greeting extends React.Component {
   render(){
     return (
       <div>
-        <p>Welcome {this.state} !</p>
+        <p> {this.state} </p>
       </div>
     )
   }

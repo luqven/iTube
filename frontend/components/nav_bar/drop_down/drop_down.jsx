@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class DropDown extends React.Component{
   constructor(props) {
@@ -32,12 +33,27 @@ export default class DropDown extends React.Component{
     return(
       <section className="nav-user-icon-container">
         <div onClick={this.handleClick} className="nav-user-icon">
-          <p>{userInitial}</p>
+          <p>{userInitial}</p>          
         </div>
         <ul className={this.state.className}>
-          <li >{this.props.user.username}</li>
-          <li><Link className="dropdown-li-ele" to={`/users/${this.state.user.username}/`}>My channel</Link></li>
-          <li > <a onClick={this.props.logout} href="#"> Sign out </a></li>
+          <li>
+            <div onClick={this.handleClick} className="dropdown-user-icon">
+              <p className="user-initial">{userInitial}</p>
+              {this.props.user.username}
+            </div>
+          </li>
+          <li>
+            <div className="dropdown-icon-container">
+              <FontAwesomeIcon icon="user-circle" />
+              <Link className="dropdown-li-ele" to={`/users/${this.state.user.username}/`}>My channel</Link>
+            </div>
+          </li>
+          <li> 
+            <div className="dropdown-icon-container">
+              <FontAwesomeIcon icon="sign-out-alt" />
+              <a onClick={this.props.logout} href="#"> Sign out </a>
+            </div> 
+          </li>
         </ul>
       </section>
     )

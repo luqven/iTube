@@ -41,7 +41,7 @@ time, mark, audio, video {
 }
 
 a:-webkit-any-link {
-    color: inherit;
+    color: unset;
     cursor: pointer;
     text-decoration: none;
     padding: 0;
@@ -111,7 +111,21 @@ a:-webkit-any-link {
 /*  buttons styling  */
 /* ################################### */
 
-.btn, .blue-btn {
+.btn {
+  text-transform: uppercase;
+  display: flex;
+  color: #065fd4 !important;
+  text-decoration: none;
+  border-radius: 3px;
+  margin: auto;
+  width: 70px;
+  height: 20px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  align-items: center;
+}
+.btn {
   text-transform: uppercase;
   display: flex;
   color: #065fd4;
@@ -140,7 +154,7 @@ a:-webkit-any-link {
   font-size: small;
   text-decoration: none;
   text-align: center;
-  color: #065fd4;
+  color: #065fd4 !important;
   background-color: white;
   text-transform: none;
   width: 100px;
@@ -262,6 +276,21 @@ display: inline;
   margin-top: 10px;
 }
 
+.dropdown-user-icon {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #3b8af0;
+  border-radius: 50px;
+  background-color: #3b8af0;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
 .nav-user-icon:hover {
   cursor: pointer;
 }
@@ -288,10 +317,6 @@ ul {
   padding-bottom: 10px;
 }
 
-li:first-child {
-  background-color: #eeeeee;
-}
-
 .dropdown ul{
   display: block;
   text-decoration: none;
@@ -304,7 +329,7 @@ li:first-child {
   width: 180px;
   padding: 5px;
   line-height: 3;
-  padding-left: 80px;
+  padding-left: 10px;
 }
 
 .dropdown-li-ele {
@@ -317,4 +342,27 @@ li:first-child {
   width: 180px;
   padding: 5px;
   padding-left: 0px;
+}
+
+li:first-child {
+  background-color: #eeeeee;
+  height: 60px;
+}
+
+.dropdown-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.dropdown-icon-container svg{
+  padding-right: 30px;
+}
+
+
+.dropdown-user-icon p{
+    margin: 0px;
+    color: white;
+    margin-left: 2px;
+    margin-right: 22px;
 }

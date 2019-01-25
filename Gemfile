@@ -44,8 +44,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'bcrypt'
-  gem 'faker'
+  # gem 'bcrypt'
+  # gem 'faker'
 end
 
 group :development do

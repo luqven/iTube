@@ -5,6 +5,13 @@ import ReactDOM from 'react-dom';
 import createStore from './store/store';
 import Root from './components/root';
 import {login} from './actions/session';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faUserCircle, faSignOutAlt);
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let preloadState;
