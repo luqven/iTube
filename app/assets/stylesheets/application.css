@@ -78,7 +78,7 @@ a:-webkit-any-link {
   background-clip: border-box;
   background-color: white;
   box-shadow: 0px 5.5px 5.5px -5.5px #ccc;
-
+  position: fixed;
 }
 
 .nav-auth-buttons {
@@ -412,7 +412,7 @@ ul {
   display: flex;
   width: 100%;
   height: 80%;
-  margin-top: 10px;
+  margin-top: 54px;
 }
 
 .showpage-user-icon {
@@ -431,9 +431,66 @@ ul {
   margin-left: 100px;
 }
 
+.showpage-container p{
+  font-size: x-large;
+  margin-left: 10px;
+  text-transform: capitalize;
+  margin-top: 30px;
+}
+
 .showpage-user-icon p {
   text-align: center;
   font-size: x-large;
   margin: auto;
   color: white;
+}
+
+.showpage-container ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: none;
+}
+
+.showpage-menu {
+  list-style-type: none;
+  overflow: hidden;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 125px;
+  left: 30px;
+}
+
+.showpage-menu li {
+  float: left;
+}
+
+.showpage-menu li a {
+  display: block;
+  color: rgb(111, 111, 111);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 25px;
+  border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+.showpage-menu li a:hover {
+  color: black;
+}
+
+.categories {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 65%;
+    top: 180px;
+    right: 0;
+    background-color: white;
 }

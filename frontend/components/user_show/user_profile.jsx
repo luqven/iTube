@@ -18,10 +18,16 @@ export default class UserProfile extends React.Component {
         <div className="showpage-user-icon">
           <p>{this.userInitial}</p>
         </div>
-        <section className="categories">
-          <ul>
+        <p>{this.state.user.username}</p>
+        <section>
+          <ul className="showpage-menu">
             {/* <Modal /> */}
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Channels</a></li>
           </ul>
+        </section>
+        <section className="categories">
+          {/* <Modal /> */}
         </section>
       </div>
     );

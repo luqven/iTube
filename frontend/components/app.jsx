@@ -24,12 +24,12 @@ class App extends React.Component {
   render(){
     return (
       <div className="app-container">
-        <NavBarContainer />
         <Route exact path="/" component={Home} />
         <Route exact path="/" component={Greeting} />
         <LoggedInAuth component={UserProfile} exact path={`/users/profile/`} loggedIn={this.props.loggedIn} exact={true}/>
         <AuthRoute component={LoginContainer} path="/login" loggedIn={this.props.loggedIn} exact={true} />
         <AuthRoute component={SignupContainer} path="/signup" loggedIn={this.props.loggedIn} exact={true} />
+        <NavBarContainer />
       </div>)
   }
 }
