@@ -15,7 +15,7 @@ export default (props) => {
 
   return (
     <div className="nav-container">
-      <h1 className="title-logo">iTube</h1>
+      <Link to="/" className="title-logo"> iTube </Link>
       <section className="nav-auth-buttons">
         {drop_down}
       </section>

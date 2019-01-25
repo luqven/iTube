@@ -45,7 +45,7 @@ export default class DropDown extends React.Component{
           <li>
             <div className="dropdown-icon-container">
               <FontAwesomeIcon icon="user-circle" />
-              <Link className="dropdown-li-ele" to={`/users/${this.state.user.username}/`}>My channel</Link>
+              <Link className="dropdown-li-ele" to={`/users/profile/`}>My channel</Link>
             </div>
           </li>
           <li> 
