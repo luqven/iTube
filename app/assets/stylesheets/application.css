@@ -464,7 +464,7 @@ ul {
   margin: 0;
   padding: 0;
   top: 125px;
-  left: 30px;
+  left: 90px;
 }
 
 .showpage-menu li {
@@ -473,16 +473,23 @@ ul {
 
 .showpage-menu li a {
   display: block;
-  color: rgb(111, 111, 111);
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  font-size: small;
+  text-transform: uppercase;
+  color: rgb(111, 111, 111);
+  padding: 14px 16px;
   height: 25px;
-  border-bottom: 1px solid rgb(244, 244, 244);
+  width: 80px;
 }
 
 .showpage-menu li a:hover {
   color: black;
+}
+
+.s-menu-selected, .s-menu-selected a {
+  border-bottom: 2px solid black;
+  color: black !important;
 }
 
 .categories {
@@ -493,4 +500,29 @@ ul {
     top: 180px;
     right: 0;
     background-color: white;
+}
+
+.showpage-video-carousel ul {
+  list-style-type: none;
+  overflow: hidden;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 125px;
+  left: 90px;
+}
+
+.showpage-video-carousel li {
+  float: left;
+}
+.showpage-video-carousel li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: small;
+    text-transform: uppercase;
+    color: rgb(111, 111, 111);
+    padding: 14px 16px;
+    height: 25px;
+    width: 80px;
 }

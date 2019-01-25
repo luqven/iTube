@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                                                              :bigint(8)        not null, primary key
+#  username                                                        :string
+#  email                                                           :string
+#  password_digest                                                 :string
+#  created_at                                                      :datetime         not null
+#  updated_at                                                      :datetime         not null
+#  session_token                                                   :string
+#  #<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition :string
+#
+
 class User < ApplicationRecord
   validates :username, :password_digest, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}

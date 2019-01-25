@@ -22,12 +22,23 @@ export default class UserProfile extends React.Component {
         <section>
           <ul className="showpage-menu">
             {/* <Modal /> */}
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">Channels</a></li>
+            <li className="s-menu-selected">
+              <a  href="#">Videos</a>
+            </li>
+            <li>
+              <a href="#">Channels</a>
+              </li>
           </ul>
         </section>
         <section className="categories">
           {/* <Modal /> */}
+          <div className="showpage-video-carousel">
+            <ul className="video-carousel">
+              <li>Video 1</li>
+              <li>Video 2</li>
+              <li>Video 3</li>
+            </ul>
+          </div>
         </section>
       </div>
     );
