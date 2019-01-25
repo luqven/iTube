@@ -41,7 +41,7 @@ time, mark, audio, video {
 }
 
 a:-webkit-any-link {
-    color: unset;
+    color: initial;
     cursor: pointer;
     text-decoration: none;
     padding: 0;
@@ -182,6 +182,10 @@ a:-webkit-any-link {
   transition: background-color .5s;
 }
 
+.guest-btn{
+  justify-content: left;
+  width: 84%;
+}
 
 .btn+.btn {
     margin-left: 10px;
@@ -190,12 +194,29 @@ a:-webkit-any-link {
 /*  form styling  */
 /* ################################### */
 
+.form-background {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
 .login-form-container {
   display: flex;
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 220px;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding-top: 120px;
+  width: 50%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form-container .title-logo {
+  margin: auto;
+  text-align: center;
 }
 
 .login-form-container h2 {
@@ -204,24 +225,29 @@ a:-webkit-any-link {
   padding-bottom: 10px;
 }
 
+
 .session-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
+}
+
+.session-form p:only-of-type {
+  font-size: smaller;
+  width: 84%;;
 }
 
 .form-submit-container {
-  display: flex;
-  margin: auto;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+    padding-top: 20px;
 }
 
 .session-form input {
-  width: 100%;
+  width: 75%;
   height: 40px;
   padding: 12px 20px;
   margin: 10px;

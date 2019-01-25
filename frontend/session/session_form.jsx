@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -39,35 +41,39 @@ class Login extends React.Component {
       return <li key={idx}>{error}</li>
     })
     return (
-      <div className="login-form-container">
-        <h2>{this.props.formType}</h2>
-        <p>to continue to iTube</p>
-        <div className="error-message">
-          <ul>
-            {errors}
-          </ul>
-        </div>
-        <form className="session-form">
-          <input
-              className="form-input"
-              placeholder="Username"
-              type="text"
-              value={this.state.username}
-              onChange={this.handleInput('username')}
-            />
-          <input
-              className="form-input"
-              placeholder="Password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInput('password')}
-            />
-          <a onClick={this.guestSignIn} className="blue-hover-btn" href="#">Guest sign in</a>
-          <div className="form-submit-container">
-            <Link className="blue-hover-btn" to={this.props.message.url}> {this.props.message.text} </Link>
-            <button className="blue-btn" onClick={this.handleSubmit}>Next</button>
+      <div className="form-background">
+        <div className="login-form-container">
+          <Link to="/" className="title-logo"> <FontAwesomeIcon icon={["fab", "youtube"]} /> iTube </Link>
+          <h2>{this.props.formType}</h2>
+          <p>to continue to iTube</p>
+          <div className="error-message">
+            <ul>
+              {errors}
+            </ul>
           </div>
-        </form>
+          <form className="session-form">
+            <input
+                className="form-input"
+                placeholder="Username"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleInput('username')}
+              />
+            <input
+                className="form-input"
+                placeholder="Password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleInput('password')}
+              />
+            <p>Not your computer? Use Guest mode to sign in privately.</p>
+            <a onClick={this.guestSignIn} className="blue-hover-btn  guest-btn" href="#">Guest sign in</a>
+            <div className="form-submit-container">
+              <Link className="blue-hover-btn" to={this.props.message.url}> {this.props.message.text} </Link>
+              <button className="blue-btn" onClick={this.handleSubmit}>Next</button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
