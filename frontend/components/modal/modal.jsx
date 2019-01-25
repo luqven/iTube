@@ -12,6 +12,9 @@ function Modal({ modal, closeModal }) {
     case 'dropdown':
       component = <DropDownContainer />;
       break;
+    // case 'uploads':
+    //   component = <UserUplaods />;
+    //   break;
     default:
       return null;
   }

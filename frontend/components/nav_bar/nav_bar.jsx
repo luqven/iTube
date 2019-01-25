@@ -23,7 +23,7 @@ export default class NavBar extends React.Component{
   let drop_down;
 
   if (this.props.loggedIn) {
-    let userInitial = this.props.user.username[0];
+    let userInitial = this.props.user.username[0].toUpperCase();
     drop_down = (  
       <section onClick={this.handleClick} className="nav-user-icon-container">
         <div className="nav-user-icon">
@@ -38,6 +38,7 @@ export default class NavBar extends React.Component{
 
   return (
     <div className="nav-container">
+      <img className="logo-image" src="https://i.imgur.com/JPKhr4x.png" alt="" srcSet=""/>
       <Link to="/" className="title-logo"> iTube </Link>
       <section className="nav-auth-buttons">
         {drop_down}

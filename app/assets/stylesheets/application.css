@@ -62,10 +62,6 @@ a:-webkit-any-link {
   align-items: center;
 }
 
-.error-message {
-  color: lightcoral;
-}
-
 /* ################################### */
 /* Navigation styling */
 /* ################################### */
@@ -97,8 +93,8 @@ a:-webkit-any-link {
 
 .title-logo, h1 {
   margin: 0;
-  padding: 10px;
-  padding-top: 20px;
+  margin-left: 95px;
+  margin-top: 5px;
   height: 90%;
   justify-content: center;
   font-weight: bold;
@@ -106,6 +102,15 @@ a:-webkit-any-link {
 
 .title-logo::first-letter{
   color: black;
+}
+
+.logo-image {
+
+    margin-top: 18px;
+    margin-left: 55px;
+    height: 20px;
+    left: 10px;
+    position: fixed;
 }
 /* ################################### */
 /*  buttons styling  */
@@ -253,6 +258,18 @@ input:focus::placeholder {
   transition: color 1s;
 }
 
+.error-message ul,
+.error-message li,
+.error-message li:first-child,
+.error-message li:hover  {
+  color: lightcoral;
+  list-style: none;
+  background: none;
+  box-shadow: none;
+  position: inherit;
+  justify-content: space-between;
+}
+
 /* ################################### */
 /*  dropdown styling  */
 /* ################################### */
@@ -345,15 +362,15 @@ ul {
 }
 
 
-li:first-child {
+.dropdown li:first-child {
   background-color: #eeeeee;
   height: 60px;
 }
 
-li:hover {
+.dowpdown li:hover {
   background-color: #f5f3f3;
 }
-li:first-child:hover {
+.dropdown li:first-child:hover {
   background-color: #eeeeee;
 }
 
@@ -373,6 +390,10 @@ li:first-child:hover {
     color: white;
     margin-left: 2px;
     margin-right: 22px;
+}
+
+.user-initial {
+  color: black !important;
 }
 
 .modal-background {

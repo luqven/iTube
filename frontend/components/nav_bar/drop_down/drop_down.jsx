@@ -29,14 +29,14 @@ export default class DropDown extends React.Component{
   }
 
   render() {
-    let userInitial = this.props.user.username[0];
+    let userInitial = this.props.user.username[0].toUpperCase();
     return(
       <section>
         <ul className="dropdown">
           <li>
             <div onClick={this.handleClick} className="dropdown-user-icon">
-              <p className="user-initial">{userInitial}</p>
-              {this.props.user.username}
+              <p>{userInitial}</p>
+              <p className="user-initial">{this.props.user.username}</p>
             </div>
           </li>
           <li>

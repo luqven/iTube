@@ -24,11 +24,18 @@ class Login extends React.Component {
   }
 
   render() {
+    let errors = this.props.errors.map((error, idx) => {
+      return <li key={idx}>{error}</li>
+    })
     return (
       <div className="login-form-container">
         <h2>{this.props.formType}</h2>
         <p>to continue to iTube</p>
-        <p className="error-message">{this.props.errors}</p>
+        <div className="error-message">
+          <ul>
+            {errors}
+          </ul>
+        </div>
         <form className="session-form">
           <input
               className="form-input"
