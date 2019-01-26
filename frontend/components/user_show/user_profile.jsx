@@ -13,6 +13,7 @@ export default class UserProfile extends React.Component {
   }
 
   render() {
+    this.props.closeModal();
     return (
       <div className="showpage-container">
         <div className="showpage-user-icon">

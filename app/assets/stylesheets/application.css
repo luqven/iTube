@@ -405,9 +405,6 @@ ul {
   height: 60px;
 }
 
-.dowpdown li:hover {
-  background-color: #f5f3f3;
-}
 .dropdown li:first-child:hover {
   background-color: #eeeeee;
 }
@@ -416,6 +413,10 @@ ul {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+}
+
+.dropdown li:hover{
+  background-color: #f5f3f3;
 }
 
 .dropdown-icon-container svg{
@@ -441,6 +442,7 @@ ul {
   right: 0;
   left: 0;
   z-index: 10;
+  cursor: default;
 }
 /* ################################### */
 /* User show page styling */

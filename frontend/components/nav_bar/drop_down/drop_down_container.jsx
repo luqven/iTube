@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import DropDown from './drop_down';
 import {logout} from '../../../actions/session';
+import {closeModal} from "../../../actions/modal_actions";
+
 
 const msp = state => {
   return {
@@ -13,6 +15,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     logout: () => dispatch(logout()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
