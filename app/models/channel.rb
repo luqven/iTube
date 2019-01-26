@@ -13,10 +13,13 @@
 
 class Channel < ApplicationRecord
   validates :name, :owner_id, presence: true, uniqueness: true
-  validates :user_id, presence: true
 
   has_many :videos,
-  foreign_key: :channel_id,
-  class_name: :Video
+    foreign_key: :channel_id,
+    class_name: :Video
+
+  belongs_to :owner,
+    foreign_key: :owner_id,
+    class_name: :User
 
 end

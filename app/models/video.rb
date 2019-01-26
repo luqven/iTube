@@ -20,5 +20,5 @@ class Video < ApplicationRecord
 
   has_one :uploader,
     through: :channel,
-    source: :owner_id
+    source: :owner
 end

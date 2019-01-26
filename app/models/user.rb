@@ -20,6 +20,14 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_one :channel,
+    foreign_key: :owner_id,
+    class_name: :Channel
+
+  has_many :videos,
+    through: :channel,
+    source:  :videos
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user
