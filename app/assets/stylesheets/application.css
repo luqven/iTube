@@ -104,8 +104,11 @@ a:-webkit-any-link {
   color: black;
 }
 
-.logo-image {
+.title-logo svg {
+  color: red;
+}
 
+.logo-image {
     margin-top: 18px;
     margin-left: 55px;
     height: 20px;
@@ -118,6 +121,8 @@ a:-webkit-any-link {
 
 .btn {
   text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
   display: flex;
   color: #065fd4 !important;
   text-decoration: none;
@@ -125,12 +130,10 @@ a:-webkit-any-link {
   margin: auto;
   width: 70px;
   height: 20px;
-  padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
+  margin-right: 20px;
   align-items: center;
 }
-.btn {
+/* .btn {
   text-transform: uppercase;
   display: flex;
   color: #065fd4;
@@ -143,23 +146,25 @@ a:-webkit-any-link {
   padding-right: 10px;
   padding-left: 10px;
   align-items: center;
-}
+} */
 
 .blue-btn {
+  font-size: small;
+  font-weight: bold;
   justify-content: center;  
   color: white;
-  background-color: #065fd4;
+  background-color: #1a73e8;
   text-transform: none;
   width: 80px;
   height: 40px;
-  border-radius: 6px;
+  border-radius: 4px;
   margin: 0px;
 }
 .blue-hover-btn {
   font-size: small;
   text-decoration: none;
   text-align: center;
-  color: #065fd4 !important;
+  color: #287ae6 !important;
   background-color: white;
   text-transform: none;
   width: 100px;
@@ -173,8 +178,10 @@ a:-webkit-any-link {
 }
 
 .blue-btn:hover {
-  box-shadow: inset 0 0 10px #3b8af0;
-  border: 1px solid #3b8af0;
+  /* box-shadow: 0px 0px 33px -10px rgba(40,122,230,1); */
+  box-shadow: 0px 12px 12px -14px rgba(40,122,230,1);
+  background-color:  #1a73e8
+  border: 1px solid #287ae6;
 }
 
 .blue-hover-btn:hover {
@@ -183,8 +190,12 @@ a:-webkit-any-link {
 }
 
 .guest-btn{
-  justify-content: left;
-  width: 84%;
+  margin-right: auto;
+  margin-left: 38px;
+}
+
+.guest-btn:hover {
+  background-color: transparent;
 }
 
 .btn+.btn {
@@ -236,6 +247,7 @@ a:-webkit-any-link {
 .session-form p:only-of-type {
   font-size: smaller;
   width: 84%;;
+  margin-left: 10px;
 }
 
 .form-submit-container {

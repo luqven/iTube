@@ -66,7 +66,7 @@ class Login extends React.Component {
                 value={this.state.password}
                 onChange={this.handleInput('password')}
               />
-            <p>Not your computer? Use Guest mode to sign in privately.</p>
+            <p>Just want to check things out? Sign in as Guest privately.</p>
             <a onClick={this.guestSignIn} className="blue-hover-btn  guest-btn" href="#">Guest sign in</a>
             <div className="form-submit-container">
               <Link className="blue-hover-btn" to={this.props.message.url}> {this.props.message.text} </Link>
