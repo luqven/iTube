@@ -1,5 +1,5 @@
 import {merge} from 'lodash';
-import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER} from '../actions/session';
+import { RECEIVE_ERRORS, RESET_ERRORS, RECEIVE_CURRENT_USER} from '../actions/session';
 const _nullErrors = [];
 
 export default (state = _nullErrors, action) => {
@@ -9,6 +9,8 @@ export default (state = _nullErrors, action) => {
     case RECEIVE_ERRORS:
       return action.errors;
     case RECEIVE_CURRENT_USER:
+      return [];
+    case RESET_ERRORS:
       return [];
     default:
       return state;

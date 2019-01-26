@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { login } from '../actions/session';
 import SessionForm from './session_form';
 import { openModal } from '../actions/modal_actions';
+import { resetErrors } from "../actions/session";
+
 
 const msp = (state, ownProps) => {
   
@@ -21,6 +23,7 @@ const msp = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   action: formUser => dispatch(login(formUser)),
+  resetErrors: () => dispatch(resetErrors())
 });
 
 export default connect(msp, mapDispatchToProps)(SessionForm);

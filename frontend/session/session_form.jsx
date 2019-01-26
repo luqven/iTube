@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +12,10 @@ class Login extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestSignIn = this.guestSignIn.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.resetErrors();
   }
 
   handleInput(type) {
