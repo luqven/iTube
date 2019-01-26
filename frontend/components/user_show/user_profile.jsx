@@ -4,7 +4,10 @@ import Modal from "../modal/modal";
 export default class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {user: this.props.user};
+    this.state = {
+      user: this.props.user,
+      videos: this.props.videos
+    };
     this.userInitial = this.props.user.username[0].toUpperCase();   
   }
 
@@ -12,8 +15,20 @@ export default class UserProfile extends React.Component {
     return ''
   }
 
+  componentDidMount(){
+    this.props.getUserVideos(this.state.user.id);
+  }
+
   render() {
-    this.props.closeModal();
+    // this.props.closeModal();
+    const videoList = []
+    let videos = this.props.videos.forEach(video => {
+      
+      videoList.push(video.title)});
+    const lis = videoList.map((video, idx) => {
+      return <li key={idx}>{video}</li>
+    })
+    
     return (
       <div className="showpage-container">
         <div className="showpage-user-icon">
@@ -35,9 +50,7 @@ export default class UserProfile extends React.Component {
           {/* <Modal /> */}
           <div className="showpage-video-carousel">
             <ul className="video-carousel">
-              <li>Video 1</li>
-              <li>Video 2</li>
-              <li>Video 3</li>
+            {lis}
             </ul>
           </div>
         </section>

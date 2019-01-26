@@ -1,1 +1,0 @@
-json.extract! @video, :title, :body, :channel_id, :id
