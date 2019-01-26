@@ -28,11 +28,12 @@ export const createNewUser = user => dispatch =>
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
 
-export const login = user => dispatch =>
- postSession(user).then(
+export const login = user => dispatch =>{
+  debugger
+  return postSession(user).then(
    user => dispatch(receiveCurrentUser(user)),
    errors => dispatch(receiveErrors(errors.responseJSON))
-  );
+  );}
 
 export const logout = () => dispatch => (
   deleteSession().then(

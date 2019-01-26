@@ -5,7 +5,8 @@ import { closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
   return {
-    user: state.entities.users[state.session.id]
+    user: state.entities.users[state.session.id],
+    videos: state.entities.users[state.session.id].videos
   };
 };
 
