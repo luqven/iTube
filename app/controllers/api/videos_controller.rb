@@ -1,8 +1,13 @@
 class Api::VideosController < ApplicationController
 
   def index
-    @videos = current_user.videos
-    render :index
+    if current_user
+      @videos = current_user.videos
+      render :index
+    else
+      @videos = Video.all
+      render :index
+    end
   end
 
   def new
