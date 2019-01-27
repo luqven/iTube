@@ -20,13 +20,17 @@ export default class UserProfile extends React.Component {
   }
 
   render() {
-    // this.props.closeModal();
+    this.props.closeModal();
     const videoList = []
     let videos = this.props.videos.forEach(video => {
-      
       videoList.push(video.title)});
     const lis = videoList.map((video, idx) => {
-      return <li key={idx}>{video}</li>
+      return (
+        <div key={ idx / 1.12 + 1}className="temp-image-container">
+          <img key={idx / 1.1 + 1} className="temp-image" src="https://i.stack.imgur.com/PtbGQ.png" alt="" srcSet=""/>
+          <li key={idx}>{video}</li>
+        </div>
+      )
     })
     
     return (
@@ -49,7 +53,7 @@ export default class UserProfile extends React.Component {
         <section className="categories">
           {/* <Modal /> */}
           <div className="showpage-video-carousel">
-            <ul className="video-carousel">
+            <ul className="show-video-carousel">
             {lis}
             </ul>
           </div>

@@ -6,7 +6,7 @@ import AuthRoute from '../utils/route_util';
 import LoggedInAuth from '../utils/logged_in_util';
 import SignupContainer from '../session/signup_container';
 import LoginContainer from '../session/login_container';
-import Home from './home/home';
+import Home from './home/home_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import Greeting from './greeting/greeting';
 import UserProfile from './user_show/profile_page_container';

@@ -27,23 +27,49 @@ test_user = {
  }
 
 
- video1 = {
-   title: "my first upload!",
-   body: "loving rails and react..",
-   channel_id: 1
- }
-
-
-
 User.create(user1)
 User.create(user2)
 User.create(user3)
 User.create(test_user)
 
+seed_user = User.find_by(username: "guest")
+
  channel1 = {
   name: "Guest User Channel",
-  owner_id: User.find_by(username: "guest").id
+  owner_id: seed_user.id
 }
 
 Channel.create(channel1)
-Video.create(video1)
+
+videos = [ video1 = {
+   title: "my first upload!",
+   body: "loving rails and react..",
+   channel_id: seed_user.channel.id
+ },
+ video2 = {
+   title: Faker::FamousLastWords.last_words,
+   body: Faker::GameOfThrones.quote,
+   channel_id: seed_user.channel.id
+ },
+ video3 = {
+   title: Faker::FamousLastWords.last_words,
+   body: Faker::GameOfThrones.quote,
+   channel_id: seed_user.channel.id
+ },
+ video4 = {
+   title: Faker::FamousLastWords.last_words,
+   body: Faker::GameOfThrones.quote,
+   channel_id: seed_user.channel.id
+ },
+ video5 = {
+   title: Faker::FamousLastWords.last_words,
+   body: Faker::GameOfThrones.quote,
+   channel_id: seed_user.channel.id
+ },
+ video6 = {
+   title: Faker::FamousLastWords.last_words,
+   body: Faker::GameOfThrones.quote,
+   channel_id: seed_user.channel.id
+ }]
+
+Video.create(videos)

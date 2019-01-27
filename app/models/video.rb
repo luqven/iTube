@@ -12,7 +12,6 @@
 
 class Video < ApplicationRecord
    validates :title, :channel_id, presence: true
-   validates :channel_id, uniqueness: true
 
   belongs_to :channel,
     foreign_key: :channel_id,

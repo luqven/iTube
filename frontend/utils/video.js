@@ -1,6 +1,6 @@
 // video utils
 
-export const getAllVideos = () => {
+export const fetchAllVideos = () => {
   return $.ajax({
     url: '/api/videos',
     method: 'get',
