@@ -6,7 +6,7 @@ import Home from '../home/home';
 
 const msp = state => {
   return {
-    videos: state.entities.videos
+    videos: Object.values(state.entities.videos)
   };
 };
 

@@ -10,7 +10,7 @@ import Home from './home/home_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import Greeting from './greeting/greeting';
 import UserProfile from './user_show/profile_page_container';
-
+import VideoShow from './videos/video_show_container';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +26,8 @@ class App extends React.Component {
       <div className="app-container">
         <Route exact path="/" component={Home} />
         <Route exact path="/" component={Greeting} />
+        <Route path="/videos/:videoId" component={VideoShow} />
+        {/* <Route path="/users/:userId" component={} /> */}
         <LoggedInAuth component={UserProfile} exact path={`/users/profile/`} loggedIn={this.props.loggedIn} exact={true}/>
         <AuthRoute component={LoginContainer} path="/login" loggedIn={this.props.loggedIn} exact={true} />
         <AuthRoute component={SignupContainer} path="/signup" loggedIn={this.props.loggedIn} exact={true} />

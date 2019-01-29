@@ -1,4 +1,4 @@
-import { RECEIVE_VIDEOS } from '../actions/videos';
+import { RECEIVE_VIDEOS, RECEIVE_VIDEO } from '../actions/videos';
 const _nullVideos = [];
 
 export default (state = _nullVideos, action) => {
@@ -7,6 +7,8 @@ export default (state = _nullVideos, action) => {
   switch(action.type) {
     case RECEIVE_VIDEOS:
       return action.videos;
+    case RECEIVE_VIDEO:
+      return action.video
     default:
     return state;
   }

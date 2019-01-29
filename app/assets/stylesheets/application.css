@@ -87,6 +87,19 @@ a:-webkit-any-link {
   margin: 10;
 }
 
+.nav-auth-buttons .btn {
+  margin: auto;
+  margin-right: 40px;
+  color: grey !important;
+  text-transform: uppercase;
+}
+
+.nav-auth-buttons .btn:active {
+  box-shadow: 0px 12px 12px -14px lightgray;
+  background-color:  lightgray;
+  border: 1px solid lightgray;
+}
+
 .title-logo+.nav-auth-buttons {
   /* margin-left: 900px; */
 }
@@ -191,7 +204,7 @@ a:-webkit-any-link {
 
 .guest-btn{
   margin-right: auto;
-  margin-left: 38px;
+  margin-left: 28px;
 }
 
 .guest-btn:hover {
@@ -218,7 +231,8 @@ a:-webkit-any-link {
   margin-bottom: 220px;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  height: px;
+  width: 450px;
   padding-top: 40px;
   padding-bottom: 40px;
   border: 1px solid #ccc;
@@ -261,7 +275,7 @@ a:-webkit-any-link {
 .session-form input {
   width: 75%;
   height: 40px;
-  padding: 12px 20px;
+  padding: 5px 15px;
   margin: 10px;
   border: 0;
   border: 1px solid lightgrey;
@@ -280,15 +294,17 @@ input::placeholder {
 
 .form-input {
   border-color: none;
-  transition: border-color 1s;
+  transition: border-color .5s;
 }
 
 .form-input:focus {
-  outline: 1px solid #3b8af0;
+  border: 2px solid #3b8af0;
+  border-radius: 5px;
+  outline: none;
 }
 
 input:focus::placeholder {
-  color: rgb(244, 244, 244);
+  color: white;
 }
 
 .form-label {
@@ -472,10 +488,14 @@ ul {
 }
 
 .showpage-container p{
-  font-size: x-large;
-  margin-left: 10px;
+  /* font-size: x-large; */
+  /* margin-left: 10px; */
   text-transform: capitalize;
-  margin-top: 30px;
+  /* margin-top: 30px; */
+}
+
+.showpage-container p:hover{
+  cursor: pointer;
 }
 
 .showpage-user-icon p {
@@ -530,6 +550,10 @@ ul {
 .s-menu-selected, .s-menu-selected a {
   border-bottom: 2px solid black;
   color: black !important;
+}
+
+.showpage-username {
+  padding-top: 40px;
 }
 
 .categories {
@@ -612,4 +636,27 @@ ul {
   top: 180px;
   right: 0;
   height: 100%;
+}
+
+/* Video show styling */
+.video-show {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  box-shadow: none;
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 80%;
+  background-color: transparent;
+}
+
+.video-show video {
+  width: 100%;
+  height: 100%;
+}
+
+.video-show li {
+  margin-top: 20px;
+  text-transform: capitalize;
 }

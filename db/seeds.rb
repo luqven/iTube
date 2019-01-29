@@ -44,32 +44,33 @@ Channel.create(channel1)
 videos = [ video1 = {
    title: "my first upload!",
    body: "loving rails and react..",
-   channel_id: seed_user.channel.id
- },
- video2 = {
-   title: Faker::FamousLastWords.last_words,
-   body: Faker::GameOfThrones.quote,
-   channel_id: seed_user.channel.id
- },
- video3 = {
-   title: Faker::FamousLastWords.last_words,
-   body: Faker::GameOfThrones.quote,
-   channel_id: seed_user.channel.id
- },
- video4 = {
-   title: Faker::FamousLastWords.last_words,
-   body: Faker::GameOfThrones.quote,
-   channel_id: seed_user.channel.id
- },
- video5 = {
-   title: Faker::FamousLastWords.last_words,
-   body: Faker::GameOfThrones.quote,
-   channel_id: seed_user.channel.id
- },
- video6 = {
-   title: Faker::FamousLastWords.last_words,
-   body: Faker::GameOfThrones.quote,
-   channel_id: seed_user.channel.id
- }]
+   channel_id: seed_user.channel.id } ]
+#  },
+#  video2 = {
+#    title: Faker::FamousLastWords.last_words,
+#    body: Faker::GameOfThrones.quote,
+#    channel_id: seed_user.channel.id
+#  },
+#  video3 = {
+#    title: Faker::FamousLastWords.last_words,
+#    body: Faker::GameOfThrones.quote,
+#    channel_id: seed_user.channel.id
+#  },
+#  video4 = {
+#    title: Faker::FamousLastWords.last_words,
+#    body: Faker::GameOfThrones.quote,
+#    channel_id: seed_user.channel.id
+#  },
+#  video5 = {
+#    title: Faker::FamousLastWords.last_words,
+#    body: Faker::GameOfThrones.quote,
+#    channel_id: seed_user.channel.id
+#  },
+#  video6 = {
+#    title: Faker::FamousLastWords.last_words,
+#    body: Faker::GameOfThrones.quote,
+#    channel_id: seed_user.channel.id
+#  }]
 
 Video.create(videos)
+Video.first.video_attachment.attach(io: File.open("/Users/luish.balljr./desktop/great_dane_puppies.mp4"), filename: "great_dane_puppies.mp4")

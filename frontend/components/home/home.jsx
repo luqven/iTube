@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {videos: this.props.videos};
   }
 
   componentDidMount(){
@@ -10,18 +11,15 @@ class Home extends React.Component {
   }
 
   render() {
-    const videoList = []
-    let videos = this.props.videos.forEach(video => {
-      videoList.push(video.title);
-    });
-    const lis = videoList.map((video, idx) => {
+    const lis = this.props.videos.map((video, idx) => {
       return (
         <div key={idx / 1.12 + 1} className="temp-image-container">
           <img key={idx / 1.1 + 1} className="temp-image" src="https://i.stack.imgur.com/PtbGQ.png" alt="" srcSet="" />
-          <li key={idx}>{video}</li>
+          <li key={idx}> <Link to={`videos/${video.id}`} >{video.title}</Link></li>
         </div>
       )
     })
+    
 
     return (
       <section className="home-container">

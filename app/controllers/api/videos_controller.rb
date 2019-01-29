@@ -1,13 +1,8 @@
 class Api::VideosController < ApplicationController
 
   def index
-    if current_user
-      @videos = current_user.videos
-      render :index
-    else
-      @videos = Video.all
-      render :index
-    end
+    @videos = Video.all
+    render :index
   end
 
   def new
@@ -25,6 +20,7 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find_by(id: params[:id])
+    render :show
   end
 
   def destroy

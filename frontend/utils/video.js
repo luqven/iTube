@@ -8,9 +8,9 @@ export const fetchAllVideos = () => {
   );
 };
 
-export const getVideo = (id) => {
+export const fetchVideo = (id) => {
   return $.ajax({
-    url: `/api/users/videos/${id}`,
+    url: `/api/videos/${id}`,
     method: 'get',
     data: {id},
   });
@@ -18,7 +18,7 @@ export const getVideo = (id) => {
 
 export const fetchUserVideos = (user_id) => {
   return $.ajax({
-    url: `/api/users/${user_id}/videos`,
+    url: `/api/users/${user_id}`,
     method: 'get',
     data: {user_id}
   });

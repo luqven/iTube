@@ -7,7 +7,7 @@ import { getUserVideos } from '../../actions/videos';
 const msp = (state) => {
   return {
     user: state.entities.users[state.session.id],
-    videos: state.entities.userVideos || []
+    videos: Object.values(state.entities.userVideos )|| []
   };
 };
 
