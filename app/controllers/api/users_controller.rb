@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = current_user
     @videos = @user.videos
+    @channel = current_user.channel
   end
   
   def index

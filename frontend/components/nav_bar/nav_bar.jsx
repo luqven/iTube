@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../modal/modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 export default class NavBar extends React.Component{
   constructor(props) {
@@ -38,8 +40,14 @@ export default class NavBar extends React.Component{
 
   return (
     <div className="nav-container">
-      <img className="logo-image" src="https://i.imgur.com/JPKhr4x.png" alt="" srcSet=""/>
-      <Link to="/" className="title-logo"> iTube </Link>
+      <section className="title-logo"> 
+        <p><FontAwesomeIcon icon={["fab", "youtube"]}/></p>
+        <Link to="/" className="title-logo"> iTube </Link>
+      </section>
+      <section className="upload-button">
+        <Link className=".plus" to="/upload"> + </Link>
+        <p className="plus-container"><FontAwesomeIcon icon={["fas", "video"]} /></p>
+      </section>
       <section className="nav-auth-buttons">
         {drop_down}
       </section>

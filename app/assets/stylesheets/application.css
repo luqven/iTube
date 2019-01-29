@@ -105,20 +105,36 @@ a:-webkit-any-link {
 }
 
 .title-logo, h1 {
-  margin: 0;
-  margin-left: 95px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
   margin-top: 5px;
   height: 90%;
   justify-content: center;
   font-weight: bold;
 }
 
+.title-logo {
+  width: 40px;
+  height: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  align-items: center;
+}
+
 .title-logo::first-letter{
   color: black;
 }
 
+.title-logo p {
+  font-size: 30px;
+  margin-top: 11px;
+  padding-right: 5px;
+}
+
 .title-logo svg {
   color: red;
+  margin-left: 100px;
 }
 
 .logo-image {
@@ -128,6 +144,34 @@ a:-webkit-any-link {
     left: 10px;
     position: fixed;
 }
+
+.upload-button {
+    margin: auto;
+    margin-right: 20px;
+    color: #a3a3a3
+}
+
+.upload-button:hover {
+  cursor: pointer;
+}
+
+.upload-button .plus-container {
+  font-size: large;
+  width: 20px;
+}
+
+.upload-button a {
+  /* position: absolute;
+  color: white;
+  padding-left: 1px;
+  font-size: large; */
+  position: absolute;
+  color: white;
+  line-height: 20px;
+  padding-left: 2px;
+  width: 20px;
+}
+
 /* ################################### */
 /*  buttons styling  */
 /* ################################### */
@@ -660,3 +704,11 @@ ul {
   margin-top: 20px;
   text-transform: capitalize;
 }
+
+/* Upload form styling */
+
+.upload-form-container {
+  margin-top: 300px;
+}
+
+.upload-button
