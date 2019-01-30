@@ -8,6 +8,7 @@ class Home extends React.Component {
 
   componentDidMount(){
     this.props.getAllVideos();
+    this.props.getAllChannels();
   }
 
   render() {

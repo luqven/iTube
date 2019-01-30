@@ -1,4 +1,6 @@
 import { getAllVideos } from '../../actions/videos';
+import { getAllChannels } from '../../actions/channel_actions';
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Home from '../home/home';
@@ -12,7 +14,8 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    getAllVideos: () => dispatch(getAllVideos())
+    getAllVideos: () => dispatch(getAllVideos()),
+    getAllChannels: () => dispatch(getAllChannels())
   };
 };
 

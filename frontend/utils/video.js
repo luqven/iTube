@@ -15,11 +15,3 @@ export const fetchVideo = (id) => {
     data: {id},
   });
 };
-
-export const fetchUserVideos = (user_id) => {
-  return $.ajax({
-    url: `/api/users/${user_id}`,
-    method: 'get',
-    data: {user_id}
-  });
-};

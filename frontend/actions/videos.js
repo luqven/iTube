@@ -1,14 +1,7 @@
-export const RECEIVE_USER_VIDEOS = "RECEIVE_USER_VIDEOS";
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO"
-import { fetchAllVideos, fetchUserVideos, fetchVideo } from "../utils/video";
+import { fetchAllVideos, fetchChannel, fetchVideo } from "../utils/video";
 
-export const receiveUserVideos = user => {
-  return {
-    type: RECEIVE_USER_VIDEOS,
-    user,
-  };
-};
 
 export const receiveAllVideos = videos => {
   return {
@@ -23,12 +16,6 @@ export const receiveVideo = video => {
     video,
   }
 }
-
-export const getUserVideos = userId => dispatch => {
-  return fetchUserVideos(userId).then(
-    videos => dispatch(receiveUserVideos(videos))
-  );
-};
 
 export const getAllVideos = () => dispatch => {
   return fetchAllVideos().then(

@@ -294,6 +294,11 @@ a:-webkit-any-link {
   padding-bottom: 10px;
 }
 
+.login-form-container .title-logo {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+
 
 .session-form {
   display: flex;
@@ -505,8 +510,13 @@ ul {
   cursor: default;
 }
 /* ################################### */
-/* User show page styling */
+/* Channel page styling */
 /* ################################### */
+
+.channel-container {
+  width: 100%;
+  height: 100%;
+}
 
 .showpage-container {
   display: flex;

@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
     @user = current_user
     @videos = @user.videos
     @channel = current_user.channel
+    redner: show
   end
   
   def index

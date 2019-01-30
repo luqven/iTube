@@ -73,4 +73,4 @@ videos = [ video1 = {
 #  }]
 
 Video.create(videos)
-# Video.first.video_attachment.attach(io: File.open("/Users/luish.balljr./desktop/great_dane_puppies.mp4"), filename: "great_dane_puppies.mp4")
+Video.first.video_attachment.attach(io: File.open("/Users/luish.balljr./desktop/great_dane_puppies.mp4"), filename: "great_dane_puppies.mp4")

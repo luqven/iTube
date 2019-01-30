@@ -12,6 +12,10 @@ export default class VideoForm extends React.Component {
         this.handleFile = this.handleFile.bind(this);
     }
 
+    componentDidMount(){
+        this.props.GetCurrentUser()
+    }
+
     handleFile(e){
         this.setState({videoFile: e.currentTarget.files[0]})
     }
