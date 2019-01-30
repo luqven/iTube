@@ -5,7 +5,8 @@ class Api::ChannelsController < ApplicationController
     end
 
     def show
-        @channel = Channel.find_by(owner_id: params[:id])
+        @channel = Channel.find_by(id: (Integer(params[:id])))
+        @videos = @channel.videos
         render :show
     end
 
@@ -17,4 +18,5 @@ class Api::ChannelsController < ApplicationController
 
     def destroy
     end
+
 end

@@ -623,6 +623,7 @@ ul {
 }
 
 .showpage-video-carousel ul {
+  box-shadow: none;
   list-style-type: none;
   overflow: hidden;
   position: absolute;

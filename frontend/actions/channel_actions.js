@@ -1,20 +1,20 @@
 import { fetchChannel, fetchAllChannels } from "../utils/channel";
 
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
-export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELs";
+export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELS";
 
 
-export const receiveChannel = channel => {
+export const receiveChannel = payload => {
   return {
     type: RECEIVE_CHANNEL,
-    channel,
+    payload,
   };
 };
 
-export const receiveAllChannels = channels => {
+export const receiveAllChannels = payload => {
   return {
     type: RECEIVE_ALL_CHANNELS,
-    channels,
+    payload,
   };
 };
 

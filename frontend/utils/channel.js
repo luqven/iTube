@@ -1,8 +1,8 @@
-export const fetchChannel = (channel_id) => {
+export const fetchChannel = (id) => {
   return $.ajax({
-    url: `/api/channels/${channel_id}`,
+    url: `/api/channels/${id}`,
     method: 'get',
-    data: { channel_id }
+    data: {id}
   });
 };
 

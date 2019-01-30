@@ -11,7 +11,7 @@
     window.currentUser = {
       "id": <%= current_user.id %>,
       "username": "<%= current_user.username %>",
-      "channel_id": <%= current_user.id %> 
+      "channel_id": <%= current_user.channel.id %> 
     };
   </script>
 <% end %>

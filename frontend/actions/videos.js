@@ -3,17 +3,17 @@ export const RECEIVE_VIDEO = "RECEIVE_VIDEO"
 import { fetchAllVideos, fetchChannel, fetchVideo } from "../utils/video";
 
 
-export const receiveAllVideos = videos => {
+export const receiveAllVideos = payload => {
   return {
     type: RECEIVE_VIDEOS,
-    videos,
+    payload,
   };
 };
 
-export const receiveVideo = video => {
+export const receiveVideo = payload => {
   return {
     type: RECEIVE_VIDEO,
-    video,
+    payload,
   }
 }
 
