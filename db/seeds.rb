@@ -9,27 +9,27 @@ User.destroy_all
 Channel.destroy_all
 Video.destroy_all
 
-user1 = {
-  username: Faker::DragonBall.character,
-  password_digest: BCrypt::Password.create('hunter12')
- }
-user2 = {
-  username: "test_user1",
-  password_digest: BCrypt::Password.create('hunter12')
- }
-user3 = {
-  username: "Uub",
-  password_digest: BCrypt::Password.create('hunter12')
- }
+# user1 = {
+#   username: Faker::DragonBall.character,
+#   password_digest: BCrypt::Password.create('hunter12')
+#  }
+# user2 = {
+#   username: "test_user1",
+#   password_digest: BCrypt::Password.create('hunter12')
+#  }
+# user3 = {
+#   username: "Uub",
+#   password_digest: BCrypt::Password.create('hunter12')
+#  }
 test_user = {
   username: "guest",
   password_digest: BCrypt::Password.create('hunter12')
  }
 
 
-User.create(user1)
-User.create(user2)
-User.create(user3)
+# User.create(user1)
+# User.create(user2)
+# User.create(user3)
 User.create(test_user)
 
 seed_user = User.find_by(username: "guest")
