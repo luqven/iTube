@@ -41,15 +41,16 @@ export default class VideoForm extends React.Component {
         formData.append('video[channel_id]', this.state.channel_id)
         formData.append('video[video_attachment]', this.state.video_attachment)
 
-        return $.ajax({
-            url: `/api/videos/`,
-            method: 'post',
-            data: formData,
-            contentType: false,
-            processData: false,
-        }).then(
-            this.props.history.push(`/channel/${this.state.channel_id}`)
-            );
+        // return $.ajax({
+        //     url: `/api/videos/`,
+        //     method: 'post',
+        //     data: formData,
+        //     contentType: false,
+        //     processData: false,
+        // })
+
+        this.props.addVideo(formData)
+        this.props.history.push(`/channel/${this.state.channel_id}`)
     }
 
     render() {

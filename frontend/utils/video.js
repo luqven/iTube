@@ -16,12 +16,12 @@ export const fetchVideo = (id) => {
   });
 };
 
-// export const saveVideo = (formData) => {
-//   return $.ajax({
-//     url: `/api/videos/`,
-//     method: 'post',
-//     data: formData,
-//     contentType: false,
-//     processData: false, 
-//   })
-// }
+export const saveVideo = (formData) => {
+  return $.ajax({
+    url: `/api/videos/`,
+    method: 'post',
+    data: formData,
+    contentType: false,
+    processData: false,
+  })
+}

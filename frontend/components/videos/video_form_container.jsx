@@ -1,8 +1,8 @@
 import VideoForm from './video_form';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { addVideo } from '../../actions/videos';
 
-// import {saveVideo} from '../../utils/video';
 
 const msp = state => {
     return {
@@ -10,10 +10,10 @@ const msp = state => {
     }
 };
 
-// const mdp = dispatch => {
-//     return {
-//         saveVideo: formData => dispatch(saveVideo(formData))
-//     };
-// };
+const mdp = dispatch => {
+    return {
+        addVideo: video => dispatch(addVideo(video))
+    };
+};
 
-export default withRouter(connect(msp, null)(VideoForm))
+export default withRouter(connect(msp, mdp)(VideoForm))

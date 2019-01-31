@@ -1,6 +1,6 @@
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO"
-import { fetchAllVideos, fetchChannel, fetchVideo } from "../utils/video";
+import { fetchAllVideos, fetchVideo, saveVideo } from "../utils/video";
 
 
 export const receiveAllVideos = payload => {
@@ -25,6 +25,12 @@ export const getAllVideos = () => dispatch => {
 
 export const getVideo = videoId => dispatch => {
   return fetchVideo(videoId).then(
+    video => dispatch(receiveVideo(video))
+  )
+}
+
+export const addVideo = formVideo => dispatch => {
+  return saveVideo(formVideo).then(
     video => dispatch(receiveVideo(video))
   )
 }
