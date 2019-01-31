@@ -16,7 +16,7 @@ export default class VideoShow extends React.Component {
   render() {
     return (
       <ul className="video-show">
-        <video width="320" height="240" controls>
+        <video width="320" height="240" preload="metadata" controls="controls">
           <source src={`${this.state.videoUrl}`} type="video/mp4"></source>
           Your browser does not support the video tag.
         </video>

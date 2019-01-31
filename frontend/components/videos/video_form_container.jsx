@@ -1,5 +1,6 @@
 import VideoForm from './video_form';
 import {connect} from 'react-redux';
+import {saveVideo} from '../../utils/video';
 
 const msp = state => {
     return {
@@ -7,11 +8,10 @@ const msp = state => {
     }
 };
 
-// const mdp = dispatch => {
-//     return {
+const mdp = dispatch => {
+    return {
+        saveVideo: formData => dispatch(saveVideo(formData))
+    };
+};
 
-//     };
-// };
-
-
-export default connect(msp, null)(VideoForm)
+export default connect(msp, mdp)(VideoForm)

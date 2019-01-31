@@ -4,7 +4,8 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+    creds = session_params
+    @user = User.find_by_credentials(creds[:username], creds[:password])
     if @user.nil?
       render json: ['User not found.'], status: 401
     else
@@ -16,5 +17,9 @@ class Api::SessionsController < ApplicationController
   def destroy
     logout!
     render json: { message: 'Logged out' }
+  end
+
+  def session_params
+    params.require(:user).permit(:username, :password)
   end
 end

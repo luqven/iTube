@@ -15,3 +15,13 @@ export const fetchVideo = (id) => {
     data: {id},
   });
 };
+
+export const saveVideo = (formData) => {
+  return $.ajax({
+    url: `/api/videos/`,
+    method: 'post',
+    data: formData,
+    contentType: false,
+    processData: false, 
+  })
+}
