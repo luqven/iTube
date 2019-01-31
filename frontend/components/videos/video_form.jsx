@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 export default class VideoForm extends React.Component {
     constructor(props){
@@ -55,12 +57,18 @@ export default class VideoForm extends React.Component {
 
     render() {
         return (
-            <form className="upload-form-container">
-                <input onChange={this.handleTitleChange} type="text" placeholder="Title"/>
-                <input onChange={this.handleBodyChange} type="text" placeholder="Body"/>
-                <input onChange={this.handleFile} type="file" placeholder="video"/>
-                <button className="btn" onClick={this.handleSubmit}>Submit</button>
-            </form>
+            <div className="upload-form-container">
+                <label className="upload-inpt-label">
+                    <h2 className="video-up-btn"><FontAwesomeIcon icon="upload" /></h2>
+                    <input onChange={this.handleFile} type="file" placeholder="video" accept=".mp4, .ogg" />
+                    Select file to upload
+                </label>
+                <form className="form-text-inputs">
+                    <input onChange={this.handleTitleChange} type="text" placeholder="Title" />
+                    <input onChange={this.handleBodyChange} type="text" placeholder="Description" />
+                    <button className="btn" onClick={this.handleSubmit}>Upload</button>
+                </form>
+            </div>
         )
     }
 }

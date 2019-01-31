@@ -719,5 +719,44 @@ ul {
 /* Upload form styling */
 
 .upload-form-container {
-  margin-top: 300px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-text-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.form-text-inputs input{
+  margin: 5px;
+  padding: 4px;
+}
+
+.form-text-inputs .btn {
+  margin-right: 0px;
+  margin: auto;
+}
+
+.video-up-btn {
+  font-size: 600%;
+  color: lightgrey;
+  text-align: center;
+}
+
+.video-up-btn:hover {
+  color: rgb(177, 4, 4)
+}
+
+.upload-inpt-label:hover {
+  cursor: pointer;
+}
+
+.upload-inpt-label input[type="file" i] {
+  display: none;
 }
