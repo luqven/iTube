@@ -41,10 +41,10 @@ seed_user = User.find_by(username: "guest")
 
 Channel.create(channel1)
 
-videos = [ video1 = {
-   title: "my first upload!",
-   body: "loving rails and react..",
-   channel_id: seed_user.channel.id } ]
+# videos = [ video1 = {
+#    title: "my first upload!",
+#    body: "loving rails and react..",
+#    channel_id: seed_user.channel.id } ]
 #  },
 #  video2 = {
 #    title: Faker::FamousLastWords.last_words,
@@ -72,5 +72,5 @@ videos = [ video1 = {
 #    channel_id: seed_user.channel.id
 #  }]
 
-Video.create(videos)
-Video.first.video_attachment.attach(io: File.open("/Users/luish.balljr./desktop/great_dane_puppies.mp4"), filename: "great_dane_puppies.mp4")
+# Video.create(videos)
+# Video.first.video_attachment.attach(io: File.open("/Users/luish.balljr./desktop/great_dane_puppies.mp4"), filename: "great_dane_puppies.mp4")

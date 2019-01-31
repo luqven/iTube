@@ -7,7 +7,7 @@ export default class VideoForm extends React.Component {
             title: "",
             body:"",
             channel_id: null,
-            videoFile: null
+            video_attachment: null
         }
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleBodyChange = this.handleBodyChange.bind(this);
@@ -15,9 +15,8 @@ export default class VideoForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount(){
-        this.props.GetCurrentUser()
-    }
+    // componentDidMount(){
+    // }
 
     handleTitleChange(e) {
         this.setState({title: e.currentTarget.value})
@@ -28,7 +27,10 @@ export default class VideoForm extends React.Component {
     }
 
     handleFile(e){
-        this.setState({videoFile: e.currentTarget.files[0]})
+        this.setState({
+            video_attachment: e.currentTarget.files[0],
+            channel_id: this.props.channelId,
+        })
     }
 
     handleSubmit(e){
@@ -36,9 +38,18 @@ export default class VideoForm extends React.Component {
         const formData = new FormData();
         formData.append('video[title]', this.state.title)
         formData.append('video[body]', this.state.body)
-        formData.append('video[videoFile]', this.state.videoFile)
+        formData.append('video[channel_id]', this.state.channel_id)
+        formData.append('video[video_attachment]', this.state.video_attachment)
 
-        this.props.saveVideo(formData).then((response) => console.log(response.message));
+        return $.ajax({
+            url: `/api/videos/`,
+            method: 'post',
+            data: formData,
+            contentType: false,
+            processData: false,
+        }).then(
+            this.props.history.push(`/channel/${this.state.channel_id}`)
+            );
     }
 
     render() {

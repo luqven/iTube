@@ -1,17 +1,19 @@
 import VideoForm from './video_form';
 import {connect} from 'react-redux';
-import {saveVideo} from '../../utils/video';
+import { withRouter } from 'react-router-dom';
+
+// import {saveVideo} from '../../utils/video';
 
 const msp = state => {
     return {
-        channelId: state.entities.users[state.session.id]
+        channelId: state.entities.users[state.session.id].channel_id
     }
 };
 
-const mdp = dispatch => {
-    return {
-        saveVideo: formData => dispatch(saveVideo(formData))
-    };
-};
+// const mdp = dispatch => {
+//     return {
+//         saveVideo: formData => dispatch(saveVideo(formData))
+//     };
+// };
 
-export default connect(msp, mdp)(VideoForm)
+export default withRouter(connect(msp, null)(VideoForm))
