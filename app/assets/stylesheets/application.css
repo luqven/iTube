@@ -720,6 +720,28 @@ ul {
   text-transform: capitalize;
 }
 
+.video-user-info {
+  width: 80%;
+  display: flex;
+  margin-top: 60px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+
+.video-show-container .dropdown-user-icon {
+  /* margin-top: 50px; */
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.video-text {
+  color: black !important;
+  marign: auto !important;
+  text-align: center;
+  margin-top: 70px;
+  padding-bottom: 10px;
+}
+
 /* Upload form styling */
 
 .upload-form-container {

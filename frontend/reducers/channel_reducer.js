@@ -12,9 +12,11 @@ export default (state = _nullChannels, action) => {
         case RECEIVE_CHANNEL:
             return merge({}, state, action.payload.channels)
         case RECEIVE_VIDEO: // add video id to Channel videoIds
-            newState = merge({}, state);
+            newState = merge({}, state, action.payload.channels);
             let video = Object.values(action.payload.videos)[0]
-            newState[video.channel_id].videoIds.push(video.id)
+            if (!newState[video.channel_id].videoIds.includes(video.id)) {
+                newState[video.channel_id].videoIds.push(video.id)
+            }
         default:
             return state;
     }
