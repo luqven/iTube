@@ -396,6 +396,10 @@ display: inline;
   margin-top: 10px;
 }
 
+.dropdown-btns {
+  display: flex;
+}
+
 .dropdown-user-icon {
   display: flex;
   align-items: center;

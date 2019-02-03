@@ -26,13 +26,19 @@ export default class NavBar extends React.Component{
 
   if (this.props.loggedIn) {
     let userInitial = this.props.user.username[0].toUpperCase();
-    drop_down = (  
-      <section onClick={this.handleClick} className="nav-user-icon-container">
-        <div className="nav-user-icon">
-          <p >{userInitial}</p>
-          <Modal />
-        </div>
-      </section>
+    drop_down = (
+      <div className="dropdown-btns">
+        <section className="upload-button">
+          <Link className=".plus" to="/upload"> + </Link>
+          <p className="plus-container"><FontAwesomeIcon icon={["fas", "video"]} /></p>
+        </section>
+        <section onClick={this.handleClick} className="nav-user-icon-container">
+          <div className="nav-user-icon">
+            <p >{userInitial}</p>
+            <Modal />
+          </div>
+        </section>
+      </div>
     )
     } else {
       drop_down = (<Link className="btn" to="/login">Sign In</Link>)
@@ -43,10 +49,6 @@ export default class NavBar extends React.Component{
       <section className="title-logo"> 
         <p><FontAwesomeIcon icon={["fab", "youtube"]}/></p>
         <Link to="/" className="title-logo"> iTube </Link>
-      </section>
-      <section className="upload-button">
-        <Link className=".plus" to="/upload"> + </Link>
-        <p className="plus-container"><FontAwesomeIcon icon={["fas", "video"]} /></p>
       </section>
       <section className="nav-auth-buttons">
         {drop_down}
