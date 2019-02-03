@@ -18,6 +18,12 @@ export const receiveAllChannels = payload => {
   };
 };
 
+export const createChannel = channel => dispatch => {
+  return postChannel(channel).then(
+    channel => dispatch(receiveChannel(channel)) 
+  );
+};
+
 export const getChannel = channelId => dispatch => {
   return fetchChannel(channelId).then(
     channel => dispatch(receiveChannel(channel))

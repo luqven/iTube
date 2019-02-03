@@ -12,3 +12,11 @@ export const fetchAllChannels = () => {
     method: 'get',
   });
 };
+
+export const postChannel = (channel) => {
+  return $.ajax({
+    url: `/api/channels/`,
+    method: 'post',
+    data: {channel}
+  });
+};

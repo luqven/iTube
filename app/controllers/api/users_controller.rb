@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user = current_user
     @videos = @user.videos
     @channel = current_user.channel
-    redner: show
+    render :show
   end
   
   def index
@@ -15,6 +15,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
+      @channel = Channel.create(owner_id: @user.id, name: @user.username)
+      @channel.save
+
       render :show
     else
       render json: @user.errors.full_messages, status: 401
