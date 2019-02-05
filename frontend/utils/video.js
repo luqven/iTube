@@ -16,6 +16,16 @@ export const fetchVideo = (id) => {
   });
 };
 
+export const patchVideo = (video, videoId) => {
+  return $.ajax({
+    url: `api/videos/${Number(videoId)}`,
+    method: 'patch',
+    data: video,
+    contentType: false,
+    processData: false,
+  })
+}
+
 export const saveVideo = (formData) => {
   return $.ajax({
     url: `/api/videos/`,

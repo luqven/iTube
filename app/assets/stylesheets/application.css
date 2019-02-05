@@ -132,6 +132,10 @@ a:-webkit-any-link {
   padding-right: 5px;
 }
 
+.title-logo a {
+  overflow: inherit;
+}
+
 .title-logo svg {
   color: red;
   margin-left: 100px;
@@ -452,12 +456,14 @@ ul {
 
 .dropdown li, a{
   text-align: left;
+  white-space: nowrap;
   display: block;
   height: 40px;
-  width: 180px;
+  text-overflow: ellipsis;
+  width: 200px;
+  overflow: hidden;
   padding: 5px;
-  line-height: 3;
-  padding-left: 10px;
+  line-height: 1.2;
 }
 
 .dropdown-li-ele {
@@ -600,7 +606,8 @@ ul {
   font-size: small;
   text-transform: uppercase;
   color: rgb(111, 111, 111);
-  padding: 14px 16px;
+  /* padding: 14px 16px; */
+  padding-top: 25px;
   height: 25px;
   width: 80px;
 }
@@ -610,7 +617,7 @@ ul {
 }
 
 .s-menu-selected, .s-menu-selected a {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
   color: black !important;
 }
 
@@ -640,6 +647,13 @@ ul {
   left: 90px;
 }
 
+.show-video-carousel p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 190px;
+  white-space: nowrap;
+}
+
 .showpage-video-carousel li {
   float: left;
 }
@@ -661,6 +675,10 @@ ul {
   width: 210px;
   padding-top: 15px;
   padding-right: 10px;
+}
+
+.temp-image-container:hover {
+  cursor: pointer;
 }
 
 .temp-image-container li {
@@ -703,6 +721,11 @@ ul {
 }
 
 /* Video show styling */
+.video-show-container {
+  width: 70%;
+  margin-right: 80px;
+}
+
 .video-show {
   position: relative;
   display: flex;
@@ -711,7 +734,7 @@ ul {
   box-shadow: none;
   margin-top: 20px;
   margin-left: 30px;
-  width: 80%;
+  max-width: 80%;
   background-color: transparent;
 }
 
@@ -742,7 +765,7 @@ ul {
 .video-text {
   color: black !important;
   marign: auto !important;
-  text-align: center;
+  text-align: left;
   margin-top: 70px;
   padding-bottom: 10px;
 }

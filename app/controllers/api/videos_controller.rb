@@ -23,6 +23,15 @@ class Api::VideosController < ApplicationController
     render :show
   end
 
+  def update
+    @video = Video.find_by(id: params[:id])
+    if @video.update(video_params)
+      render :show
+    else
+      render json: @video.errors.full_messages, status: 401
+    end
+  end
+
   def destroy
   end
 

@@ -4,16 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class VideoForm extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            title: "",
-            body:"",
-            channel_id: null,
-            video_attachment: null,
-            thumbnail_attachment: null,
-            btn1: 'upload',
-            btn2: 'file-image',
-            errors: null,
-        }
+        this.state = this.props.video
+
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleBodyChange = this.handleBodyChange.bind(this);
         this.handleVideo = this.handleVideo.bind(this);
@@ -22,6 +14,13 @@ export default class VideoForm extends React.Component {
 
     }
 
+
+    componentDidMount(){
+       if ( this.props.action === 'edit') { 
+           this.props.getVideo(this.props.videoId)
+           this.setState();
+        }
+    }
 
     handleTitleChange(e) {
         this.setState({title: e.currentTarget.value})
@@ -52,13 +51,8 @@ export default class VideoForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault()
-
-        if(this.state.thumbnail_attachment === null || this.state.video_attachment === null) {
-            this.setState({errors: 'You must select a valid video and picture file'})
-        } else if (this.state.title.length < 1) {
-            this.setState({ errors: 'You must set a valid title' })
-        } else {
-            const formData = new FormData();
+        const formData = new FormData();
+        if (this.props.action === 'upload') {
             formData.append('video[title]', this.state.title)
             formData.append('video[body]', this.state.body)
             formData.append('video[channel_id]', this.state.channel_id)
@@ -67,28 +61,50 @@ export default class VideoForm extends React.Component {
 
 
             this.props.addVideo(formData)
-            this.props.history.push(`/channel/${this.state.channel_id}`)
+        } else {
+            formData.append('video[title]', this.state.title)
+            formData.append('video[body]', this.state.body)
+            formData.append('video[id]', this.props.videoId)
+            this.props.updateVideo(formData)
         }
+        this.props.history.push(`/channel/${this.state.channel_id}`)
     }
 
     render() {
+        let uploadInput = null;
+        if (this.props.action === 'upload') {
+            uploadInput =(
+                <div>
+                    <label className="upload-inpt-label">
+                        <h2 className="video-up-btn"><FontAwesomeIcon icon={`${this.props.btn1}`} /></h2>
+                        <input onChange={this.handleVideo} type="file" placeholder="video" accept=".mp4, .ogg" />
+                        Select file to upload
+                    </label>
+                    <label className="upload-inpt-label">
+                        <h2 className="video-up-btn"><FontAwesomeIcon icon={`${this.props.btn2}`} /></h2>
+                        <input onChange={this.handleThumbnail} type="file" placeholder="video" accept="image/*" />
+                        Select thumbnail to upload
+                    </label>
+                </div>
+        )}
         return (
             <div className="upload-form-container">
-                <label className="upload-inpt-label">
+                {uploadInput}
+                {/* <label className="upload-inpt-label">
                     <h2 className="video-up-btn"><FontAwesomeIcon icon={`${this.state.btn1}`} /></h2>
                     <input onChange={this.handleVideo} type="file" placeholder="video" accept=".mp4, .ogg" />
                     Select file to upload
-                </label>
-                <label className="upload-inpt-label">
+                </label> */}
+                {/* <label className="upload-inpt-label">
                     <h2 className="video-up-btn"><FontAwesomeIcon icon={`${this.state.btn2}`} /></h2>
                     <input onChange={this.handleThumbnail} type="file" placeholder="video" accept="image/*"/>
                     Select thumbnail to upload
-                </label>
+                </label> */}
                 <form className="form-text-inputs">
-                    <input onChange={this.handleTitleChange} type="text" placeholder="Title" />
-                    <input onChange={this.handleBodyChange} type="text" placeholder="Description" />
+                    <input onChange={this.handleTitleChange} type="text" placeholder="Title" value={this.state.title}/>
+                    <input onChange={this.handleBodyChange} type="text" placeholder="Description" value={this.state.body}/>
                     <p className="upload-form-error">{this.state.errors}</p>
-                    <button className="btn" onClick={this.handleSubmit}>Upload</button>
+                    <button className="btn" onClick={this.handleSubmit}>{this.props.action}</button>
                 </form>
             </div>
         )
