@@ -15,7 +15,7 @@ class Home extends React.Component {
     const lis = this.props.videos.map((video, idx) => {
       return (
         <div key={idx / 1.12 + 1} className="temp-image-container">
-          <img key={idx / 1.1 + 1} className="temp-image" src="https://i.stack.imgur.com/PtbGQ.png" alt="" srcSet="" />
+          <img key={idx / 1.1 + 1} className="temp-image" src={`${video.thumbnail_url}`} alt="" srcSet="" />
           <li key={idx}> <Link to={`videos/${video.id}`} >{video.title}</Link></li>
         </div>
       )

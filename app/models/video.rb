@@ -14,6 +14,7 @@ class Video < ApplicationRecord
   validates :title, :channel_id, presence: true
 
   has_one_attached :video_attachment
+  has_one_attached :thumbnail_attachment
 
   belongs_to :channel,
     foreign_key: :channel_id,

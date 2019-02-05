@@ -137,6 +137,10 @@ a:-webkit-any-link {
   margin-left: 100px;
 }
 
+.title-logo:hover {
+  cursor: pointer;
+}
+
 .logo-image {
     margin-top: 18px;
     margin-left: 55px;
@@ -656,6 +660,7 @@ ul {
   flex-direction: column;
   width: 210px;
   padding-top: 15px;
+  padding-right: 10px;
 }
 
 .temp-image-container li {

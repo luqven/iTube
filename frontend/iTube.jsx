@@ -10,9 +10,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fabYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faUserCircle, faSignOutAlt, faVideo, faFileVideo, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faSignOutAlt, faVideo, faFileVideo, faUpload, faFileImage } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faUserCircle, faSignOutAlt, faVideo, faUpload, faFileVideo);
+library.add(fab, faUserCircle, faSignOutAlt, faVideo, faUpload, faFileImage, faFileVideo);
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

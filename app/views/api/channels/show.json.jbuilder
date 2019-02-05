@@ -12,6 +12,7 @@ json.videos do
             json.body video.body
             json.channel_id video.channel_id
             json.video_url url_for(video.video_attachment)
+             json.thumbnail_url url_for(video.thumbnail_attachment)
             json.uploader video.uploader
             json.id video.id
         end

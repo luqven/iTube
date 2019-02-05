@@ -9,16 +9,16 @@ export default class VideoForm extends React.Component {
             title: "",
             body:"",
             channel_id: null,
-            video_attachment: null
+            video_attachment: null,
+            thumbnail_attachment: null,
         }
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleBodyChange = this.handleBodyChange.bind(this);
-        this.handleFile = this.handleFile.bind(this);
+        this.handleVideo = this.handleVideo.bind(this);
+        this.handleThumbnail = this.handleThumbnail.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount(){
-    // }
 
     handleTitleChange(e) {
         this.setState({title: e.currentTarget.value})
@@ -28,10 +28,16 @@ export default class VideoForm extends React.Component {
         this.setState({body: e.currentTarget.value})
     }
 
-    handleFile(e){
+    handleVideo(e){
         this.setState({
             video_attachment: e.currentTarget.files[0],
             channel_id: this.props.channelId,
+        })
+    }
+
+    handleThumbnail(e){
+        this.setState({
+            thumbnail_attachment: e.currentTarget.files[0],
         })
     }
 
@@ -42,14 +48,8 @@ export default class VideoForm extends React.Component {
         formData.append('video[body]', this.state.body)
         formData.append('video[channel_id]', this.state.channel_id)
         formData.append('video[video_attachment]', this.state.video_attachment)
+        formData.append('video[thumbnail_attachment]', this.state.thumbnail_attachment)
 
-        // return $.ajax({
-        //     url: `/api/videos/`,
-        //     method: 'post',
-        //     data: formData,
-        //     contentType: false,
-        //     processData: false,
-        // })
 
         this.props.addVideo(formData)
         this.props.history.push(`/channel/${this.state.channel_id}`)
@@ -60,8 +60,13 @@ export default class VideoForm extends React.Component {
             <div className="upload-form-container">
                 <label className="upload-inpt-label">
                     <h2 className="video-up-btn"><FontAwesomeIcon icon="upload" /></h2>
-                    <input onChange={this.handleFile} type="file" placeholder="video" accept=".mp4, .ogg" />
+                    <input onChange={this.handleVideo} type="file" placeholder="video" accept=".mp4, .ogg" />
                     Select file to upload
+                </label>
+                <label className="upload-inpt-label">
+                    <h2 className="video-up-btn"><FontAwesomeIcon icon="file-image" /></h2>
+                    <input onChange={this.handleThumbnail} type="file" placeholder="video" accept="image/*"/>
+                    Select thumbnail to upload
                 </label>
                 <form className="form-text-inputs">
                     <input onChange={this.handleTitleChange} type="text" placeholder="Title" />
