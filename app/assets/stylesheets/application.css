@@ -791,3 +791,8 @@ ul {
 .upload-inpt-label input[type="file" i] {
   display: none;
 }
+
+.upload-form-error {
+  color: red;
+  padding: 2px;
+}
