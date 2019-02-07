@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import VideoPreview from './video_preview';
-import { getAllVideos } from '../../actions/videos';
+import { getVideo } from '../../actions/videos';
 
 const msp = state => {
   return {
@@ -11,7 +11,7 @@ const msp = state => {
 
 const mdp = dipsatch => {
   return {
-    getAllVideos: () => dipsatch(getAllVideos())
+    getVideo: (videoId) => dipsatch(getVideo(videoId))
   }
 }
 

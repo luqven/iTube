@@ -28,24 +28,21 @@ class Home extends React.Component {
     // })
     
     
-    const lis = this.props.channels.map((channel, idx) => {
-      
+    const channels = this.props.channels.map((channel, idx) => {
+      debugger
       return (
-        <div key={idx / 1.12 + 1} >
-          <ChannelCarousel channel={channel} key={idx} />
-          <li key={idx / 1.1 + 1} >hello</li>
-        </div>
+        // <div className="showpage-video-carousel">
+          // {/* <li key={idx / 1.1 + 1} > */}
+            <ChannelCarousel channel={channel} classId={idx} key={idx} />
+          // {/* </li> */}
+        // </div>
       )
     })
 
     return (
-      <section className="home-container">
-        <div >
-          <ul className="video-carousel">
-            {lis}
-          </ul>
-        </div>
-      </section>
+      <ul className="home-container">
+          {channels}
+      </ul>
     )
   }
 }

@@ -11,11 +11,11 @@ export default class ChannelCarousel extends React.Component {
       return <VideoPreview videoId={videoId} key={idx} />
     })
     return (
-      <div className="showpage-video-carousel">
-          <ul className="show-video-carousel">
+      // <div className="showpage-video-carousel">
+          <li className="show-video-carousel">
             {lis}
-          </ul>
-      </div>
+          </li>
+      // </div>
     )
   }
 }

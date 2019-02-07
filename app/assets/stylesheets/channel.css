@@ -112,14 +112,23 @@
   background-color: white;
 }
 
+.show-video-carousel {
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
 .showpage-video-carousel ul {
   box-shadow: none;
   list-style-type: none;
   overflow: hidden;
   position: absolute;
   margin: 0;
-  padding: 0;
   left: 90px;
+  background: transparent;
+}
+
+#car-0 {
+  padding: 0;
 }
 
 .show-video-carousel p{
