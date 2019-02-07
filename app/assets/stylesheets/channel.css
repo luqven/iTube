@@ -178,4 +178,10 @@
 .show-video-carousel {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.preview-carousel{
+    display: flex;
+    list-style: none;
 }

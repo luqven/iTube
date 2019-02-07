@@ -38,13 +38,14 @@ display: inline;
   margin: 2px;
   margin-right: 25px;
   margin-top: 10px;
+  justify-content: flex-start;
 }
 
 .nav-user-icon:hover {
   cursor: pointer;
 }
 
-.nav-user-icon p {
+.nav-user-icon p:first-child {
   text-align: center;
   margin: auto;
   color: white;
@@ -99,6 +100,7 @@ ul {
 .dropdown li:first-child {
   background-color: #eeeeee;
   height: 60px;
+  display: flex;
 }
 
 .dropdown li:first-child:hover {
@@ -125,6 +127,12 @@ ul {
     color: white;
     margin-left: 2px;
     margin-right: 22px;
+}
+
+.dropdown-username{
+    margin: 0px;
+    margin-top: 20px;
+    color: black;
 }
 
 .user-initial {

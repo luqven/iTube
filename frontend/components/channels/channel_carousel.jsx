@@ -14,8 +14,10 @@ export default class ChannelCarousel extends React.Component {
 
     return (
       <>
-        <UserCircle userId={this.props.userId}/>
         <li className="show-video-carousel">
+        <UserCircle userId={this.props.userId}/>
+        </li>
+        <li className= "preview-carousel">
           {videoPreviews}
         </li>
       </>

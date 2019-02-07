@@ -37,8 +37,8 @@ export default class DropDown extends React.Component{
           <li>
             <div onClick={this.handleClick} className="dropdown-user-icon">
               <p>{userInitial}</p>
-              <p className="user-initial">{this.props.user.username}</p>
             </div>
+              <p className="dropdown-username">{this.props.user.username}</p>
           </li>
           <li>
             <div className="dropdown-icon-container">

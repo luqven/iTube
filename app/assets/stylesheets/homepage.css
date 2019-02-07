@@ -24,5 +24,14 @@
   height: 100%;
   background: transparent;
   box-shadow: none;
-  
+ 
+}
+
+.home-user-initial {
+  color: white;
+  text-align: center;
+}
+
+.home-container .dropdown-user-icon {
+  justify-content: space-around;
 }
