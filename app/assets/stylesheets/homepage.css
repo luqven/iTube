@@ -35,3 +35,11 @@
 .home-container .dropdown-user-icon {
   justify-content: space-around;
 }
+
+.temp-image-container p{
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 190px;
+    white-space: nowrap;
+}
