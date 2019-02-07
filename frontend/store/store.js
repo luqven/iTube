@@ -7,5 +7,5 @@ export default (preloadedState = {}) => {
   return createStore(
     rootReducer, 
     preloadedState, 
-    applyMiddleware(thunk));
+    applyMiddleware(thunk, logger));
 };

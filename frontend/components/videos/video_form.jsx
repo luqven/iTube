@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class VideoForm extends React.Component {
@@ -16,7 +17,7 @@ export default class VideoForm extends React.Component {
 
 
     componentDidMount(){
-       if ( this.props.action === 'edit') { 
+        if ( this.props.action === 'edit') { 
            this.props.getVideo(this.props.videoId)
            this.setState();
         }
@@ -101,8 +102,14 @@ export default class VideoForm extends React.Component {
                     Select thumbnail to upload
                 </label> */}
                 <form className="form-text-inputs">
-                    <input onChange={this.handleTitleChange} type="text" placeholder="Title" value={this.state.title}/>
-                    <input onChange={this.handleBodyChange} type="text" placeholder="Description" value={this.state.body}/>
+                    <label> Title
+                        <textarea rows='10' onChange={this.handleTitleChange} placeholder="A title for the video" value={this.state.title}></textarea>
+                    </label>
+                    <label> Body
+                        <textarea rows='10' onChange={this.handleBodyChange} placeholder="Description for the video" value={this.state.body}></textarea>
+                    </label>
+                    {/* <input onChange={this.handleTitleChange} type="text" placeholder="Title" value={this.state.title}/> */}
+                    {/* <input onChange={this.handleBodyChange} type="text" placeholder="Description" value={this.state.body}/> */}
                     <p className="upload-form-error">{this.state.errors}</p>
                     <button className="btn" onClick={this.handleSubmit}>{this.props.action}</button>
                 </form>

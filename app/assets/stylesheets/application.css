@@ -50,6 +50,21 @@ a:-webkit-any-link {
 .hidden {
   display: none;
 }
+
+textarea {
+  box-sizing: border-box;
+  background: white;
+  box-shadow: inset 0 -8px 6px -8px black;
+  margin: 10px;
+  width: 300px;
+  border-radius: 2px;
+}
+
+textarea:focus {
+  border-bottom-style: inset;
+  border: 2px solid #3b8af0;
+  outline: none;  
+}
 /* ################################### */
 /* Whole app container styling */
 /* ################################### */
@@ -339,7 +354,7 @@ a:-webkit-any-link {
   border-radius: 3px;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
   color: rgb(131, 131, 131);
   font-size: medium;
   box-sizing: border-box;
@@ -360,7 +375,7 @@ input::placeholder {
   outline: none;
 }
 
-input:focus::placeholder {
+input:focus::placeholder, textarea:focus::placeholder {
   color: white;
 }
 
@@ -787,14 +802,21 @@ ul {
   padding-top: 5px;
 }
 
+.form-text-inputs label {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-text-inputs input{
   margin: 5px;
   padding: 4px;
 }
 
+
 .form-text-inputs .btn {
   margin-right: 0px;
   margin: auto;
+  justify-content: center;
 }
 
 .video-up-btn {

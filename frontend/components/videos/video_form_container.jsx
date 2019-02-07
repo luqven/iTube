@@ -1,31 +1,22 @@
-import VideoForm from './video_form';
-import {connect} from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { addVideo, getVideo} from '../../actions/videos';
+import React from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import VideoEditForm from "./video_edit_container";
 
-const msp = state => {
-    return {
-        channelId: state.entities.users[state.session.id].channel_id,
-        action: 'upload',
-        video: {
-            title: "",
-            body: "",
-            id: null,
-            channel_id: null,
-            video_url: null,
-            thumbnail_url: null,
-        },
-        btn1: 'upload',
-        btn2: 'file-image',
-    }
-};
+const Form = ({isOnwer}) => {
+  if (isOnwer) {
+    return <VideoEditForm />;
+  } else {
+    return (<Redirect to="/" />)
+  }
+}
 
-const mdp = dispatch => {
-    return {
-        addVideo: video => dispatch(addVideo(video)),
-        getVideo: videoId => dispatch(getVideo(videoId))
-    };
-};
+const msp = (state, ownProps) => {
+  debugger
+  return {
+    isOnwer: state.entities.users[state.session.id].channel_id === state.entities.videos[ownProps.match.params.videoId].channel_id,
+  }
+}
 
-export default withRouter(connect(msp, mdp)(VideoForm))
+export default withRouter(connect(msp, null)(Form))

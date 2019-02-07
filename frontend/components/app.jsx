@@ -11,8 +11,8 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import Greeting from './greeting/greeting';
 // import UserProfile from './user_show/profile_page_container';
 import VideoShow from './videos/video_show_container';
-import VideoEdit from './videos/video_edit_container';
-import VideoForm from './videos/video_form_container';
+import VideoEdit from './videos/video_form_container';
+import VideoUpload from './videos/video_upload_container';
 import Channel from './channels/channel_container';
 
 class App extends React.Component {
@@ -33,7 +33,7 @@ class App extends React.Component {
         <Route path="/channel/:channelId" component={Channel} />
         {/* <Route path="/users/:userId" component={} /> */}
         {/* <LoggedInAuth component={UserProfile} exact path={`/users/profile/`} loggedIn={this.props.loggedIn} exact={true}/> */}
-        <LoggedInAuth component={VideoForm} exact path={`/upload`} loggedIn={this.props.loggedIn} exact={true}/>
+        <LoggedInAuth component={VideoUpload} exact path={`/upload`} loggedIn={this.props.loggedIn} exact={true}/>
         <LoggedInAuth component={VideoEdit} path={`/update/:videoId/`} loggedIn={this.props.loggedIn} exact={true}/>
         <AuthRoute component={LoginContainer} path="/login" loggedIn={this.props.loggedIn} exact={true} />
         <AuthRoute component={SignupContainer} path="/signup" loggedIn={this.props.loggedIn} exact={true} />
