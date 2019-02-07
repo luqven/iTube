@@ -184,4 +184,6 @@
 .preview-carousel{
     display: flex;
     list-style: none;
+    padding-bottom: 40px;
+    border-bottom: .5px solid lightgray;
 }

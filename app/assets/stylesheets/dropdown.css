@@ -41,6 +41,10 @@ display: inline;
   justify-content: flex-start;
 }
 
+.dropdown-user-icon:hover {
+  cursor: pointer;
+}
+
 .nav-user-icon:hover {
   cursor: pointer;
 }
@@ -137,6 +141,10 @@ ul {
 
 .user-initial {
   color: black !important;
+}
+
+.user-initial:hover{
+  cursor: pointer;
 }
 
 .modal-background {

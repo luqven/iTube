@@ -7,7 +7,12 @@ export default class UserCircle extends React.Component {
 
   componentDidMount() {
     this.props.getUser(this.props.userId);
+    this.handleClick = this.handleClick.bind(this)
   }
+
+  handleClick() {
+    this.props.history.push(`channel/${this.props.users[this.props.userId].channel_id}`)
+  };
 
   render() {
     let userInitial;
@@ -16,10 +21,10 @@ export default class UserCircle extends React.Component {
       userInitial = user.username[0].toUpperCase();
       return (
         <>
-          <div className="dropdown-user-icon">
+          <div onClick={this.handleClick} className="dropdown-user-icon">
             <h3 className="home-user-initial" >{userInitial}</h3>
           </div>
-          <h3 className="user-initial" >{user.username}</h3>
+          <h3 onClick={this.handleClick} className="user-initial" >{user.username}</h3>
         </>
       )
     }

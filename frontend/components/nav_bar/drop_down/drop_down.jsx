@@ -12,6 +12,11 @@ export default class DropDown extends React.Component{
       user: this.props.user
     };
     this.handleClick = this.handleClick.bind(this);
+    this.takeToChannel = this.takeToChannel.bind(this);
+  }
+
+  takeToChannel(){
+    this.props.history.push(`channel/${this.props.user.channel_id}`)
   }
 
   handleClick(e){
@@ -36,7 +41,7 @@ export default class DropDown extends React.Component{
         <ul className="dropdown">
           <li>
             <div onClick={this.handleClick} className="dropdown-user-icon">
-              <p>{userInitial}</p>
+              <p onClick={this.takeToChannel}>{userInitial}</p>
             </div>
               <p className="dropdown-username">{this.props.user.username}</p>
           </li>
