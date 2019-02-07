@@ -9,7 +9,8 @@ import Home from '../home/home';
 const msp = state => {
   return {
     videos: Object.values(state.entities.videos),
-    channels: Object.values(state.entities.channels)
+    channels: Object.values(state.entities.channels),
+    users: state.entities.users,
   };
 };
 

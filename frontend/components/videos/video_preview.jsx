@@ -21,9 +21,7 @@ export default class VideoPreview extends React.Component {
                     <img onClick={this.updateHistory} key={this.props.videoId / 1.1 + 1}
                         className="temp-image"
                         src={`${this.props.videos[this.props.videoId].thumbnail_url}`} />
-                    {/* <li key={this.props.videoId}> */}
-                        <p onClick={this.updateHistory}> {this.props.videos[this.props.videoId].title} </p>
-                    {/* </li> */}
+                    <p onClick={this.updateHistory}> {this.props.videos[this.props.videoId].title} </p>
                 </div>
             )
         }

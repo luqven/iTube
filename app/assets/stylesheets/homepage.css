@@ -16,11 +16,13 @@
 .home-container {
   position: inherit;
   margin: auto;
-  width: 100%;
+  margin-top: 55px;
+  margin-left: 180px;
+  width: 80%;
   height: 100%;
-  top: 180px;
   right: 0;
   height: 100%;
   background: transparent;
   box-shadow: none;
+  
 }

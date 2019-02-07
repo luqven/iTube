@@ -2,6 +2,7 @@ json.channels do
     json.set! @channel.id do
         json.extract! @channel, :name, :body, :owner_id, :id
         json.videoIds @channel.videos.ids
+        json.owner_id @channel.owner.id
     end
 end
 

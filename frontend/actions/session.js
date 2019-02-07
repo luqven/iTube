@@ -8,7 +8,7 @@ import {closeModal} from './modal_actions';
 
 export const receiveCurrentUser = user => ({
   type: RECEIVE_CURRENT_USER,
-  user,
+  payload: user,
 });
 
 export const logoutCurrentUser = () => ({
