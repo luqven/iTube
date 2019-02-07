@@ -13,14 +13,15 @@ export default class VideoShow extends React.Component {
     this.props.getVideo(this.props.video.id)
   }
 
+
   render() {
     let userInitial = this.props.video.uploader.username[0].toUpperCase();
+    debugger
     return (
       <div className="video-show-container">
         <ul className="video-show">
-          <video width="320" height="240" preload="metadata" controls="controls">
-            <source src={`${this.props.video.video_url}`} type="video/mp4"></source>
-            Your browser does not support the video tag.
+          <video width="320" height="240" preload="metadata" controls="controls" 
+          src={`${this.props.video.video_url}`} type="video/mp4">
         </video>
           <li>{this.props.video.title}</li>
         </ul>
