@@ -41,9 +41,6 @@ display: inline;
   justify-content: flex-start;
 }
 
-.dropdown-user-icon:hover {
-  cursor: pointer;
-}
 
 .nav-user-icon:hover {
   cursor: pointer;

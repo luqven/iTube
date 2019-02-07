@@ -7,9 +7,10 @@ const _nullSession = {
 
 export default (state = _nullSession, action) => {
   Object.freeze(state);
+  debugger
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return {id: action.user.id};
+      return { id: Object.values(action.payload.users)[0].id};
     case LOGOUT_CURRENT_USER:
       closeModal();
       return _nullSession;

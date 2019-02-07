@@ -12,12 +12,12 @@ export default class DropDown extends React.Component{
       user: this.props.user
     };
     this.handleClick = this.handleClick.bind(this);
-    this.takeToChannel = this.takeToChannel.bind(this);
+    // this.takeToChannel = this.takeToChannel.bind(this);
   }
 
-  takeToChannel(){
-    this.props.history.push(`channel/${this.props.user.channel_id}`)
-  }
+  // takeToChannel(){
+  //   this.props.history.push(`channel/${this.props.user.channel_id}/${this.props.user.id}`)
+  // }
 
   handleClick(e){
     let clicked = !(this.state.clicked);
@@ -41,14 +41,14 @@ export default class DropDown extends React.Component{
         <ul className="dropdown">
           <li>
             <div onClick={this.handleClick} className="dropdown-user-icon">
-              <p onClick={this.takeToChannel}>{userInitial}</p>
+              <p>{userInitial}</p>
             </div>
               <p className="dropdown-username">{this.props.user.username}</p>
           </li>
           <li>
             <div className="dropdown-icon-container">
               <FontAwesomeIcon icon="user-circle" />
-              <Link className="dropdown-li-ele" to={`/channel/${this.props.user.channel_id}/`}>My channel</Link>
+              <Link className="dropdown-li-ele" to={`/channel/${this.props.user.channel_id}/${this.props.user.id}`}>My channel</Link>
             </div>
           </li>
           <li> 

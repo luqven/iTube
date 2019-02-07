@@ -36,6 +36,10 @@
   justify-content: space-around;
 }
 
+.home-container .dropdown-user-icon:hover {
+  cursor: pointer;
+}
+
 .temp-image-container p{
     margin-top: 5px;
     text-overflow: ellipsis;

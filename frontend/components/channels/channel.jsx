@@ -10,6 +10,8 @@ export default class Channel extends React.Component {
     componentDidMount() {
         this.props.closeModal();
         this.props.getChannel(this.props.channelId);
+        this.props.getAllUsers();
+        this.props.getAllVideos();
     }
 
     render() {
@@ -19,9 +21,10 @@ export default class Channel extends React.Component {
                 return <VideoPreview videoId={video.id} thumbnail_url={video.thumbnail_url} title={video.title} key={idx} />
             }
         })
+
         return(
             <div className="channel-container">
-                <UserProfile />
+                <UserProfile user={this.props.owner}/>
                 <section className="categories">
                     {/* <Modal /> */}
                     <div className="showpage-video-carousel">

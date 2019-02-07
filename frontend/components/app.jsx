@@ -30,7 +30,7 @@ class App extends React.Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/" component={Greeting} />
         <Route path="/videos/:videoId" component={VideoShow} />
-        <Route path="/channel/:channelId" component={Channel} />
+        <Route path="/channel/:channelId/:userId" component={Channel} />
         {/* <Route path="/users/:userId" component={} /> */}
         {/* <LoggedInAuth component={UserProfile} exact path={`/users/profile/`} loggedIn={this.props.loggedIn} exact={true}/> */}
         <LoggedInAuth component={VideoUpload} exact path={`/upload`} loggedIn={this.props.loggedIn} exact={true}/>

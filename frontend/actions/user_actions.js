@@ -1,4 +1,4 @@
-import { fetchUsers } from "../utils/user";
+import { fetchUsers, fetchUser } from "../utils/user";
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
@@ -10,7 +10,7 @@ export const receiveUsers = users => ({
 });
 
 export const receiveUser = users => ({
-  type: RECEIVE_USERS,
+  type: RECEIVE_USER,
   payload: users,
 });
 
