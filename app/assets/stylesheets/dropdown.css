@@ -1,0 +1,142 @@
+/* ################################### */
+/*  dropdown styling  */
+/* ################################### */
+
+.nav-user-icon-container {
+display: inline;
+}
+
+.nav-user-icon {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #3b8af0;
+  border-radius: 50px;
+  background-color: #3b8af0;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+.dropdown-btns {
+  display: flex;
+}
+
+.dropdown-user-icon {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #3b8af0;
+  border-radius: 50px;
+  background-color: #3b8af0;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+.nav-user-icon:hover {
+  cursor: pointer;
+}
+
+.nav-user-icon p {
+  text-align: center;
+  margin: auto;
+  color: white;
+}
+
+.profile-circle {
+  width: 50px;
+  height: 50px;
+}
+
+ul {
+  position: fixed; 
+  top: 50px;
+  right: 15px;
+  background-clip: border-box;
+  background-color: white;
+  box-shadow: 0.5px 0px 12px 0px #ccc;
+  border-radius: 2px;
+  padding-bottom: 10px;
+}
+
+.dropdown ul{
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown li, a{
+  text-align: left;
+  white-space: nowrap;
+  display: block;
+  height: 40px;
+  text-overflow: ellipsis;
+  width: 200px;
+  overflow: hidden;
+  padding: 5px;
+  line-height: 1.2;
+}
+
+.dropdown-li-ele {
+  display: block;
+  text-decoration: none;
+  text-align: left;
+  color: black;
+  line-height: 3;
+  height: 40px;
+  width: 180px;
+  padding: 5px;
+  padding-left: 0px;
+}
+
+
+.dropdown li:first-child {
+  background-color: #eeeeee;
+  height: 60px;
+}
+
+.dropdown li:first-child:hover {
+  background-color: #eeeeee;
+}
+
+.dropdown-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.dropdown li:hover{
+  background-color: #f5f3f3;
+}
+
+.dropdown-icon-container svg{
+  padding-right: 30px;
+}
+
+
+.dropdown-user-icon p{
+    margin: 0px;
+    color: white;
+    margin-left: 2px;
+    margin-right: 22px;
+}
+
+.user-initial {
+  color: black !important;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  cursor: default;
+}

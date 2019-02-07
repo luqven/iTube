@@ -1,0 +1,114 @@
+/* ################################### */
+/*  form styling  */
+/* ################################### */
+
+.form-background {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.login-form-container {
+  display: flex;
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 220px;
+  flex-direction: column;
+  align-items: center;
+  height: px;
+  width: 450px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form-container .title-logo {
+  margin: auto;
+  text-align: center;
+}
+
+.login-form-container h2 {
+  font-weight: lighter;
+  font-size: x-large;
+  padding-bottom: 10px;
+}
+
+.login-form-container .title-logo {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.session-form p:only-of-type {
+  font-size: smaller;
+  width: 84%;;
+  margin-left: 10px;
+}
+
+.form-submit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+    padding-top: 20px;
+}
+
+.session-form input {
+  width: 75%;
+  height: 40px;
+  padding: 5px 15px;
+  margin: 10px;
+  border: 0;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(131, 131, 131);
+  font-size: medium;
+  box-sizing: border-box;
+  transition: color 0.4s;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 8px 0;
+}
+
+.form-input {
+  border-color: none;
+  transition: border-color .5s;
+}
+
+.form-input:focus {
+  border: 2px solid #3b8af0;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus::placeholder, textarea:focus::placeholder {
+  color: white;
+}
+
+.form-label {
+  color: rgb(255, 255, 255);
+  transition: color 1s;
+}
+
+.error-message ul,
+.error-message li,
+.error-message li:first-child,
+.error-message li:hover  {
+  color: lightcoral;
+  list-style: none;
+  background: none;
+  box-shadow: none;
+  position: inherit;
+  justify-content: space-between;
+}

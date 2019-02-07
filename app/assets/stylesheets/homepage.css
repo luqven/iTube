@@ -1,0 +1,25 @@
+/* ################################### */
+/* Home page styling */
+/* ################################### */
+
+.video-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  box-shadow: none;
+  list-style: none;
+  left: 45px;
+  width: 100%;
+  right: 0;
+}
+
+.home-container {
+  position: inherit;
+  /* top: 120px; */
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  top: 180px;
+  right: 0;
+  height: 100%;
+}

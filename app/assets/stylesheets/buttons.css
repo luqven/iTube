@@ -1,0 +1,86 @@
+/* ################################### */
+/*  buttons styling  */
+/* ################################### */
+
+.btn {
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
+  display: flex;
+  color: #065fd4 !important;
+  text-decoration: none;
+  border-radius: 3px;
+  margin: auto;
+  width: 70px;
+  height: 20px;
+  margin-right: 20px;
+  align-items: center;
+}
+/* .btn {
+  text-transform: uppercase;
+  display: flex;
+  color: #065fd4;
+  text-decoration: none;
+  border-radius: 3px;
+  margin: auto;
+  width: 70px;
+  height: 20px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  align-items: center;
+} */
+
+.blue-btn {
+  font-size: small;
+  font-weight: bold;
+  justify-content: center;  
+  color: white;
+  background-color: #1a73e8;
+  text-transform: none;
+  width: 80px;
+  height: 40px;
+  border-radius: 4px;
+  margin: 0px;
+}
+.blue-hover-btn {
+  font-size: small;
+  text-decoration: none;
+  text-align: center;
+  color: #287ae6 !important;
+  background-color: white;
+  text-transform: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border-color: white;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-btn:hover {
+  /* box-shadow: 0px 0px 33px -10px rgba(40,122,230,1); */
+  box-shadow: 0px 12px 12px -14px rgba(40,122,230,1);
+  background-color:  #1a73e8;
+  border: 1px solid #287ae6;
+}
+
+.blue-hover-btn:hover {
+  background-color: #dcebff;
+  transition: background-color .5s;
+}
+
+.guest-btn{
+  margin-right: auto;
+  margin-left: 28px;
+}
+
+.guest-btn:hover {
+  background-color: transparent;
+}
+
+.btn+.btn {
+    margin-left: 10px;
+}
