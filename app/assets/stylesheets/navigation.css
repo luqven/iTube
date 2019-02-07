@@ -105,13 +105,9 @@
 }
 
 .upload-button a {
-  /* position: absolute;
-  color: white;
-  padding-left: 1px;
-  font-size: large; */
   position: absolute;
-  color: white;
+  color: white !important;
   line-height: 20px;
-  padding-left: 2px;
+  margin-left: 2px;
   width: 20px;
 }
