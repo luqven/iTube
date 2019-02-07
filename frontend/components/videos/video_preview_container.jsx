@@ -1,6 +1,18 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import VideoPreview from './video_preview';
+import { getAllVideos } from '../../actions/videos';
 
+const msp = state => {
+  return {
+    videos: state.entities.videos,
+  }
+}
 
-export default withRouter(VideoPreview)
+const mdp = dipsatch => {
+  return {
+    getAllVideos: () => dipsatch(getAllVideos())
+  }
+}
+
+export default withRouter(connect(msp, mdp)(VideoPreview))

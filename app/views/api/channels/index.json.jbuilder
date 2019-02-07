@@ -4,6 +4,8 @@ json.channels do
             json.name channel.name
             json.body channel.body
             json.owner_id channel.owner.id
+            json.videoIds channel.videos.ids
+
         end
     end
 end

@@ -13,7 +13,7 @@ const Form = ({isOnwer}) => {
 }
 
 const msp = (state, ownProps) => {
-  debugger
+  
   return {
     isOnwer: state.entities.users[state.session.id].channel_id === state.entities.videos[ownProps.match.params.videoId].channel_id,
   }

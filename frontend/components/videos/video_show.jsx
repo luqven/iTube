@@ -16,7 +16,7 @@ export default class VideoShow extends React.Component {
 
   render() {
     let userInitial = this.props.video.uploader.username[0].toUpperCase();
-    debugger
+    
     return (
       <div className="video-show-container">
         <ul className="video-show">

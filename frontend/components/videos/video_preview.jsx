@@ -10,16 +10,24 @@ export default class VideoPreview extends React.Component {
         this.props.history.push(`/videos/${this.props.videoId}`)
     }
 
-    render() {
-    
+    componentDidMount() {
+        this.props.getAllVideos()
+    }
 
-    return (
-    <div key={this.props.videoId / 1.12 + 1} className="temp-image-container">
-            <img onClick={this.updateHistory} key={this.props.videoId / 1.1 + 1} className="temp-image" src={`${this.props.thumbnail_url}`}/>
-        <li key={this.props.videoId}> 
-            <p onClick={this.updateHistory}> {this.props.title} </p>
-        </li>
-    </div>
-    )
+    render() {
+        if (Object.values(this.props.videos).length >= 1) {
+            debugger
+            return (
+                <div key={this.props.videoId / 1.12 + 1} className="temp-image-container">
+                    <img onClick={this.updateHistory} key={this.props.videoId / 1.1 + 1}
+                        className="temp-image"
+                        src={`${this.props.videos[this.props.videoId].thumbnail_url}`} />
+                    <li key={this.props.videoId}>
+                        <p onClick={this.updateHistory}> {this.props.videos[this.props.videoId].title} </p>
+                    </li>
+                </div>
+            )
+        }
+        return null;
     }
 }
