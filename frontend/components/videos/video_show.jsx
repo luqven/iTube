@@ -46,6 +46,7 @@ export default class VideoShow extends React.Component {
 
   render() {
     let userInitial = this.props.video.uploader.username[0].toUpperCase();
+    let likeCount = Object.values(this.props.likes).length;
     let editButton;
 
     if(this.props.user === this.props.video.uploader.id) {
@@ -82,6 +83,7 @@ export default class VideoShow extends React.Component {
           <h3 className="video-text">{this.props.video.body}</h3>
           <div className="video-like-btn">
             {likeButton}
+            <p>{likeCount}</p>
           </div>
           <div className="video-edit-btns">
             {editButton}
