@@ -23,7 +23,7 @@ export default class VideoShow extends React.Component {
     let userInitial = this.props.video.uploader.username[0].toUpperCase();
     let button;
     if(this.props.user === this.props.video.uploader.id) {
-      button = <button onClick={this.handleClick} className="edit-btn">Edit</button>
+      button = <button onClick={this.handleClick} className="edit-btn">Edit Video</button>
     }
     return (
       <div className="video-show-container">

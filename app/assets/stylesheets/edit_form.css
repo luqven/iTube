@@ -2,3 +2,20 @@
 /* Edit form styling */
 /* ################################### */
 
+.edit-btn {
+  background-color: #065fd4;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-left: 190px;
+}
+
+.edit-btn:hover {
+  cursor: pointer;
+}
