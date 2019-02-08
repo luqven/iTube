@@ -55,6 +55,10 @@
   left: 650px;
   top: 425px;
   display: flex;
+  border-bottom: 2px solid gray;
+  border-width: medium;
+  padding-bottom: 10px;
+  width: 60px;
 }
 
 .video-like-btn .error-message {
