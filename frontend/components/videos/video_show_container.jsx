@@ -16,6 +16,7 @@ const msp = (state, ownProps) => {
   return {
     video: state.entities.videos[ownProps.match.params.videoId] || _nullVideo,
     videoId: ownProps.match.params.videoId,
+    likes: state.entities.likes,
     user: state.session.id,
   };
 };

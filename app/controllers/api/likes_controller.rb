@@ -7,7 +7,12 @@ class Api::LikesController < ApplicationController
 
   def show 
     @like = Like.find_by(video_id: params[:video_id])
-    render :show
+    if @like
+      render :show
+    else
+    render json: { likes: {} }
+
+    end
   end
 
   def create
@@ -21,7 +26,9 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find_by(id: params[:id])
+    @like = Like.find_by(video_id: params[:video_id])
+    @like.delete
+    render :show
   end
 
   def like_params

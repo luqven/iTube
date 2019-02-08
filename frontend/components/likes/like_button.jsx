@@ -7,36 +7,35 @@ class LikeButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoId: this.props.videoId,
-      liked: this.props.liked,
-      like: this.props.like,
+      like: {
+        user_id: this.props.user_id,
+        video_id: this.props.video_id,
+        liked: true,
+      }
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    if (this.state.liked) {
+    if (this.props.type === "liked") {
       this.props.deleteLike(this.props.like)
     } else {
-      this.props.addLike(this.props.like)      
+      this.props.addLike(this.state.like)      
     }
   }
 
   render() {
-    let text;
-    if (this.state.liked) {
-      text = 'Liked'
+    if (this.props.type === 'liked') {
+      return <button onClick={this.handleClick}>Liked!</button>
     } else {
-      text = 'Like'
+      return <button onClick={this.handleClick}>Like</button>
     }
-    return(
-      <button onClick={this.handleClick}>{text}</button>
-    )
   }
 }
 
 const msp = (state) => {
   return {
+    user_id: state.session.id,
   }
 };
 
@@ -48,4 +47,4 @@ const mdp = dispatch => {
   }
 }
 
-export default connect(null, mdp)(LikeButton)
+export default connect(msp, mdp)(LikeButton)

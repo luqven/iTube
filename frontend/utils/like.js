@@ -15,7 +15,7 @@ export const postLike = (like) => {
 
 export const destroyLike = (like) => {
   return $.ajax({
-    method: 'destroy',
+    method: 'delete',
     url: `/api/videos/${like.video_id}/likes`
   })
 }

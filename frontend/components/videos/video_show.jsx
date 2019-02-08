@@ -9,6 +9,9 @@ export default class VideoShow extends React.Component {
       videoUrl: this.props.video.video_url
     };
     this.handleClick = this.handleClick.bind(this);
+    this.likers = this.likers.bind(this);
+    this.likedByUser = this.likedByUser.bind(this);
+    this.getUserLike = this.getUserLike.bind(this);
   }
 
   componentDidMount(){
@@ -20,13 +23,49 @@ export default class VideoShow extends React.Component {
     this.props.history.push(`/update/${this.props.video.id}`)
   }
 
+  // get array of user ids that likes this video
+  likers() {
+    return Object.values(this.props.likes).map(like => {
+      return like.liker_id;
+    });
+  }
+  // determine if current user liked the video
+  likedByUser() {
+    let likers = this.likers();
+    return likers.includes(this.props.user);
+  }
+
+  getUserLike() {
+    let likers = this.likers();
+    const allLikes = Object.values(this.props.likes).map((like) => {
+      return like.id;
+    });
+    return allLikes[likers.indexOf(this.props.user)];
+  }
+
 
   render() {
     let userInitial = this.props.video.uploader.username[0].toUpperCase();
-    let button;
+    let editButton;
+
     if(this.props.user === this.props.video.uploader.id) {
-      button = <button onClick={this.handleClick} className="edit-btn">Edit Video</button>
+      editButton = <button onClick={this.handleClick} className="edit-btn">Edit Video</button>
     }
+
+    let likeButton;
+    if (Object.values(this.props.likes).length >= 1) {
+      if (this.likedByUser()) {
+        // display like button as selected
+        likeButton = <LikeButton type="liked" like={this.props.likes[this.getUserLike()]} />
+      } else {
+        // display liked button as unselected
+        likeButton = <LikeButton type="like" video_id={this.props.video.id} />
+      }
+    } else {
+      // display liked button as unselected
+      likeButton = <LikeButton type="like" video_id={this.props.video.id} />
+    }
+
     return (
       <div className="video-show-container">
         <ul className="video-show">
@@ -42,10 +81,10 @@ export default class VideoShow extends React.Component {
           </div>
           <h3 className="video-text">{this.props.video.body}</h3>
           <div className="video-like-btn">
-            <LikeButton videoId={this.props.video.id} />
+            {likeButton}
           </div>
           <div className="video-edit-btns">
-            {button}
+            {editButton}
           </div>
         </div>
       </div>
