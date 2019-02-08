@@ -6,7 +6,6 @@ class Api::LikesController < ApplicationController
   end
 
   def show 
-    debugger
     @like = Like.find_by(video_id: params[:video_id])
     render :show
   end

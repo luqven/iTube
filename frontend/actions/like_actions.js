@@ -25,19 +25,19 @@ export const removeLike = payload => {
   };
 };
 
-export const getLikes = (videoId) => {
+export const getLikes = (videoId) => dispatch => {
   return fetchLikes(videoId).then(
     likes => dispatch(receiveLikes(likes))
   )
 }
 
-export const addLike = (like) => {
+export const addLike = (like) => dispatch => {
   return postLike(like).then(
     like => dispatch(receiveLike(like))
   )
 }
 
-export const deleteLike = (like) => {
+export const deleteLike = (like) => dispatch => {
   return destroyLike(like).then(
     like => dispatch(removeLike(like))
   )

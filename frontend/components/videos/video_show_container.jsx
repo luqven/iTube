@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import VideoShow from './video_show';
 import { getAllVideos, getVideo } from '../../actions/videos';
+import { getLikes } from '../../actions/like_actions';
 
 const msp = (state, ownProps) => {
   let _nullVideo = {
@@ -22,7 +23,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return {
     getAllVideos: () => dispatch(getAllVideos()),
-    getVideo: (videoId) => dispatch(getVideo(videoId))
+    getVideo: (videoId) => dispatch(getVideo(videoId)),
+    getLikes: (videoId) => dispatch(getLikes(videoId)),
   };
 };
 

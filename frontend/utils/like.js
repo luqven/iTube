@@ -1,7 +1,7 @@
 export const fetchLikes = (videoId) => {
   return $.ajax({
     method: 'get',
-    url: `/api/videos/${videoId}/`
+    url: `/api/videos/${videoId}/likes`
   })
 }
 

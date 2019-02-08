@@ -22,3 +22,14 @@ json.channels do
       json.videoIds @video.channel.videos.ids
     end
 end
+
+json.likes do
+  @video.likes do |like|
+    json.set! like.id do
+      json.liked like.liked
+      json.liker like.user_id
+      json.video_id like.video_id
+      json.id like.id
+    end
+  end
+end

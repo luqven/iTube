@@ -12,7 +12,8 @@ export default class VideoShow extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getVideo(this.props.video.id)
+    this.props.getLikes(this.props.video.id);
+    this.props.getVideo(this.props.video.id);
   }
 
   handleClick(){
@@ -41,7 +42,7 @@ export default class VideoShow extends React.Component {
           </div>
           <h3 className="video-text">{this.props.video.body}</h3>
           <div className="video-like-btn">
-            <LikeButton liked={false} videoId={this.props.video.id} />
+            <LikeButton videoId={this.props.video.id} />
           </div>
           <div className="video-edit-btns">
             {button}
