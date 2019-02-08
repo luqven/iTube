@@ -1,21 +1,26 @@
 /* ################################### */
 /* Edit form styling */
 /* ################################### */
-
-.edit-btn {
-  background-color: #065fd4;
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 2px;
-  margin-top: 10px;
-  margin-left: 190px;
+.form-text-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5px;
 }
 
-.edit-btn:hover {
-  cursor: pointer;
+.form-text-inputs label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-text-inputs input{
+  margin: 5px;
+  padding: 4px;
+}
+
+
+.form-text-inputs .btn {
+  margin-right: 0px;
+  margin: auto;
+  justify-content: center;
 }

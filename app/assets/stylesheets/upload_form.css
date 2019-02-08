@@ -10,30 +10,6 @@
   align-items: center;
 }
 
-.form-text-inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 5px;
-}
-
-.form-text-inputs label {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-text-inputs input{
-  margin: 5px;
-  padding: 4px;
-}
-
-
-.form-text-inputs .btn {
-  margin-right: 0px;
-  margin: auto;
-  justify-content: center;
-}
-
 .video-up-btn {
   font-size: 600%;
   color: lightgrey;
