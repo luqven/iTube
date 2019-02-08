@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createStore from './store/store';
 import Root from './components/root';
-import {login} from './actions/session';
+import { fetchLikes, postLike } from './utils/like';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   // window.dispatch = store.dispatch;
   // window.login = login;
+  window.fetchLikes = fetchLikes;
+  window.postLike = postLike;
   // TESTING END
 
   ReactDOM.render(<Root store={store}/>, root);

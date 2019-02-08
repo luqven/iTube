@@ -23,4 +23,8 @@ class Video < ApplicationRecord
   has_one :uploader,
     through: :channel,
     source: :owner
+
+  has_many :likes,
+    foreign_key: :video_id,
+    class_name: :Like
 end

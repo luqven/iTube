@@ -10,6 +10,7 @@ json.videos do
         json.username @video.uploader.username
       end
       json.id @video.id
+      json.like_ids @video.likes.ids
   end
 end
 
