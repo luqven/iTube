@@ -6,7 +6,7 @@ export default class VideoShow extends React.Component {
     super(props);
     this.state = {
       video: this.props.video,
-      videoUrl: this.props.video.video_url
+      videoUrl: this.props.video.video_url,
     };
     this.handleClick = this.handleClick.bind(this);
     this.likers = this.likers.bind(this);

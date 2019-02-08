@@ -54,7 +54,11 @@
   position: absolute;
   left: 650px;
   top: 425px;
+  display: flex;
 }
+
+.video-like-btn .error-message {
+  padding-left: 20px;
 }
 
 .button-like {

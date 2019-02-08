@@ -1,5 +1,5 @@
 import { fetchLikes, postLike, destroyLike } from '../utils/like';
-
+import { receiveErrors } from "./session";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const RECEIVE_LIKES = "RECEIVE_LIKES";
 export const REMOVE_LIKE = "REMOVE_LIKE";
@@ -33,7 +33,8 @@ export const getLikes = (videoId) => dispatch => {
 
 export const addLike = (like) => dispatch => {
   return postLike(like).then(
-    like => dispatch(receiveLike(like))
+    like => dispatch(receiveLike(like)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 }
 
