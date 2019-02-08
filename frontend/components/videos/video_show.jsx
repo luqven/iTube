@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeButton from '../likes/like_button';
 
 export default class VideoShow extends React.Component {
   constructor(props) {
@@ -39,6 +40,9 @@ export default class VideoShow extends React.Component {
             <p className="user-initial">{this.props.video.uploader.username}</p>
           </div>
           <h3 className="video-text">{this.props.video.body}</h3>
+          <div className="video-like-btn">
+            <LikeButton liked={false} videoId={this.props.video.id} />
+          </div>
           <div className="video-edit-btns">
             {button}
           </div>
