@@ -7,16 +7,24 @@ export default class VideoShow extends React.Component {
       video: this.props.video,
       videoUrl: this.props.video.video_url
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
     this.props.getVideo(this.props.video.id)
   }
 
+  handleClick(){
+    this.props.history.push(`/update/${this.props.video.id}`)
+  }
+
 
   render() {
     let userInitial = this.props.video.uploader.username[0].toUpperCase();
-    
+    let button;
+    if(this.props.user === this.props.video.uploader.id) {
+      button = <button onClick={this.handleClick} className="edit-btn">Edit</button>
+    }
     return (
       <div className="video-show-container">
         <ul className="video-show">
@@ -31,6 +39,9 @@ export default class VideoShow extends React.Component {
             <p className="user-initial">{this.props.video.uploader.username}</p>
           </div>
           <h3 className="video-text">{this.props.video.body}</h3>
+          <div className="video-edit-btns">
+            {button}
+          </div>
         </div>
       </div>
     )

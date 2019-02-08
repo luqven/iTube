@@ -11,9 +11,11 @@ const msp = (state, ownProps) => {
     id: ownProps.match.params.videoId,
     uploader: {id: null, username: 'not found'},
   };
+
   return {
     video: state.entities.videos[ownProps.match.params.videoId] || _nullVideo,
-    videoId: ownProps.match.params.videoId
+    videoId: ownProps.match.params.videoId,
+    user: state.session.id,
   };
 };
 

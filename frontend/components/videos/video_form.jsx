@@ -59,16 +59,16 @@ export default class VideoForm extends React.Component {
             formData.append('video[channel_id]', this.state.channel_id)
             formData.append('video[video_attachment]', this.state.video_attachment)
             formData.append('video[thumbnail_attachment]', this.state.thumbnail_attachment)
-
-
             this.props.addVideo(formData)
+            this.props.history.push(`/`)
+
         } else {
             formData.append('video[title]', this.state.title)
             formData.append('video[body]', this.state.body)
             formData.append('video[id]', this.props.videoId)
             this.props.updateVideo(formData)
+            this.props.history.push(`/channel/${this.state.channel_id}/${this.props.video.uploader.id}`)
         }
-        this.props.history.push(`/channel/${this.state.channel_id}`)
     }
 
     render() {
@@ -91,16 +91,6 @@ export default class VideoForm extends React.Component {
         return (
             <div className="upload-form-container">
                 {uploadInput}
-                {/* <label className="upload-inpt-label">
-                    <h2 className="video-up-btn"><FontAwesomeIcon icon={`${this.state.btn1}`} /></h2>
-                    <input onChange={this.handleVideo} type="file" placeholder="video" accept=".mp4, .ogg" />
-                    Select file to upload
-                </label> */}
-                {/* <label className="upload-inpt-label">
-                    <h2 className="video-up-btn"><FontAwesomeIcon icon={`${this.state.btn2}`} /></h2>
-                    <input onChange={this.handleThumbnail} type="file" placeholder="video" accept="image/*"/>
-                    Select thumbnail to upload
-                </label> */}
                 <form className="form-text-inputs">
                     <label> Title
                         <textarea rows='10' onChange={this.handleTitleChange} placeholder="A title for the video" value={this.state.title}></textarea>
@@ -108,8 +98,6 @@ export default class VideoForm extends React.Component {
                     <label> Body
                         <textarea rows='10' onChange={this.handleBodyChange} placeholder="Description for the video" value={this.state.body}></textarea>
                     </label>
-                    {/* <input onChange={this.handleTitleChange} type="text" placeholder="Title" value={this.state.title}/> */}
-                    {/* <input onChange={this.handleBodyChange} type="text" placeholder="Description" value={this.state.body}/> */}
                     <p className="upload-form-error">{this.state.errors}</p>
                     <button className="btn" onClick={this.handleSubmit}>{this.props.action}</button>
                 </form>

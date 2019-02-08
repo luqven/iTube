@@ -70,3 +70,8 @@
 /* Upload page styling */
 /* ################################### */
 @import url('./upload_form.css');
+
+/* ################################### */
+/* Edit form styling */
+/* ################################### */
+@import url('./edit_form.css');

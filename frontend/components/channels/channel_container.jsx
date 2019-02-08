@@ -9,7 +9,6 @@ import { getUser, getAllUsers } from '../../actions/user_actions';
 
 
 const msp = (state, ownProps) => {
-	debugger
 	return {
 		channel: state.entities.channels[ownProps.match.params.channelId] || {},
 		channelId: ownProps.match.params.channelId,
