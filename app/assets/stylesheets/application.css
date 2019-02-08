@@ -63,6 +63,8 @@
 
 /* ################################### */
 /* Video page styling */
+/* upload button styling */
+/* like button styling */
 /* ################################### */
 @import url('./video.css');
 
@@ -75,3 +77,4 @@
 /* Edit form styling */
 /* ################################### */
 @import url('./edit_form.css');
+

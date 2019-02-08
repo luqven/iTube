@@ -49,3 +49,28 @@
   margin-top: 70px;
   padding-bottom: 10px;
 }
+
+.video-like-btn {
+  position: absolute;
+  left: 650px;
+  top: 425px;
+}
+}
+
+.button-like {
+  color: lightgray;
+}
+
+.button-like:hover{
+  cursor: pointer;
+  color: #6aa1e8;
+}
+
+.button-liked {
+  color: #6aa1e8;
+}
+
+.button-liked:hover{
+  cursor: pointer;
+  color: lightgray;
+}

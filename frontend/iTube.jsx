@@ -10,9 +10,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fabYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faUserCircle, faSignOutAlt, faVideo, faFileVideo, faUpload, faFileImage, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faSignOutAlt, faVideo, faFileVideo,
+         faUpload, faFileImage, faCheckCircle, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faUserCircle, faSignOutAlt, faVideo, faUpload, faFileImage, faFileVideo, faCheckCircle);
+library.add(fab, faUserCircle, faSignOutAlt, faVideo,
+            faUpload, faFileImage, faFileVideo, faCheckCircle, faThumbsUp);
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -37,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   // window.dispatch = store.dispatch;
   // window.login = login;
-  window.fetchLikes = fetchLikes;
-  window.postLike = postLike;
+  // window.fetchLikes = fetchLikes;
+  // window.postLike = postLike;
   // TESTING END
 
   ReactDOM.render(<Root store={store}/>, root);

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { getLikes, addLike, deleteLike } from '../../actions/like_actions';
 
 class LikeButton extends React.Component {
@@ -26,9 +28,11 @@ class LikeButton extends React.Component {
 
   render() {
     if (this.props.type === 'liked') {
-      return <button onClick={this.handleClick}>Liked!</button>
+      // return <button className="button-liked" onClick={this.handleClick}>Liked!</button>
+      return <FontAwesomeIcon icon="thumbs-up" className="button-liked" onClick={this.handleClick} />
     } else {
-      return <button onClick={this.handleClick}>Like</button>
+      // return <button className="button-like" onClick={this.handleClick}>Like</button>
+      return <FontAwesomeIcon icon="thumbs-up" className="button-like" onClick={this.handleClick} />
     }
   }
 }
