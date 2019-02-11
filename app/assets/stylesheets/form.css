@@ -115,4 +115,5 @@ input:focus::placeholder, textarea:focus::placeholder {
   box-shadow: none;
   position: inherit;
   justify-content: space-between;
+  padding-top: 10px;
 }

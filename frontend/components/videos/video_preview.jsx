@@ -15,6 +15,7 @@ export default class VideoPreview extends React.Component {
     }
 
     render() {
+        // length is one even on rerender, home compnenet will break
         if (Object.values(this.props.videos).length >= 1) {
             const video = this.props.videos[this.props.videoId]
             return (

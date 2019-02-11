@@ -7,15 +7,18 @@
 }
 
 .video-show {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  box-shadow: none;
-  margin-top: 20px;
-  margin-left: 30px;
-  max-width: 80%;
-  background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    box-shadow: none;
+    margin-top: 20px;
+    margin-left: 30px;
+    max-width: 80%;
+    justify-content: space-between;
+    background-color: transparent;
+    margin-bottom: 20px;
 }
 
 .video-show video {
@@ -24,16 +27,17 @@
 }
 
 .video-show li {
-  margin-top: 20px;
-  text-transform: capitalize;
+    margin-top: 20px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
 }
 
 .video-user-info {
-  width: 80%;
-  display: flex;
-  margin-top: 60px;
-  border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
+    width: 80%;
+    display: flex;
+    margin-top: 0px;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
 }
 
 .video-show-container .dropdown-user-icon {
@@ -51,14 +55,11 @@
 }
 
 .video-like-btn {
-  position: absolute;
-  left: 650px;
-  top: 425px;
-  display: flex;
-  border-bottom: 2px solid gray;
-  border-width: medium;
-  padding-bottom: 10px;
-  width: 60px;
+    height: 20px;
+    display: flex;
+    border-bottom: 2px solid gray;
+    border-width: medium;
+    width: 60px;
 }
 
 .video-like-btn .error-message {

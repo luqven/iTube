@@ -74,6 +74,12 @@ export default class VideoShow extends React.Component {
           src={`${this.props.video.video_url}`} type="video/mp4">
         </video>
           <li>{this.props.video.title}</li>
+          <li>
+            <div className="video-like-btn">
+              {likeButton}
+              <p>{likeCount}</p>
+            </div>
+          </li>
         </ul>
         <div className = "video-user-info">
           <div className="dropdown-user-icon">
@@ -81,10 +87,6 @@ export default class VideoShow extends React.Component {
             <p className="user-initial">{this.props.video.uploader.username}</p>
           </div>
           <h3 className="video-text">{this.props.video.body}</h3>
-          <div className="video-like-btn">
-            {likeButton}
-            <p>{likeCount}</p>
-          </div>
           <div className="video-edit-btns">
             {editButton}
           </div>

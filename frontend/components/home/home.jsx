@@ -16,11 +16,14 @@ class Home extends React.Component {
   }
 
   render() {
-    const channels = this.props.channels.map((channel, idx) => {
-      return (
-        <ChannelCarousel channel={channel} classId={idx} key={idx} userId={channel.owner_id} />
-      )
-    })
+    let channels;
+    if (this.props.videos.length >= 2){
+      channels = this.props.channels.map((channel, idx) => {
+        return (
+          <ChannelCarousel channel={channel} classId={idx} key={idx} userId={channel.owner_id} />
+        )
+      })
+    }
 
     return (
       <ul className="home-container">
