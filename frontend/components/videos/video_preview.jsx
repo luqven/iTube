@@ -15,10 +15,11 @@ export default class VideoPreview extends React.Component {
     }
 
     render() {
-        // length is one even on rerender, home compnenet will break
+        // change the iteration to be in the container
         if (Object.values(this.props.videos).length >= 1) {
             const video = this.props.videos[this.props.videoId]
             return (
+                // break this out into another component
                 <div key={this.props.videoId / 1.12 + 1} className="temp-image-container">
                     <img onClick={this.updateHistory} key={this.props.videoId / 1.1 + 1}
                         className="temp-image"

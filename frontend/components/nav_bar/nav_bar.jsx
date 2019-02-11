@@ -47,8 +47,10 @@ export default class NavBar extends React.Component{
   return (
     <div className="nav-container">
       <section className="title-logo"> 
-        <p><FontAwesomeIcon icon={["fab", "youtube"]}/></p>
-        <Link to="/" className="title-logo"> iTube </Link>
+        <Link to="/" className="title-logo">
+          <p><FontAwesomeIcon icon={["fab", "youtube"]} /></p>
+          iTube
+         </Link>
       </section>
       <section className="nav-auth-buttons">
         {drop_down}

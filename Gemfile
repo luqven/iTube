@@ -31,7 +31,8 @@ gem 'faker'
 gem 'aws-sdk-s3'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+# Use for RealFavicon for favicon generation
+gem 'rails_real_favicon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

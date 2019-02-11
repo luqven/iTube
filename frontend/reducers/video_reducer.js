@@ -8,11 +8,7 @@ export default (state = _nullVideos, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_VIDEOS:
-      newState = merge({}, state, action.payload.videos)
-      return newState;
     case RECEIVE_VIDEO:
-      newState = merge({}, state, action.payload.videos)
-      return newState;
     case RECEIVE_CHANNEL:
       newState = merge({}, state, action.payload.videos)
       return newState;
