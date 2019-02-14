@@ -18,9 +18,10 @@ class ChannelCarousel extends React.Component {
         <li className="show-video-carousel">
         <UserCircle userId={this.props.userId}/>
         </li>
+        <div id="home-carousel-container">
         <li className= "preview-carousel">
           {videoPreviews}
-        </li>
+          </li></div>
       </>
     )
   }
