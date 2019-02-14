@@ -19,9 +19,9 @@ class LikeButton extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // componentDidUpdate() {
-  //   this.setState({ errors: this.props.errors })
-  // }
+  componentDidMount() {
+    this.props.resetErrors();
+  }
 
   handleClick() {
     if (this.props.type === "liked") {
@@ -35,7 +35,7 @@ class LikeButton extends React.Component {
 
   render() {
     let errors = this.props.errors.map((error, idx) => {
-      return <li key={idx}>{error}</li>
+      return <li className="video-error" key={idx}>{error}</li>
     })
     if (this.props.type === 'liked') {
       // return <button className="button-liked" onClick={this.handleClick}>Liked!</button>

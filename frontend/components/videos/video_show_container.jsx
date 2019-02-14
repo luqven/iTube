@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import VideoShow from './video_show';
 import { getAllVideos, getVideo } from '../../actions/videos';
 import { getLikes } from '../../actions/like_actions';
+import { resetErrors } from '../../actions/session';
 
 const msp = (state, ownProps) => {
   let _nullVideo = {
@@ -27,6 +28,7 @@ const mdp = dispatch => {
     getAllVideos: () => dispatch(getAllVideos()),
     getVideo: (videoId) => dispatch(getVideo(videoId)),
     getLikes: (videoId) => dispatch(getLikes(videoId)),
+    resetErrors: () => dispatch(resetErrors()),
   };
 };
 

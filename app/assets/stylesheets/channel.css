@@ -182,8 +182,28 @@
 }
 
 .preview-carousel{
-    display: flex;
+    /* display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding-bottom: 40px;
-    border-bottom: .5px solid lightgray;
+    border-bottom: .5px solid lightgray; */
+    list-style: none;
+    padding-bottom: 40px;
+    border-left: .5px solid lightgray;
+    width: 150px;
+    height: 670px;
+    padding-top: 165px;
+    margin-left: -195px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform-origin: right top;
+    transform: rotate(-90deg);
+    transform: rotate(-90deg) translateY(-100px);
+}
+
+.preview-carousel > div {
+  width: 150px;
+  height: 200px;
+  transform: rotate(90deg);
+  transform-origin: right top;
 }

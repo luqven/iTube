@@ -64,7 +64,7 @@ export default class VideoShow extends React.Component {
       }
     } else {
       // display liked button as unselected
-      likeButton = <LikeButton type="like" video_id={this.props.video.id} />
+      likeButton = <LikeButton type="like" video_id={this.props.video.id} resetErrors={this.props.resetErrors} />
     }
 
     return (

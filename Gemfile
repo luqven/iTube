@@ -26,9 +26,11 @@ gem 'jquery-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use faker to generate Guest User content on every seed
-gem 'faker'
+gem 'faker', '~> 1.9.3'
 # Use AWS S3 gem for online storage
 gem 'aws-sdk-s3'
+# Use EzDownload to seed AWS videos
+gem 'ez_download', git: 'https://github.com/OscarAlvarez8830/EZDownload.git'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # Use for RealFavicon for favicon generation
