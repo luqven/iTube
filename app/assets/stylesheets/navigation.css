@@ -41,7 +41,6 @@
 }
 
 .title-logo, h1 {
-  margin-right: auto;
   display: flex;
   flex-direction: row;
   margin-top: 5px;

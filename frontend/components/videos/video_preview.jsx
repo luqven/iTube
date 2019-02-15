@@ -19,6 +19,7 @@ export default class VideoPreview extends React.Component {
 
     render() {
         // TODO: change the iteration to be in the container
+        // render only when there are videos in its slice of state
         if (Object.values(this.props.videos).length >= 1) {
             const video = this.props.videos[this.props.videoId]
             return (
