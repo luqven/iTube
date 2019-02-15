@@ -190,9 +190,9 @@
     list-style: none;
     padding-bottom: 0px;
     border-left: .5px solid lightgray;
-    width: 150px;
+    width: 165px;
     height: 1100px;
-    padding-top: 165px;
+    padding-top: 175px;
     margin-left: -55px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -201,7 +201,7 @@
 }
 
 .preview-carousel > div {
-  width: 150px;
+  width: 165px;
   height: 200px;
   transform: rotate(90deg);
   transform-origin: right top;
