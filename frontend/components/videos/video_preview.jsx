@@ -1,5 +1,7 @@
 import React from 'react';
 import ChannelName from '../user_show/user_circle_container';
+import VideoThumbnail from './video_thumbnail';
+import VideoTitle from './video_title';
 
 export default class VideoPreview extends React.Component {
     constructor(props) {
@@ -20,15 +22,12 @@ export default class VideoPreview extends React.Component {
         if (Object.values(this.props.videos).length >= 1) {
             const video = this.props.videos[this.props.videoId]
             return (
-                // TODO: break this out into another component
                 // the video's preview image container
                 <div key={this.props.videoId / 1.12 + 1} className="temp-image-container">
                 {/* the actual preview image */}
-                    <img onClick={this.updateHistory} key={this.props.videoId / 1.1 + 1}
-                        className="temp-image"
-                        src={`${video.thumbnail_url}`} />
+                    <VideoThumbnail update={this.updateHistory} imgSrc={`${video.thumbnail_url}`} key={this.props.videoId / 1.1 + 1} />
                     {/* the video's title */}
-                    <p onClick={this.updateHistory}> {video.title} </p>
+                    <VideoTitle update={this.updateHistory} title={video.title} />
                     {/* the channel name displayed under the vieo */}
                     <ChannelName userId={video.uploader.id} />
                 </div>
