@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropDown from "../modal/modal";
 import UploadButton from "./upload_button";
 import LogoButton from "./logo_button";
+import SearchBar from "./search/search_container";
 
 
 export default class NavBar extends React.Component{
@@ -52,13 +53,7 @@ export default class NavBar extends React.Component{
          <LogoButton />
       </section>
       {/* search bar */}
-      <section className="search-container">
-        <div>
-          <form>
-            <input type="text" name="" id="" placeholder="Search"/>
-          </form>
-        </div>
-      </section>
+        <SearchBar />
       {/* right ahnd drop down and buttons */}
       <section className="nav-auth-buttons">
         {RightHandButtons}

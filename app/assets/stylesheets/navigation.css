@@ -110,3 +110,44 @@
   margin-left: 2px;
   width: 20px;
 }
+/* ---------------------- */
+/* search bar */
+.search-container {
+  width: 65%;
+  height: 32px;
+}
+
+.search-container div{
+  display: flex;
+  justify-content: center;
+  height: 48px;
+}
+
+.search-container form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  height: 100%;
+  width: 50%;
+}
+
+.search-container input {
+  width: 100%;
+  height: 50%;
+  padding-left: 10px;
+  margin-right: 0.8px;
+  font-weight: lighter;
+}
+
+.search-container form p:first-of-type {
+  height: 50%;
+  background-color: #f8f8f8;
+  padding-top: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.search-container form p:first-of-type svg{
+  color: gray;
+}
+
