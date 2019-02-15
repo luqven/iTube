@@ -15,4 +15,4 @@ const mdp = dispatch => {
   }
 };
 
-export default withRouter(connect(msp, mdp)(SearchBar));
+export default withRouter(connect(null, null)(SearchBar));

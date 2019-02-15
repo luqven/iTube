@@ -5,10 +5,15 @@ class Api::VideosController < ApplicationController
     if @searchTerms 
       @videos = Video.all.select("*").where("title LIKE '%#{@searchTerms}%'")
       debugger
+      if (@videos.length >= 1)
+        render :index
+      else 
+        render json: "No video found", status: 404
+      end
     else
       @videos = Video.all
+      render :index
     end
-    render :index
   end
 
   def new

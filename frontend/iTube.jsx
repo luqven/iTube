@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.login = login;
   // window.fetchLikes = fetchLikes;
   // window.postLike = postLike;
-  window.searchForTerms = searchForTerms;
+  // window.searchForTerms = searchForTerms;
   // TESTING END
 
   ReactDOM.render(<Root store={store}/>, root);
