@@ -1,20 +1,9 @@
 class Api::VideosController < ApplicationController
 
   def index
-    @searchTerms = params["searchTerms"]
-    if @searchTerms 
-      @videos = Video.all.select("*").where("title LIKE '%#{@searchTerms}%'")
-      debugger
-      if (@videos.length >= 1)
-        render :index
-      else 
-        render json: "No video found", status: 404
-      end
-    else
       @videos = Video.all
       render :index
     end
-  end
 
   def new
     @video = Video.new
@@ -35,6 +24,19 @@ class Api::VideosController < ApplicationController
   end
 
   def update
+    @searchTerms = nil
+    @searchTerms = params[:id]
+    if @searchTerms 
+      @videos = Video.all.select("*").where("title LIKE '%#{@searchTerms}%'")
+      if (@videos.length >= 1)
+        render :index
+        return
+      else 
+        render json: ""
+        return;
+      end
+    end
+
     @video = Video.find_by(id: params[:id])
     if @video.update(video_params)
       render :show
@@ -47,7 +49,7 @@ class Api::VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:title, :body, :channel_id, :uploader, :user_id, :video_attachment, :thumbnail_attachment)
+    params.require(:video).permit(:title, :body, :channel_id, :uploader, :user_id, :video_attachment, :thumbnail_attachment, :search_terms)
   end
 
 end

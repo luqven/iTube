@@ -151,3 +151,14 @@
   color: gray;
 }
 
+.search-container ul {
+  left: 33%;
+  list-style: none;
+  right: 38%;
+  padding-bottom: 40px !important;
+}
+
+.search-container li {
+  padding: 10px;
+}
+
