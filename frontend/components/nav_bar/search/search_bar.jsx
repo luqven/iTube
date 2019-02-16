@@ -11,32 +11,7 @@ class SearchBar extends React.Component {
     }
   }
 
-  // handleInput(e){
-  //   if (e.currentTarget.value.length < 1) {return this.props.resetSearch();}
-  //   this.setState({search_terms: e.currentTarget.value})
-  //   this.props.getSearchResults(this.state.search_terms)
-  // }
-
   render() {
-    // let foundVideoTitles = Object.values(this.props.search).map((video, idx) => {
-    //   return <li key={idx}>{video.title}</li>
-    // })
-    // let searchResults;
-    // if (foundVideoTitles.length >= 1) { searchResults = <ul>{foundVideoTitles}</ul> }
-    // only render li elements when videos have been found
-    // if (foundVideoTitles) {
-    //   return(
-    //     <section className="search-container">
-    //       <div>
-    //         <form>
-    //           <input onChange={this.handleInput} type="text" placeholder="Search" />
-    //           <p><FontAwesomeIcon icon={["fas", "search"]} /></p>
-    //           {/* {searchResults} */}
-    //         </form>
-    //       </div>
-    //     </section>
-    //   )
-    // }
     let autoComplete;
     if (this.props.search) { autoComplete = <AutoComplete />}
     return (
