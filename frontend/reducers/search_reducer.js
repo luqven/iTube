@@ -6,10 +6,8 @@ const searchReducer = (state = _nullSearch, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SEARCH:
-      // debugger
       let searchResult = action.payload.videos
-      // if (Object.values(searchResult).length === 10) { searchResult = {}; }
-      return merge({}, state, searchResult)
+      return searchResult
     case RESET_SEARCH:
       return _nullSearch;
     default:

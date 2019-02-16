@@ -3,7 +3,7 @@ class Api::VideosController < ApplicationController
   def index
       @videos = Video.all
       render :index
-    end
+  end
 
   def new
     @video = Video.new
@@ -24,25 +24,16 @@ class Api::VideosController < ApplicationController
   end
 
   def update
-    @searchTerms = nil
-    @searchTerms = params[:id]
-    if @searchTerms 
-      @videos = Video.all.select("*").where("title LIKE '%#{@searchTerms}%'")
-      if (@videos.length >= 1)
-        render :index
-        return
-      else 
-        render json: ""
-        return;
-      end
-    end
-
     @video = Video.find_by(id: params[:id])
     if @video.update(video_params)
       render :show
     else
       render json: @video.errors.full_messages, status: 401
     end
+  end
+
+  def search_index
+    @videos = Video.all
   end
 
   def destroy

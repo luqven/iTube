@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     end
     resources :channels, only: [:index, :show, :new, :create, :destroy]
     resource :session, only: [:new, :create, :destroy]
+    get '/search', :to => 'videos#search_index'
   end
 end

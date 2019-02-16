@@ -67,32 +67,36 @@ export default class VideoShow extends React.Component {
       likeButton = <LikeButton type="like" video_id={this.props.video.id} resetErrors={this.props.resetErrors} />
     }
 
-    return (
-      <div className="video-show-container">
-        <ul className="video-show">
-          <video width="320" height="240" preload="metadata" controls="controls" 
-          src={`${this.props.video.video_url}`} type="video/mp4">
-        </video>
-          <li>{this.props.video.title}</li>
-          <li>
-            <div className="video-like-btn">
-              {likeButton}
-              <p>{likeCount}</p>
+    if (this.props.video) {
+      return(
+        <div className="video-show-container">
+          <ul className="video-show">
+            <video width="320" height="240" preload="metadata" controls="controls"
+              src={`${this.props.video.video_url}`} type="video/mp4">
+            </video>
+            <li>{this.props.video.title}</li>
+            <li>
+              <div className="video-like-btn">
+                {likeButton}
+                <p>{likeCount}</p>
+              </div>
+            </li>
+          </ul>
+          <div className="video-user-info">
+            <div className="dropdown-user-icon">
+              <p>{userInitial}</p>
+              <p className="user-initial">{this.props.video.uploader.username}</p>
             </div>
-          </li>
-        </ul>
-        <div className = "video-user-info">
-          <div className="dropdown-user-icon">
-            <p>{userInitial}</p>
-            <p className="user-initial">{this.props.video.uploader.username}</p>
-          </div>
-          <h3 className="video-text">{this.props.video.body}</h3>
-          <div className="video-edit-btns">
-            {editButton}
+            <h3 className="video-text">{this.props.video.body}</h3>
+            <div className="video-edit-btns">
+              {editButton}
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    }
+
+    return (null)
   }
 
 
