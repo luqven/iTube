@@ -1,0 +1,19 @@
+.search-results-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    margin-right: 22%;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30%;
+    justify-content: space-between;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.search p, h3 {
+  margin: auto !important;
+}

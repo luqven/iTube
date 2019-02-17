@@ -15,16 +15,13 @@ class SearchResults extends React.Component {
       videoPreviews = <VideoPreview videoId={parseInt(matchedIds)} /> 
     } else {
       svideoPreviews = matchedIds.map((videoId, idx) => {
-        return <VideoPreview videoId={parseInt(videoId)} key={idx} />
+        return <VideoPreview classId={"search" }videoId={parseInt(videoId)} key={idx} />
      })
     };
 
     return (
-        <div>
-          {/* the search results */}
-            <li className="preview-carousel">
+        <div className="search-reults-container">
               {videoPreviews}
-            </li>
         </div>
     )
   };
