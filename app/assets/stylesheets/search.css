@@ -5,15 +5,26 @@
     margin-right: 22%;
 }
 
+.search:first-child {
+  margin-top: 30%;
+}
 .search {
     display: flex;
     flex-direction: row;
-    margin-top: 30%;
+    margin-top: 5%;
     justify-content: space-between;
     width: 100%;
     text-align: -webkit-center;
 }
 
-.search p, h3 {
-  margin: auto !important;
+.search p, .search h3 {
+    margin: auto !important;
+}
+
+.search-blurb-container{
+    margin-left: -200px;
+    margin-top: 90px;
+}
+.search-blurb{
+    font-size: smaller;
 }
