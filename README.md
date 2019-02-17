@@ -51,7 +51,11 @@ Type the video title or topic you have in mind in the **Search** field, and iTub
 - HTML 5 for convas rendering
 - CSS
 
+<<<<<<< HEAD
 **Main Components**
+=======
+# Main Components
+>>>>>>> createSearch
 
 - ``root.jsx`` Component that wraps the rest in the Provider and HashRouter.
 - ``app.jsx`` Component that provied the store the rest of the components, manages Redirect logic.

@@ -1,8 +1,8 @@
 class Api::VideosController < ApplicationController
 
   def index
-    @videos = Video.all
-    render :index
+      @videos = Video.all
+      render :index
   end
 
   def new
@@ -32,11 +32,15 @@ class Api::VideosController < ApplicationController
     end
   end
 
+  def search_index
+    @videos = Video.all
+  end
+
   def destroy
   end
 
   def video_params
-    params.require(:video).permit(:title, :body, :channel_id, :uploader, :user_id, :video_attachment, :thumbnail_attachment)
+    params.require(:video).permit(:title, :body, :channel_id, :uploader, :user_id, :video_attachment, :thumbnail_attachment, :search_terms)
   end
 
 end

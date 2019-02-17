@@ -102,3 +102,16 @@
 .edit-btn:hover {
   cursor: pointer;
 }
+
+.video-error{
+    color: lightcoral;
+    list-style: none;
+    background: none;
+    box-shadow: none;
+    justify-content: space-between;
+    position: fixed !important;
+    padding-top: 10px;
+    width: 200px;
+    top: 400px;
+    right: 300px;
+}

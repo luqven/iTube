@@ -137,7 +137,10 @@ ul {
 }
 
 .user-initial {
-  color: black !important;
+  color:#606060 !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+
 }
 
 .user-initial:hover{

@@ -14,6 +14,7 @@ import VideoShow from './videos/video_show_container';
 import VideoEdit from './videos/video_form_container';
 import VideoUpload from './videos/video_upload_container';
 import Channel from './channels/channel_container';
+import SearchResults from "./nav_bar/search/search_results"
 
 class App extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends React.Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/" component={Greeting} />
         <Route path="/videos/:videoId" component={VideoShow} />
+        <Route path="/search/:matchedId" component={SearchResults} />
         <Route path="/channel/:channelId/:userId" component={Channel} />
         {/* <Route path="/users/:userId" component={} /> */}
         {/* <LoggedInAuth component={UserProfile} exact path={`/users/profile/`} loggedIn={this.props.loggedIn} exact={true}/> */}

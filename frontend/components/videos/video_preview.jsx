@@ -1,4 +1,8 @@
 import React from 'react';
+import ChannelName from '../user_show/user_circle_container';
+import VideoThumbnail from './video_thumbnail';
+import VideoTitle from './video_title';
+import VideoBlurb from './video_blurb';
 
 export default class VideoPreview extends React.Component {
     constructor(props) {
@@ -15,15 +19,22 @@ export default class VideoPreview extends React.Component {
     }
 
     render() {
-        // length is one even on rerender, home compnenet will break
-        if (Object.values(this.props.videos).length >= 1) {
-            const video = this.props.videos[this.props.videoId]
+        // TODO: change the iteration to be in the container
+        let className = `temp-image-container  ${this.props.match.path.split('/')[1]}`
+        // render only when there are videos in its slice of state
+        const currentVideo = this.props.videos[this.props.videoId]
+        if (currentVideo != undefined) {
             return (
-                <div key={this.props.videoId / 1.12 + 1} className="temp-image-container">
-                    <img onClick={this.updateHistory} key={this.props.videoId / 1.1 + 1}
-                        className="temp-image"
-                        src={`${video.thumbnail_url}`} />
-                    <p onClick={this.updateHistory}> {video.title} </p>
+                // the video's preview image container
+                <div key={this.props.videoId / 1.12 + 1} className={className}>
+                {/* the actual preview image */}
+                    <VideoThumbnail update={this.updateHistory} imgSrc={`${currentVideo.thumbnail_url}`} key={this.props.videoId / 1.1 + 1} />
+                    {/* the video's title */}
+                    <VideoTitle update={this.updateHistory} title={currentVideo.title} />
+                    {/* the channel name displayed under the video */}
+                    <div className="preview-channel-name"><ChannelName userId={currentVideo.uploader.id} /></div>
+                    {/* the body blurb displayed under the channel name */}
+                    <VideoBlurb videoBody={currentVideo.body} videoPath={this.props.match.path.split('/')[1]} />
                 </div>
             )
         }

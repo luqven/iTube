@@ -41,7 +41,6 @@
 }
 
 .title-logo, h1 {
-  margin-right: auto;
   display: flex;
   flex-direction: row;
   margin-top: 5px;
@@ -64,7 +63,7 @@
 
 .title-logo p {
   font-size: 30px;
-  margin-top: 11px;
+  margin-top: 1px;
   padding-right: 5px;
 }
 
@@ -111,3 +110,58 @@
   margin-left: 2px;
   width: 20px;
 }
+/* ---------------------- */
+/* search bar */
+.search-container {
+  width: 65%;
+  height: 32px;
+}
+
+.search-container div{
+  display: flex;
+  justify-content: center;
+  height: 48px;
+}
+
+.search-container form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  height: 100%;
+  width: 50%;
+}
+
+.search-container input {
+  width: 100%;
+  height: 50%;
+  padding-left: 10px;
+  margin-right: 0.8px;
+  font-weight: lighter;
+}
+
+.search-container form p:first-of-type {
+  width: 20px;
+  height: 50%;
+  padding-top: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #f8f8f8;
+  box-shadow: inset 0px 0px 3px 0px #ccc;
+
+}
+
+.search-container form p:first-of-type svg{
+  color: gray;
+}
+
+.search-container ul {
+  left: 33%;
+  list-style: none;
+  right: 38%;
+  padding-bottom: 40px !important;
+}
+
+.search-container li {
+  padding: 10px;
+}
+

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>iTube</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application.js' %>
+    <%= render 'application/favicon' %>
+    
 <% if logged_in? %>
   <script>
     window.currentUser = {
@@ -18,7 +21,6 @@
   </head>
     
   <body style="background-color:#FAFAFA">
-    
     <%= yield %>
   </body>
 </html>

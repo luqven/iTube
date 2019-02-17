@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Modal from "../modal/modal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import DropDown from "../modal/modal";
+import UploadButton from "./upload_button";
+import LogoButton from "./logo_button";
+import SearchBar from "./search/search_bar";
 
 
 export default class NavBar extends React.Component{
@@ -22,36 +25,38 @@ export default class NavBar extends React.Component{
   };
 
   render() {
-  let drop_down;
+  let RightHandButtons;
 
   if (this.props.loggedIn) {
     let userInitial = this.props.user.username[0].toUpperCase();
-    drop_down = (
+    RightHandButtons = (
       <div className="dropdown-btns">
-        <section className="upload-button">
-          <Link className=".plus" to="/upload"> + </Link>
-          <p className="plus-container"><FontAwesomeIcon icon={["fas", "video"]} /></p>
-        </section>
+        {/* menu bar upload button */}
+        <UploadButton />
+        {/* dropdown button & actions seciton */}
         <section onClick={this.handleClick} className="nav-user-icon-container">
           <div className="nav-user-icon">
             <p >{userInitial}</p>
-            <Modal />
+            <DropDown />
           </div>
         </section>
       </div>
     )
     } else {
-      drop_down = (<Link className="btn" to="/login">Sign In</Link>)
+      RightHandButtons = (<Link className="btn" to="/login">Sign In</Link>)
     }
 
   return (
     <div className="nav-container">
+    {/* left hand side logo button */}
       <section className="title-logo"> 
-        <p><FontAwesomeIcon icon={["fab", "youtube"]}/></p>
-        <Link to="/" className="title-logo"> iTube </Link>
+         <LogoButton />
       </section>
+      {/* search bar */}
+        <SearchBar />
+      {/* right ahnd drop down and buttons */}
       <section className="nav-auth-buttons">
-        {drop_down}
+        {RightHandButtons}
       </section>
     </div>
   )
