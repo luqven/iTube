@@ -8,13 +8,14 @@ class AutoComplete extends React.Component {
     this.state = {
       searchStr: "",
       matchedSearch: [],
+      matchedIds: "",
       titleComponents: null,
     }
     this.handleKey = this.handleKey.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   componentDidMount() {
     this.props.getSearchResults();
@@ -53,9 +54,11 @@ class AutoComplete extends React.Component {
     }
 
     let titles = [];
+    let indexes = "";
     for (let i = 0; i < this.state.matchedSearch.length; i++) {
       const curTitle = this.state.matchedSearch[i];
-      const curIndex = this.props.search[curTitle];
+      const curIndex = this.props.search[curTitle]["id"];
+      indexes = indexes.concat(`_id_${curIndex}`);
       titles.push(
         <li onClick={this.handleClick} key={i}> {curTitle} </li>
         )
@@ -71,6 +74,7 @@ class AutoComplete extends React.Component {
     // store the created ul component in state
     this.setState({
       matchedSearch: matchedSearch,
+      matchedIds: indexes,
       titleComponents: titlesComponents,
     })
   };
@@ -89,7 +93,7 @@ class AutoComplete extends React.Component {
   }
 
   handleSubmit() {
-    this.props.history.push(`/search/${this.state.search_terms}_%_${this.state.matched_titles}`)
+    this.props.history.push(`/search/${this.state.matchedIds}`)
   };
 
   render() {
