@@ -9,7 +9,7 @@ import LikeButton from '../likes/like_button';
 export class VideoPlayer extends React.Component{
   constructor(props){
     super(props)
-    this.state = {};
+    this.state = {video: null};
     this.likers = this.likers.bind(this);
     this.likedByUser = this.likedByUser.bind(this);
     this.getUserLike = this.getUserLike.bind(this);

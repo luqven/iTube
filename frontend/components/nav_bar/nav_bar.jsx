@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropDown from "../modal/modal";
 import UploadButton from "./upload_button";
 import LogoButton from "./logo_button";
-import SearchBar from "./search/search_container";
+import SearchBar from "./search/search_bar";
 
 
 export default class NavBar extends React.Component{

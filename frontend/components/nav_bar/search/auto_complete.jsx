@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class AutoComplete extends React.Component {
   constructor(props){
@@ -8,9 +10,10 @@ class AutoComplete extends React.Component {
       matchedSearch: [],
       titleComponents: null,
     }
+    this.handleKey = this.handleKey.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleKey = this.handleKey.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -77,16 +80,25 @@ class AutoComplete extends React.Component {
     let searchId = (this.props.search[e.currentTarget.innerText])
     searchId = searchId["id"];
     // reset the component to not render at next url
-    this.setState({ titleComponents: null })
+    this.setState({
+        searchStr: "",
+        matchedSearch: [],
+        titleComponents: null,
+      })
     this.props.history.push(`/videos/${searchId}`)
   }
 
+  handleSubmit() {
+    this.props.history.push(`/search/${this.state.search_terms}_%_${this.state.matched_titles}`)
+  };
+
   render() {
     return(
-      <>
-        <input onKeyDown={this.handleKey} type="text" placeholder="Search" value={this.state.searchStr}/>
+      <form onSubmit={this.handleSubmit} >
+        <input onKeyDown={this.handleKey} type="text" placeholder="Search" value={this.state.searchStr} />
         {this.state.titleComponents}
-      </>
+        <p onClick={this.handleSubmit}><FontAwesomeIcon icon={["fas", "search"]} /></p>
+      </form>
     )
   }
 
