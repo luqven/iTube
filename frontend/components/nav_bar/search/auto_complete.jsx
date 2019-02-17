@@ -76,6 +76,8 @@ class AutoComplete extends React.Component {
   handleClick(e){
     let searchId = (this.props.search[e.currentTarget.innerText])
     searchId = searchId["id"];
+    // reset the component to not render at next url
+    this.setState({ titleComponents: null })
     this.props.history.push(`/videos/${searchId}`)
   }
 

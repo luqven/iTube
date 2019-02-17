@@ -1,5 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+
 import AutoComplete from './auto_complete_container';
 
 class SearchBar extends React.Component {
@@ -18,10 +20,8 @@ class SearchBar extends React.Component {
       <section className="search-container">
         <div>
           <form>
-            {/* <input onChange={this.handleInput} type="text" placeholder="Search" /> */}
             {autoComplete}
-            <p><FontAwesomeIcon icon={["fas", "search"]} /></p>
-            {/* {searchResults} */}
+            <Link to={"/search"}><p><FontAwesomeIcon icon={["fas", "search"]} /></p></Link>
           </form>
         </div>
       </section>
