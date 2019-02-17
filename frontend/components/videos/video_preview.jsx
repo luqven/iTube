@@ -32,7 +32,7 @@ export default class VideoPreview extends React.Component {
                     {/* the video's title */}
                     <VideoTitle update={this.updateHistory} title={currentVideo.title} />
                     {/* the channel name displayed under the video */}
-                    <ChannelName userId={currentVideo.uploader.id} />
+                    <div className="preview-channel-name"><ChannelName userId={currentVideo.uploader.id} /></div>
                     {/* the body blurb displayed under the channel name */}
                     <VideoBlurb videoBody={currentVideo.body} videoPath={this.props.match.path.split('/')[1]} />
                 </div>

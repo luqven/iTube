@@ -1,8 +1,9 @@
-.search-results-container{
+.search-reults-container{
     display: flex;
     flex-direction: column;
-    margin-top: 8%;
-    margin-right: 22%;
+    /* margin-top: 8%; */
+    margin-right: 35%;
+    /* margin-left: -1px; */
 }
 
 .search:first-child {
@@ -22,8 +23,14 @@
 }
 
 .search-blurb-container{
-    margin-left: -200px;
+    margin-left: -35px;
     margin-top: 90px;
+}
+
+.search > .preview-channel-name{
+    margin-left: -160px;
+    margin-top: 70px;
+    height: 10px;
 }
 .search-blurb{
     font-size: smaller;

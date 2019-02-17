@@ -11,7 +11,7 @@ export default class UserCircle extends React.Component {
   }
 
   handleClick() {
-    this.props.history.push(`channel/${this.props.users[this.props.userId].channel_id}/${this.props.userId}`)
+    this.props.history.push(`/channel/${this.props.users[this.props.userId].channel_id}/${this.props.userId}`)
   };
 
   render() {
