@@ -15,7 +15,7 @@ export default class UserCircle extends React.Component {
   };
 
   render() {
-    if (Object.values(this.props.users).length >= 1) {
+    if (this.props.users && this.props.users[this.props.userId]) {
       const user = this.props.users[this.props.userId]
       return (
         <>

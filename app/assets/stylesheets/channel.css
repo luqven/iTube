@@ -203,13 +203,6 @@
   transform-origin: right top;
 }
 
-#home-carousel-container{
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    margin-top: 50px;
-}
-
 .channel-carousel {
     display: flex;
     flex-direction: row;
@@ -218,27 +211,4 @@
     margin: auto;
     justify-content: space-around;
     align-content: center;
-}
-
-.home-channel-scroll-btn{
-    height: 40px;
-    width: 40px;
-    margin: 100px 10px 10px;
-    border-radius: 100%;
-    outline: transparent;
-    border-color: aliceblue;
-    box-shadow: inset 0px 0px 3px 0px #ccc;
-    transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-.home-channel-scroll-btn.active{
-  outline: transparent;
-  background-color: rgb(196, 196, 196);
-  transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.home-channel-scroll-btn.inactive{
-  outline: transparent;
-  background-color: white;
-  transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }

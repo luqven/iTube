@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import VideoPreview from '../videos/video_preview_container';
+import ChannelIcon from './channel_icon';
 
 class ChannelCarousel extends React.Component {
   constructor(props) {
@@ -61,8 +62,9 @@ class ChannelCarousel extends React.Component {
       <> 
       {/* li acts as spacer for top of channel carousel */}
       <div className="channel-carousel">
-          <li className="show-video-carousel" id={String(this.props.channel.owner_id) + "_channel"}>
-          </li>
+          {/* <li className="channel-icon-carousel" id={String(this.props.channel.owner_id) + "_channel"}> */}
+            <ChannelIcon userId={this.props.channel.owner_id} />
+          {/* </li> */}
           {/* the channe's video carousel */}
           <button onClick={(e) => this.handleClick(e, "left")} className="home-channel-scroll-btn">
             <p className="arrow-left"><i className="arrow-icon"></i></p>

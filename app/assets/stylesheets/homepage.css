@@ -27,6 +27,14 @@
  
 }
 
+.home-container h2{
+    width: 75%;
+    margin: auto;
+    margin-top: 20px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
 .home-user-initial {
   color: white;
   text-align: center;
@@ -46,4 +54,77 @@
     overflow: hidden;
     width: 190px;
     white-space: nowrap;
+}
+
+#home-carousel-container{
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 50px;
+    height: 180px;
+}
+
+.home-channel-scroll-btn{
+    height: 40px;
+    width: 40px;
+    margin: 100px 10px 10px;
+    border-radius: 100%;
+    outline: transparent;
+    border-color: aliceblue;
+    box-shadow: inset 0px 0px 3px 0px #ccc;
+    transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+.home-channel-scroll-btn.active{
+  outline: transparent;
+  background-color: rgb(196, 196, 196);
+  transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.home-channel-scroll-btn.inactive{
+  outline: transparent;
+  background-color: white;
+  transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.channel-carousel button:last-of-type {
+  padding-right: 12px;
+}
+
+.channel-icon-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50px;
+    position: absolute;
+    padding-right: 55%;
+}
+
+.channel-icon{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #3b8af0;
+    border-radius: 50px;
+    background-color: #3b8af0;
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+    margin-right: 25px;
+    margin-top: 10px;
+}
+
+.channel-name {
+  height: auto;
+  width: auto;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.channel-icon p:first-child{
+    text-align: center;
+    margin: auto;
+    width: auto;
+    color: white;
 }
