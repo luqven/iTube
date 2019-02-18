@@ -15,8 +15,12 @@ class ChannelCarousel extends React.Component {
   }
 
   handleClick(e, type){
+    // if first time button was clicked
+    if (this.state.carouselClicks === 1) {
+      let leftBtn = document.getElementById("leftArr");
+      leftBtn.classList = leftBtn.classList = "home-channel-scroll-btn inactive"
+    }
     let button = e.currentTarget;
-    console.log(type);
     let maxPos = this.props.channel.videoIds.length - 1;
     let curPos = this.state.carouselPos;
     let clicks = this.state.carouselClicks;
@@ -66,9 +70,11 @@ class ChannelCarousel extends React.Component {
             <ChannelIcon userId={this.props.channel.owner_id} />
           {/* </li> */}
           {/* the channe's video carousel */}
-          <button onClick={(e) => this.handleClick(e, "left")} className="home-channel-scroll-btn">
-            <p className="arrow-left"><i className="arrow-icon"></i></p>
-          </button>
+          <div className="left-btn-placeholder">
+            <button onClick={(e) => this.handleClick(e, "left")} className="home-channel-scroll-btn hidden" id="leftArr">
+              <p className="arrow-left"><i className="arrow-icon"></i></p>
+            </button>
+          </div>
           <div id="home-carousel-container">
             <li className="preview-carousel">
               {videoPreviews}

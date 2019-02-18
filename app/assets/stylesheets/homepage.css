@@ -62,6 +62,7 @@
     width: 100%;
     margin-top: 60px;
     height: 180px;
+    max-width: 1080px;
 }
 
 .home-channel-scroll-btn{
@@ -74,6 +75,16 @@
     box-shadow: inset 0px 0px 3px 0px #ccc;
     transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
+
+.left-btn-placeholder{
+    height: 10px;
+    width: 50px;
+    /* margin: 100px 10px 10px; */
+}
+
+.home-channel-scroll-btn:hover{
+  cursor: pointer;
+}
 
 .home-channel-scroll-btn.active{
   outline: transparent;
@@ -89,6 +100,10 @@
 
 .channel-carousel button:last-of-type {
   padding-right: 12px;
+}
+.arrow-left {
+    padding-bottom: 5px;
+    padding-right: 5px;
 }
 
 .channel-icon-container{
