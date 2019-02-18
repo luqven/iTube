@@ -60,7 +60,7 @@
     display: flex;
     overflow: hidden;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 60px;
     height: 180px;
 }
 
@@ -98,6 +98,7 @@
     height: 50px;
     position: absolute;
     padding-right: 55%;
+    margin-left: 4%;
 }
 
 .channel-icon{
@@ -110,16 +111,19 @@
     background-color: #3b8af0;
     width: 15px;
     height: 15px;
-    margin: 2px;
+    margin: auto;
     margin-right: 25px;
-    margin-top: 10px;
-}
+  }
 
 .channel-name {
+  margin: auto;
+}
+
+.channel-carousel a:first-of-type {
   height: auto;
   width: auto;
   margin: auto;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .channel-icon p:first-child{

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user_actions';
+import { Link } from 'react-router-dom';
 
 export class ChannelIcon extends React.Component {
   constructor(props){
@@ -19,12 +20,14 @@ export class ChannelIcon extends React.Component {
     let user = this.props.users[this.props.userId];
     let initials = user.username[0].toUpperCase();
     return(
-      <div className="channel-icon-container">
-        <div className="channel-icon">
-          <p>{initials}</p>
+      <Link to={`/channel/${user.channel_id}/${user.id}`}>
+        <div className="channel-icon-container">
+          <div className="channel-icon">
+            <p>{initials}</p>
+          </div>
+          <p className="channel-name">{user.username}</p>
         </div>
-        <p className="channel-name">{user.username}</p>
-      </div>
+      </Link>
     )};
   return null};
 }
