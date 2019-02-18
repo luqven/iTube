@@ -19,42 +19,37 @@ class AutoComplete extends React.Component {
 
   componentDidMount() {
     this.props.getSearchResults();
+    this.setState({ titleComponents: null, searchStr: '' })
   }
 
-  // custom onkeypress handler to account for backspacing
   handleKey(e){
-      // check if backspace pressed
-    if (e.keyCode === 8 ) {
-      this.setState({ 
-        searchStr: this.state.searchStr.slice(0, this.state.searchStr.length - 1),
-      })
-      // otherwise register the keypress
-    } else if(e.key.length === 1){  
-      this.setState({ searchStr: this.state.searchStr + e.key})
-    }
+    this.setState({ searchStr: e.target.value})
     // if searchStr now empty, clear state and don't search again
-    if (this.state.searchStr.length <= 1) {
-      this.setState({ titleComponents: null })
+    if (e.target.value < 1) {
+      this.setState({ titleComponents: null, searchStr: '' })
       return;
     }
     this.handleInput()
   }
   // search hash of {title: video_id} for matching substring
   handleInput(){
-    let currentInput = this.state.searchStr;
-    // return null if searchStr is empty, 
-    // accounts for backspacing and first render
+    let currentInput = this.state.searchStr.toLowerCase();
+    // return null if searchStr is empty: backspacing and first render
     if(currentInput === "" || currentInput.length < 1) {return null};
     let matchedSearch = [];
-    // get all of the titles as an array of stirngs
+    // get array of all titles in state
     let allTitles = Object.keys(this.props.search);
+    // add titles that match search string to matchedSearch arr
     for (let i = 0; i < allTitles.length; i++) {
       const curTitle = allTitles[i];
-      if (curTitle.includes(currentInput)) { matchedSearch.push(curTitle)};
+      // push into array if title matched
+      if (curTitle.toLowerCase().includes( currentInput )) {
+         matchedSearch.push(curTitle);
+        };
     }
-
+    // store array of title componenets
     let titles = [];
-    let indexes = "";
+    let indexes = ""; // for other searchResults component that relies on url
     for (let i = 0; i < this.state.matchedSearch.length; i++) {
       const curTitle = this.state.matchedSearch[i];
       const curIndex = this.props.search[curTitle]["id"];
@@ -94,12 +89,13 @@ class AutoComplete extends React.Component {
 
   handleSubmit() {
     this.props.history.push(`/search/${this.state.matchedIds}`)
+    this.setState({ titleComponents: null, searchStr: '' })
   };
 
   render() {
     return(
       <form onSubmit={this.handleSubmit} >
-        <input onKeyDown={this.handleKey} type="text" placeholder="Search" value={this.state.searchStr} />
+        <input onChange={this.handleKey} type="text" placeholder="Search" value={this.state.searchStr} />
         {this.state.titleComponents}
         <p onClick={this.handleSubmit}><FontAwesomeIcon icon={["fas", "search"]} /></p>
       </form>
