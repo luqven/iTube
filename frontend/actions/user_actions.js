@@ -18,11 +18,9 @@ export const receiveUser = users => ({
 export const getAllUsers = () => dispatch =>
   fetchUsers().then(
     users => dispatch(receiveUsers(users)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 
 export const getUser = (id) => dispatch =>
   fetchUser(id).then(
     user => dispatch(receiveUser(user)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
   );

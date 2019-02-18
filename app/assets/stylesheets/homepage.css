@@ -113,7 +113,7 @@
     height: 50px;
     position: absolute;
     padding-right: 55%;
-    margin-left: 4%;
+    margin-left: 7%;
 }
 
 .channel-icon{
@@ -146,4 +146,10 @@
     margin: auto;
     width: auto;
     color: white;
+}
+
+.placeholder-btn{
+    height: 40px;
+    width: 40px;
+    margin: 100px 10px 10px;
 }

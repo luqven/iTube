@@ -20,13 +20,13 @@ export default class VideoPreview extends React.Component {
 
     render() {
         // TODO: change the iteration to be in the container
-        let className = `temp-image-container  cp-${this.props.carouselPos}  ${this.props.match.path.split('/')[1]}`
+        let className = `temp-image-container  ${this.props.match.path.split('/')[1]}`
         // render only when there are videos in its slice of state
         const currentVideo = this.props.videos[this.props.videoId]
         if (currentVideo != undefined) {
             return (
                 // the video's preview image container
-                <div key={this.props.videoId / 1.12 + 1} className={className}>
+                <div key={this.props.videoId / 1.12 + 1} className={className} id={`cp-${this.props.owner}-${this.props.carouselPos}`}>
                 {/* the actual preview image */}
                     <VideoThumbnail update={this.updateHistory} imgSrc={`${currentVideo.thumbnail_url}`} key={this.props.videoId / 1.1 + 1} />
                     {/* the video's title */}

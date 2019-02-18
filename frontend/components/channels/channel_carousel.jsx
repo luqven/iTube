@@ -17,7 +17,7 @@ class ChannelCarousel extends React.Component {
   handleClick(e, type){
     // if first time button was clicked
     if (this.state.carouselClicks === 1) {
-      let leftBtn = document.getElementById("leftArr");
+      let leftBtn = document.getElementById(`leftArr${this.props.channel.owner_id}`);
       leftBtn.classList = leftBtn.classList = "home-channel-scroll-btn inactive"
     }
     let button = e.currentTarget;
@@ -34,7 +34,7 @@ class ChannelCarousel extends React.Component {
     else if (nextPos < 0) {nextPos = 0};
     console.log(clicks, nextPos);
     // get the element at that position
-    let carouselElement = document.getElementsByClassName("cp-" + String(nextPos))[0];
+    let carouselElement = document.getElementById(`cp-${this.props.channel.owner_id}-${String(nextPos)[0]}`);
     // scroll nextPos into view
     carouselElement.scrollIntoView({ behavior: "smooth", inline: "nearest" });
     // set background of button to grey
@@ -50,7 +50,7 @@ class ChannelCarousel extends React.Component {
 
   getPreviews(){
     let componenets =  this.props.channel.videoIds.map((videoId, idx) => {
-      return <VideoPreview videoId={videoId} key={idx} carouselPos={idx}/>
+      return <VideoPreview videoId={videoId} key={idx} carouselPos={idx} owner={this.props.channel.owner_id}/>
     })
     return componenets
   }
@@ -61,7 +61,15 @@ class ChannelCarousel extends React.Component {
   }
 
   render() {
+    let rightButton =( <button onClick={(e) => this.handleClick(e, "right")} className="home-channel-scroll-btn" id={`rightArr${this.props.channel.owner_id}`}>
+                            <p className="arrow-right"><i className="arrow-icon"></i></p>
+                        </button>)
+    let leftButton = (<button onClick={(e) => this.handleClick(e, "left")} className="home-channel-scroll-btn hidden" id={`leftArr${this.props.channel.owner_id}`}>
+                        <p className="arrow-left"><i className="arrow-icon"></i></p>
+                      </button>)
     const videoPreviews = this.state.previewComponenets
+    // do not render buttons if less than 6 videos on page
+    if (videoPreviews.length < 6) { rightButton = <div className="placeholder-btn"></div>; leftButton = null};
     return (
       <> 
       {/* li acts as spacer for top of channel carousel */}
@@ -71,18 +79,14 @@ class ChannelCarousel extends React.Component {
           {/* </li> */}
           {/* the channe's video carousel */}
           <div className="left-btn-placeholder">
-            <button onClick={(e) => this.handleClick(e, "left")} className="home-channel-scroll-btn hidden" id="leftArr">
-              <p className="arrow-left"><i className="arrow-icon"></i></p>
-            </button>
+            {leftButton}
           </div>
           <div id="home-carousel-container">
             <li className="preview-carousel">
               {videoPreviews}
             </li>
           </div>
-          <button onClick={(e) => this.handleClick(e, "right")} className="home-channel-scroll-btn">
-            <p className="arrow-right"><i className="arrow-icon"></i></p>
-          </button>
+            {rightButton}
       </div>
       </>
     )
