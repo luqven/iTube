@@ -65,6 +65,10 @@ class ChannelCarousel extends React.Component {
     window.addEventListener('resize', this.handleResize);
   }
 
+  componentWillUnmount() {
+  window.removeEventListener('resize', this.handleResize);
+  }
+
   handleResize() {
     if (window.innerWidth < 1720) { 
       this.setState({ renderRight: true})
