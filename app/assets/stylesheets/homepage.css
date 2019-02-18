@@ -135,9 +135,9 @@
 }
 
 .channel-carousel a:first-of-type {
-  height: auto;
+  /* height: auto; */
   width: auto;
-  margin: auto;
+  /* margin: auto; */
   margin-top: 10px;
 }
 

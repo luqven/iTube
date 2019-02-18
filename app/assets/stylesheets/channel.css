@@ -187,13 +187,16 @@
     padding-bottom: 0px;
     border-left: .5px solid lightgray;
     width: 165px;
-    height: 1100px;
-    padding-top: 175px;
-    margin-left: -55px;
+    height: 1065px;
+    /* padding-top: 175px; */
+    margin-left: -65px;
     overflow-y: hidden;
     overflow-x: hidden;
     transform-origin: right top;
     transform: rotate(-90deg) translateY(-100px);
+}
+.preview-carousel > div:first-child {
+    margin-top: 175px;
 }
 
 .preview-carousel > div {

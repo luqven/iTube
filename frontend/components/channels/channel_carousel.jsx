@@ -8,7 +8,7 @@ class ChannelCarousel extends React.Component {
     super(props);
     this.state = {
       previewComponenets: [],
-      carouselClicks: 1,
+      carouselClicks: 0,
       carouselPos: 0,
       renderRight: false,
     };
@@ -19,20 +19,20 @@ class ChannelCarousel extends React.Component {
   handleClick(e, type){
     debugger
     // if first time button was clicked
-    if (this.state.carouselClicks === 1) {
+    if (this.state.carouselClicks === 0) {
       let leftBtn = document.getElementById(`leftArr${this.props.channel.owner_id}`);
       leftBtn.classList = leftBtn.classList = "home-channel-scroll-btn inactive"
     }
     let button = e.currentTarget;
     let maxPos = this.props.channel.videoIds.length - 1;
-    let curPos = this.state.carouselPos;
     let clicks = this.state.carouselClicks;
-    let offset = 5 * clicks;
+    let offset = 7
     // set the next position
     if (type === "left") {
       offset = offset * -1;
     };
-    let nextPos = Math.round((curPos + offset)) ; // if out of range, set to last ele
+    let nextPos = offset; 
+    // if out of range, set to last ele
     if (nextPos > maxPos) {nextPos = maxPos}
     else if (nextPos < 0) {nextPos = 0};
     console.log(clicks, nextPos);
@@ -46,7 +46,7 @@ class ChannelCarousel extends React.Component {
     setTimeout(() => { button.classList = "home-channel-scroll-btn inactive"}, 200);
     // increment click count, set carousel position
     this.setState({
-      carouselClicks: clicks,
+      carouselClicks: clicks + 1,
       carouselPos: nextPos,
     });
   };
@@ -86,14 +86,11 @@ class ChannelCarousel extends React.Component {
                       </button>)
     const videoPreviews = this.state.previewComponenets
     // do not render buttons if less than 5 videos on page
-    if (videoPreviews.length < 6 && this.state.renderRight === false) { rightButton = <div className="placeholder-btn"></div>; leftButton = null};
+  if (videoPreviews.length < 6 && this.state.renderRight === false) { rightButton = <div className="placeholder-btn"></div> };
     return (
       <> 
-      {/* li acts as spacer for top of channel carousel */}
         <div className="channel-carousel" id={`channel-carousel${this.props.channel.owner_id}`}>
-          {/* <li className="channel-icon-carousel" id={String(this.props.channel.owner_id) + "_channel"}> */}
             <ChannelIcon userId={this.props.channel.owner_id} />
-          {/* </li> */}
           {/* the channe's video carousel */}
           <div className="left-btn-placeholder">
             {leftButton}
