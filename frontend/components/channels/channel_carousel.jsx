@@ -10,11 +10,14 @@ class ChannelCarousel extends React.Component {
       previewComponenets: [],
       carouselClicks: 1,
       carouselPos: 0,
+      renderRight: false,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   handleClick(e, type){
+    debugger
     // if first time button was clicked
     if (this.state.carouselClicks === 1) {
       let leftBtn = document.getElementById(`leftArr${this.props.channel.owner_id}`);
@@ -24,7 +27,7 @@ class ChannelCarousel extends React.Component {
     let maxPos = this.props.channel.videoIds.length - 1;
     let curPos = this.state.carouselPos;
     let clicks = this.state.carouselClicks;
-    let offset = 10 * clicks;
+    let offset = 5 * clicks;
     // set the next position
     if (type === "left") {
       offset = offset * -1;
@@ -41,7 +44,7 @@ class ChannelCarousel extends React.Component {
     button.classList = "home-channel-scroll-btn active";
     // set background transperant again
     setTimeout(() => { button.classList = "home-channel-scroll-btn inactive"}, 200);
-    // increment click count, set carousel positionj\
+    // increment click count, set carousel position
     this.setState({
       carouselClicks: clicks,
       carouselPos: nextPos,
@@ -58,6 +61,16 @@ class ChannelCarousel extends React.Component {
   componentDidMount(){
     const comps = this.getPreviews();
     this.setState({previewComponenets: comps});
+    // show buttons on window resize
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    if (window.innerWidth < 1720) { 
+      this.setState({ renderRight: true})
+    } else {
+      this.setState({ renderRight: false })
+    }
   }
 
   render() {
@@ -68,12 +81,12 @@ class ChannelCarousel extends React.Component {
                         <p className="arrow-left"><i className="arrow-icon"></i></p>
                       </button>)
     const videoPreviews = this.state.previewComponenets
-    // do not render buttons if less than 6 videos on page
-    if (videoPreviews.length < 6) { rightButton = <div className="placeholder-btn"></div>; leftButton = null};
+    // do not render buttons if less than 5 videos on page
+    if (videoPreviews.length < 6 && this.state.renderRight === false) { rightButton = <div className="placeholder-btn"></div>; leftButton = null};
     return (
       <> 
       {/* li acts as spacer for top of channel carousel */}
-      <div className="channel-carousel">
+        <div className="channel-carousel" id={`channel-carousel${this.props.channel.owner_id}`}>
           {/* <li className="channel-icon-carousel" id={String(this.props.channel.owner_id) + "_channel"}> */}
             <ChannelIcon userId={this.props.channel.owner_id} />
           {/* </li> */}
