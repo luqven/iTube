@@ -7,7 +7,7 @@ class ChannelCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      previewComponenets: [],
+      previewComponents: [],
       carouselClicks: 0,
       carouselPos: 0,
       renderRight: false,
@@ -25,15 +25,16 @@ class ChannelCarousel extends React.Component {
     let button = e.currentTarget;
     let maxPos = this.props.channel.videoIds.length - 1;
     let clicks = this.state.carouselClicks;
-    let offset = 7
+    let offset = (4 + clicks)
     // set the next position
     if (type === "left") {
-      offset = offset * -1;
+      offset = (offset  * -1);
     };
     let nextPos = offset; 
     // if out of range, set to last ele
-    if (nextPos > maxPos) {nextPos = maxPos}
-    else if (nextPos < 0) {nextPos = 0};
+    console.log(nextPos, maxPos)
+    if (nextPos > maxPos) {nextPos = maxPos;}
+    else if (nextPos < 0) {nextPos = 0; clicks = 0;};
     console.log(clicks, nextPos);
     // get the element at that position
     let carouselElement = document.getElementById(`cp-${this.props.channel.owner_id}-${String(nextPos)[0]}`);
@@ -41,25 +42,26 @@ class ChannelCarousel extends React.Component {
     carouselElement.scrollIntoView({ behavior: "smooth", inline: "nearest" });
     // set background of button to grey
     button.classList = "home-channel-scroll-btn active";
-    // set background transperant again
+    // set background transparent again
     setTimeout(() => { button.classList = "home-channel-scroll-btn inactive"}, 200);
     // increment click count, set carousel position
+    debugger
     this.setState({
-      carouselClicks: clicks + 1,
+      carouselClicks: (clicks + 1),
       carouselPos: nextPos,
     });
   };
 
   getPreviews(){
-    let componenets =  this.props.channel.videoIds.map((videoId, idx) => {
+    let components =  this.props.channel.videoIds.map((videoId, idx) => {
       return <VideoPreview videoId={videoId} key={idx} carouselPos={idx} owner={this.props.channel.owner_id}/>
     })
-    return componenets
+    return components
   }
 
   componentDidMount(){
     const comps = this.getPreviews();
-    this.setState({previewComponenets: comps});
+    this.setState({previewComponents: comps});
     // show buttons on window resize
     window.addEventListener('resize', this.handleResize);
   }
@@ -83,14 +85,14 @@ class ChannelCarousel extends React.Component {
     let leftButton = (<button onClick={(e) => this.handleClick(e, "left")} className="home-channel-scroll-btn hidden" id={`leftArr${this.props.channel.owner_id}`}>
                         <p className="arrow-left"><i className="arrow-icon"></i></p>
                       </button>)
-    const videoPreviews = this.state.previewComponenets
+    const videoPreviews = this.state.previewComponents
     // do not render buttons if less than 5 videos on page
   if (videoPreviews.length < 6 && this.state.renderRight === false) { rightButton = <div className="placeholder-btn"></div> };
     return (
       <> 
         <div className="channel-carousel" id={`channel-carousel${this.props.channel.owner_id}`}>
             <ChannelIcon userId={this.props.channel.owner_id} />
-          {/* the channe's video carousel */}
+          {/* the channels video carousel */}
           <div className="left-btn-placeholder">
             {leftButton}
           </div>
