@@ -9,14 +9,13 @@ import LikeButton from '../likes/like_button';
 export class VideoPlayer extends React.Component{
   constructor(props){
     super(props)
-    this.state = {video: null};
+    this.state = {
+      video: null,
+      user: this.props.video.uploader.id,
+    };
     this.likers = this.likers.bind(this);
     this.likedByUser = this.likedByUser.bind(this);
     this.getUserLike = this.getUserLike.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.getVideo(this.props.video.id);
   }
 
   // get array of user ids that likes this video

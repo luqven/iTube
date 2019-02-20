@@ -23,6 +23,10 @@ class LikeButton extends React.Component {
     this.props.resetErrors();
   }
 
+  componentWillMount(){
+    this.props.getLikes(this.props.user_id)
+  }
+
   handleClick() {
     if (this.props.type === "liked") {
       this.props.deleteLike(this.props.like)

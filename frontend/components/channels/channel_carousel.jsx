@@ -17,7 +17,6 @@ class ChannelCarousel extends React.Component {
   }
 
   handleClick(e, type){
-    debugger
     // if first time button was clicked
     if (this.state.carouselClicks === 0) {
       let leftBtn = document.getElementById(`leftArr${this.props.channel.owner_id}`);

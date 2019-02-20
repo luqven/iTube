@@ -11,10 +11,16 @@ export default class VideoShow extends React.Component {
     };
   }
 
+  componentDidMount(){
+    this.props.getVideo(this.props.video.id).then(
+      this.props.getLikes(this.props.video.id)
+    )
+  }
+
   render() {
     return (
       <div className="video-show-container">
-        <VideoPlayer />
+        <VideoPlayer user={this.props.user}/>
         <VideoDetails />
       </div>
     )
