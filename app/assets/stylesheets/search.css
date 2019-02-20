@@ -91,3 +91,11 @@
 .search-blurb{
     font-size: smaller;
 }
+
+.search-auto-li:hover{
+  cursor: pointer;
+  background-color: rgba(1, 69, 124, 0.397);
+}
+.selected{
+  background-color: rgba(1, 69, 124, 0.397);
+}
