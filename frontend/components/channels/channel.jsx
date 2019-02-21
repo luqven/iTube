@@ -16,7 +16,6 @@ export default class Channel extends React.Component {
 
     render() {
         const lis = this.props.videos.map((video, idx) => {
-            console.log(video.channe_id)
             if (this.props.channel.id === video.channel_id) {
                 return <VideoPreview videoId={video.id} thumbnail_url={video.thumbnail_url} title={video.title} key={idx} />
             }

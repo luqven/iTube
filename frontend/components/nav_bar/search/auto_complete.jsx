@@ -46,7 +46,6 @@ class AutoComplete extends React.Component {
   // }
 
   handleKey(e){
-    debugger
     // set state first, then as a callback handle input
     this.setState({ searchStr: e.target.value}, this.handleInput)
     // if searchStr now empty, clear state and don't search again
@@ -57,7 +56,6 @@ class AutoComplete extends React.Component {
   }
   // search hash of {title: video_id} for matching substring
   handleInput(){
-    debugger
     let currentInput = this.state.searchStr.toLowerCase();
     // return null if searchStr is empty: backspacing and first render
     if(currentInput === "" || currentInput.length < 1) {return null};

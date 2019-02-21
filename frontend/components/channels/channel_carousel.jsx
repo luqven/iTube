@@ -32,10 +32,8 @@ class ChannelCarousel extends React.Component {
     };
     let nextPos = offset; 
     // if out of range, set to last ele
-    console.log(nextPos, maxPos)
     if (nextPos > maxPos) {nextPos = maxPos;}
     else if (nextPos < 0) {nextPos = 0; clicks = 0;};
-    console.log(clicks, nextPos);
     // get the element at that position
     let carouselElement = document.getElementById(`cp-${this.props.channel.owner_id}-${String(nextPos)[0]}`);
     // scroll nextPos into view
@@ -45,7 +43,6 @@ class ChannelCarousel extends React.Component {
     // set background transparent again
     setTimeout(() => { button.classList = "home-channel-scroll-btn inactive"}, 200);
     // increment click count, set carousel position
-    debugger
     this.setState({
       carouselClicks: (clicks + 1),
       carouselPos: nextPos,
