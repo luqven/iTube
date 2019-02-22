@@ -16,6 +16,20 @@ class ChannelCarousel extends React.Component {
     this.handleResize = this.handleResize.bind(this);
   }
 
+  componentDidMount() {
+    const comps = this.getPreviews();
+    this.setState({ previewComponents: comps });
+    // show buttons on window resize
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+    this.car = document.querySelector(".preview-carousel")
+    this.containerWidth = this.car.offsetHeight
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
   handleClick(e, type){
     // if first time button was clicked
     if (this.state.carouselClicks === 0) {
@@ -23,30 +37,19 @@ class ChannelCarousel extends React.Component {
       leftBtn.classList = leftBtn.classList = "home-channel-scroll-btn inactive"
     }
     let button = e.currentTarget;
-    let maxPos = this.props.channel.videoIds.length - 1;
-    let clicks = this.state.carouselClicks;
-    let offset = (4 + clicks)
-    // set the next position
-    if (type === "left") {
-      offset = (offset  * -1);
-    };
-    let nextPos = offset; 
-    // if out of range, set to last ele
-    if (nextPos > maxPos) {nextPos = maxPos;}
-    else if (nextPos < 0) {nextPos = 0; clicks = 0;};
-    // get the element at that position
-    let carouselElement = document.getElementById(`cp-${this.props.channel.owner_id}-${String(nextPos)[0]}`);
-    // scroll nextPos into view
-    carouselElement.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+    let offset = this.containerWidth;
+    debugger
+    if (type === 'left') { offset = offset * - 1}
+    debugger
+    this.car.scrollBy({
+      top: offset,
+      left: 0,
+      behavior: 'smooth'
+    });
     // set background of button to grey
     button.classList = "home-channel-scroll-btn active";
     // set background transparent again
     setTimeout(() => { button.classList = "home-channel-scroll-btn inactive"}, 200);
-    // increment click count, set carousel position
-    this.setState({
-      carouselClicks: (clicks + 1),
-      carouselPos: nextPos,
-    });
   };
 
   getPreviews(){
@@ -56,19 +59,9 @@ class ChannelCarousel extends React.Component {
     return components
   }
 
-  componentDidMount(){
-    const comps = this.getPreviews();
-    this.setState({previewComponents: comps});
-    // show buttons on window resize
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
-  }
-
-  componentWillUnmount() {
-  window.removeEventListener('resize', this.handleResize);
-  }
-
   handleResize() {
+    this.car = document.querySelector(".preview-carousel")
+    this.containerWidth = this.car.offsetHeight
     if (window.innerWidth < 1418) { 
       this.setState({ renderRight: true})
     } else {
