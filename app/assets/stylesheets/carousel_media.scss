@@ -1,0 +1,29 @@
+@media (min-width: 1305px) {
+  .channel-carousel{
+    width: 1356px;
+  }
+}
+
+@media (min-width: 1090px) and (max-width: 1417px) {
+  .channel-carousel{
+    width: 960px;
+  }
+}
+
+@media (min-width: 917px) and (max-width: 1090px) {
+  .channel-carousel{
+    width: 741px;
+  }
+}
+
+@media (min-width: 717px) and (max-width: 917px) {
+  .channel-carousel{
+    width: 524px;
+  }
+}
+@media (min-width: 301px) and (max-width: 717px) {
+  .channel-carousel{
+    width: 524px;
+  }
+}
+
