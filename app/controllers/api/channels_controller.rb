@@ -6,7 +6,7 @@ class Api::ChannelsController < ApplicationController
 
     def show
         @channel = Channel.find_by(id: (Integer(params[:id])))
-        @videos = @channel.videos
+        # @videos = @channel.videos
         render :show
     end
 

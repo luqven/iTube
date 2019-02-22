@@ -1,9 +1,9 @@
 class Api::UsersController < ApplicationController
 
   def show
-    @user = current_user
-    @videos = @user.videos
-    @channel = current_user.channel
+    @user = User.find_by(id: params[:id])
+    # @videos = @user.videos
+    # @channel = current_user.channel
     render :show
   end
   

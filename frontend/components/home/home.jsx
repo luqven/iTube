@@ -1,6 +1,6 @@
 import React from 'react';
 import ChannelCarousel from '../channels/channel_carousel';
-import { Link } from 'react-router-dom';
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -11,13 +11,12 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getAllVideos();
-    this.props.getAllChannels();
+    this.props.getAllVideos().then(this.props.getAllChannels());
   }
 
   render() {
     let channels;
-    if (this.props.videos.length >= 2){
+    if (this.props.channels.length >= 1){
       channels = this.props.channels.map((channel, idx) => {
         if(channel.videoIds.length > 0){
         return (
