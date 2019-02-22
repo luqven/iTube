@@ -61,6 +61,7 @@ class ChannelCarousel extends React.Component {
     this.setState({previewComponents: comps});
     // show buttons on window resize
     window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   }
 
   componentWillUnmount() {
@@ -68,7 +69,7 @@ class ChannelCarousel extends React.Component {
   }
 
   handleResize() {
-    if (window.innerWidth < 1720) { 
+    if (window.innerWidth < 1418) { 
       this.setState({ renderRight: true})
     } else {
       this.setState({ renderRight: false })
