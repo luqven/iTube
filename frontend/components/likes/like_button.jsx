@@ -19,10 +19,6 @@ class LikeButton extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    this.props.resetErrors();
-  }
-
   componentWillMount(){
     this.props.getLikes(this.props.user_id)
   }
@@ -47,10 +43,10 @@ class LikeButton extends React.Component {
         <>
           <FontAwesomeIcon icon="thumbs-up" className="button-liked" onClick={this.handleClick} />
           <div className="error-message">
-            <ul>
-                {errors}
-            </ul>
           </div>
+          <ul>
+            {/* {errors} */}
+          </ul>
         </>
       )
     } else {
@@ -59,10 +55,10 @@ class LikeButton extends React.Component {
         <>
           <FontAwesomeIcon icon="thumbs-up" className="button-like" onClick={this.handleClick} />          
           <div className="error-message">
-            <ul>
-              {errors}
-            </ul>
           </div>
+          <ul>
+            {/* {errors} */}
+          </ul>
         </>
       )
     }

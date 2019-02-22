@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getVideo } from '../../actions/videos';
+import { Link } from 'react-router-dom';
 
 export class VideoDetails extends React.Component{
   constructor(props){
@@ -30,10 +31,12 @@ export class VideoDetails extends React.Component{
   }
   return (
     <div className="video-user-info">
-      <div className="dropdown-user-icon">
-        <p>{userInitial}</p>
-        <p className="user-initial">{video.uploader.username}</p>
-      </div>
+      <Link to={`/channel/${video.channel_id}/${video.uploader.id}`}>
+        <div className="dropdown-user-icon">
+          <p>{userInitial}</p>
+            <p className="user-initial">{video.uploader.username}</p>
+        </div>
+      </Link>
       <h3 className="video-text">{video.body}</h3>
       <div className="video-edit-btns">
         {editButton}

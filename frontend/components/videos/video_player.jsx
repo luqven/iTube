@@ -12,10 +12,19 @@ export class VideoPlayer extends React.Component{
     this.state = {
       video: null,
       user: this.props.video.uploader.id,
+      errors: this.props.errors,
     };
     this.likers = this.likers.bind(this);
     this.likedByUser = this.likedByUser.bind(this);
     this.getUserLike = this.getUserLike.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.resetErrors();
+  }
+
+  componentWillReceiveProps(){
+    this.setState({errors: this.state.errors});
   }
 
   // get array of user ids that likes this video
@@ -59,6 +68,7 @@ export class VideoPlayer extends React.Component{
           src={`${this.props.video.video_url}`} type="video/mp4">
         </video>
         <li>{this.props.video.title}</li>
+        <li>{this.props.errors}</li>
         <li>
           <div className="video-like-btn">
             {likeButton}

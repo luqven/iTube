@@ -20,7 +20,7 @@ export default class VideoShow extends React.Component {
   render() {
     return (
       <div className="video-show-container">
-        <VideoPlayer user={this.props.user}/>
+        <VideoPlayer user={this.props.user} errors={this.props.errors} resetErrors={this.props.resetErrors}/>
         <VideoDetails />
       </div>
     )
