@@ -40,7 +40,7 @@ class ChannelCarousel extends React.Component {
     let offset = this.containerWidth;
     if (type === 'left') { offset = offset * - 1}
     this.car = document.querySelectorAll(".preview-carousel")[this.props.classId];
-    debugger
+  
     this.car.scrollBy({
       top: offset,
       left: 0,
