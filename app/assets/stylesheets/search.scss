@@ -99,3 +99,16 @@
 .selected{
   background-color: rgba(1, 69, 124, 0.397);
 }
+.search-no-result {
+  display: flex;
+  flex-direction: row;
+  color: red;
+  margin-top: 10%;
+  margin-left: -28%;
+  justify-content: space-between;
+}
+
+.search-no-result svg {
+  margin: auto;
+  margin-left: 10px;
+}
