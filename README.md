@@ -35,15 +35,15 @@ Hi! This is the README for **iTube**. iTube is a React-Redux app that allows use
 - React for componenet creation
 - Redux for state management
 - NodeJs for NPM packages like WebPack
-- Rails for dabaasse management
-- HTML 5 for convas rendering
+- Rails for dabaase management
+- HTML 5 for canvas rendering
 - CSS
 
 # Functionalities
 
 iTube allows users to upload, view, like, and comment on videos. User's videos get added to their channels, and channels can have many subscribed users. The user can view his channel and his subscribed channels.
 
-iTube stores files on the web, so take appropriate precautions, as files will live on the AWS server until the database is resseded.
+iTube stores files on the web, so take appropriate precautions, as files will live on the AWS server until the database is re-seeded.
 
 ## Responsive design
 ![responsive design giph](https://media.giphy.com/media/ygBEzlThonWREEjbhm/giphy.gif)
