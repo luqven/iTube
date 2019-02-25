@@ -55,6 +55,32 @@ iTube is designed to accomodate for most laptop & desktop screen sizes. Mobile r
 
 iTube's video carousel was built form scratch to be responsive and easy to use.
 
+This componenent took quite some time and iterations to get right. It was not, at first, obvious how to make the li of video previews scroll by a responsively defined amount. With some tinkering, it became obvious that using it's container's width ass the offset ammount would be the best approach, since @media CSS queries would allow me to know what that might be well ahead of time.
+
+``` javascript
+handleClick(e, type){
+    // if first time button was clicked
+    if (this.state.carouselClicks === 0) {
+      let leftBtn = document.getElementById(`leftArr${this.props.channel.owner_id}`);
+      leftBtn.classList = leftBtn.classList = "home-channel-scroll-btn inactive"
+    }
+    let button = e.currentTarget;
+    let offset = this.containerWidth;
+    if (type === 'left') { offset = offset * - 1}
+    this.car = document.querySelectorAll(".preview-carousel")[this.props.classId];
+  
+    this.car.scrollBy({
+      top: offset,
+      left: 0,
+      behavior: 'smooth'
+    });
+    // set background of button to grey
+    button.classList = "home-channel-scroll-btn active";
+    // set background transparent again
+    setTimeout(() => { button.classList = "home-channel-scroll-btn inactive"}, 200);
+  };
+```
+
 ## Channels
 ![channels component giph](https://media.giphy.com/media/WwdYhnJvQyzFCVobul/giphy.gif)
 
@@ -70,6 +96,55 @@ iTube makes use of hashing to store password_digests, so that user's can be sure
 
 Type the video title or topic you have in mind in the **Search** field, and iTube will fetch the most relevant results. You can select the one that most suits your needs.
 
+Some of the relevant code that was implemented to make this possible can be found bellow:
+
+```javascript
+// search hash of {title: video_id} for matching substring
+  handleInput(){
+    let currentInput = this.state.searchStr.toLowerCase();
+    // return null if searchStr is empty: backspacing and first render
+    if(currentInput === "" || currentInput.length < 1) {return null};
+    let matchedSearch = [];
+    // get array of all titles in state
+    let allTitles = Object.keys(this.props.search);
+    // add titles that match search string to matchedSearch arr
+    for (let i = 0; i < allTitles.length; i++) {
+      const curTitle = allTitles[i];
+      // push into array if title matched
+      if (curTitle.toLowerCase().includes( currentInput )) {
+         matchedSearch.push(curTitle);
+        };
+    }
+    // store array of title components
+    let titles = [];
+    let indexes = ""; // for other searchResults component that relies on url
+    let cursorPos = this.state.cursorPos; // current pos of cursor
+    for (let i = 0; i < this.state.matchedSearch.length; i++) {
+      const curTitle = this.state.matchedSearch[i];
+      const curIndex = this.props.search[curTitle]["id"];
+      indexes = indexes.concat(`_id_${curIndex}`);
+      titles.push(
+        <li className={`search-auto-li ${cursorPos === curIndex ? 'selected' : null }`} 
+        onClick={this.handleClick} key={i}> {curTitle} </li>
+        )
+      };
+    // store the array of lis inside a ul element
+    let titlesComponents;
+    // if no matches, do not render ul
+    if (titles.length < 1) {
+      titlesComponents = null
+      } else {
+        titlesComponents = (<ul>{titles}</ul>)
+      }
+    // store the created ul component in state
+    this.setState({
+      matchedSearch: matchedSearch,
+      matchedIds: indexes,
+      titleComponents: titlesComponents,
+    })
+  };
+```
+Subsequent iterations would ideally move away from simple substring matching on all titles to something more reliable; like next-word probability relationships given user's search history implementing markov-chains [HackerNews](https://news.ycombinator.com/item?id=19204186)
 
 # Main Components
 
