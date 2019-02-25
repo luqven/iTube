@@ -29,33 +29,6 @@
 
 Hi! This is the README for **iTube**. iTube is a React-Redux app that allows users to share videos with one another. The goal of this app is to display the power of the React-Redux cycle using AWS S3 APIs for video hosting, and a Rails backend for database management.
 
-
-# Functionalities
-
-iTube allows users to upload, view, like, and comment on videos. User's videos get added to their channels, and channels can have many subscribed users. The user can view his channel and his subscribed channels.
-
-iTube stores files on the web, so take appropriate precautions, as files will live on the AWS server until the database is resseded.
-
-## Responsive design
-![responsive design giph](https://media.giphy.com/media/ygBEzlThonWREEjbhm/giphy.gif)
-iTube is designed to accomodate for most laptop & desktop screen sizes. Mobile responsiveness varies.
-
-## Video Carousel
-![video carousel giph](https://media.giphy.com/media/64atx7V5NBfxDURWBJ/giphy.gif)
-iTube's video carousel was built form scratch to be responsive and easy to use.
-
-## Channels
-![channels component giph](https://media.giphy.com/media/WwdYhnJvQyzFCVobul/giphy.gif)
-iTube gives every user a channel that displays all his / her videos
-
-## User Authentication
-![user auth giph](https://media.giphy.com/media/fMAKVTPqQdEqPzo45i/giphy.gif)
-iTube makes use of hashing to store password_digests, so that user's can be sure that any login attempts will be authenticated in the back end in a secure way.
-
-## Search & Auto Complete
-![autocomplete gif giph](https://media.giphy.com/media/E0Rl6gNKudCK4xjQBS/giphy.gif)
-Type the video title or topic you have in mind in the **Search** field, and iTube will fetch the most relevant results. You can select the one that most suits your needs.
-
 # Libraries & technologies
 
 **iTube** makes use of:
@@ -65,6 +38,38 @@ Type the video title or topic you have in mind in the **Search** field, and iTub
 - Rails for dabaasse management
 - HTML 5 for convas rendering
 - CSS
+
+# Functionalities
+
+iTube allows users to upload, view, like, and comment on videos. User's videos get added to their channels, and channels can have many subscribed users. The user can view his channel and his subscribed channels.
+
+iTube stores files on the web, so take appropriate precautions, as files will live on the AWS server until the database is resseded.
+
+## Responsive design
+![responsive design giph](https://media.giphy.com/media/ygBEzlThonWREEjbhm/giphy.gif)
+
+iTube is designed to accomodate for most laptop & desktop screen sizes. Mobile responsiveness varies.
+
+## Video Carousel
+![video carousel giph](https://media.giphy.com/media/64atx7V5NBfxDURWBJ/giphy.gif)
+
+iTube's video carousel was built form scratch to be responsive and easy to use.
+
+## Channels
+![channels component giph](https://media.giphy.com/media/WwdYhnJvQyzFCVobul/giphy.gif)
+
+iTube gives every user a channel that displays all his / her videos
+
+## User Authentication
+![user auth giph](https://media.giphy.com/media/fMAKVTPqQdEqPzo45i/giphy.gif)
+
+iTube makes use of hashing to store password_digests, so that user's can be sure that any login attempts will be authenticated in the back end in a secure way.
+
+## Search & Auto Complete
+![autocomplete gif giph](https://media.giphy.com/media/E0Rl6gNKudCK4xjQBS/giphy.gif)
+
+Type the video title or topic you have in mind in the **Search** field, and iTube will fetch the most relevant results. You can select the one that most suits your needs.
+
 
 # Main Components
 
