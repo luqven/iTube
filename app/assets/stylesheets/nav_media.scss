@@ -1,0 +1,11 @@
+@media (min-width: 320px) and (max-width: 450px) {
+  .nav-container {
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 450px) {
+    .nav-container {
+    justify-content: space-between;
+  }
+}
