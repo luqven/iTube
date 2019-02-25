@@ -2,7 +2,7 @@
 # Fullstack Project
 
 ### iTube
-##### A YouTube Clone*
+##### A YouTube Inspired React.js Application
 
 
 * [Backend Routes](https://github.com/luqven/iTube/wiki/Backend-Routes)
@@ -55,7 +55,7 @@ iTube is designed to accomodate for most laptop & desktop screen sizes. Mobile r
 
 iTube's video carousel was built form scratch to be responsive and easy to use.
 
-This componenent took quite some time and iterations to get right. It was not, at first, obvious how to make the li of video previews scroll by a responsively defined amount. With some tinkering, it became obvious that using it's container's width ass the offset ammount would be the best approach, since @media CSS queries would allow me to know what that might be well ahead of time.
+This componenent took quite some time and iterations to get right. It was not, at first, obvious how to make the li of video previews scroll by a responsively defined amount. With some tinkering, it became clear that using it's container's width as the offset ammount would be the best approach, since @media CSS queries would allow me to know what that might be well ahead of time.
 
 ``` javascript
 handleClick(e, type){
@@ -96,7 +96,7 @@ iTube makes use of hashing to store password_digests, so that user's can be sure
 
 Type the video title or topic you have in mind in the **Search** field, and iTube will fetch the most relevant results. You can select the one that most suits your needs.
 
-Some of the relevant code that was implemented to make this possible can be found bellow:
+Some of the relevant code that was implemented to make this possible can be found bellow. Subsequent iterations would ideally move away from simple substring matching on all titles to something more reliable; like next-word probability relationships given user's search history implementing markov-chains [HackerNews](https://news.ycombinator.com/item?id=19204186)
 
 ```javascript
 // search hash of {title: video_id} for matching substring
@@ -144,7 +144,6 @@ Some of the relevant code that was implemented to make this possible can be foun
     })
   };
 ```
-Subsequent iterations would ideally move away from simple substring matching on all titles to something more reliable; like next-word probability relationships given user's search history implementing markov-chains [HackerNews](https://news.ycombinator.com/item?id=19204186)
 
 # Main Components
 
