@@ -36,10 +36,25 @@ iTube allows users to upload, view, like, and comment on videos. User's videos g
 
 iTube stores files on the web, so take appropriate precautions, as files will live on the AWS server until the database is resseded.
 
-## Search
+## Responsive design
+![responsive design giph](https://media.giphy.com/media/ygBEzlThonWREEjbhm/giphy.gif)
+iTube is designed to accomodate for most laptop & desktop screen sizes. Mobile responsiveness varies.
 
+## Video Carousel
+![video carousel giph](https://media.giphy.com/media/64atx7V5NBfxDURWBJ/giphy.gif)
+iTube's video carousel was built form scratch to be responsive and easy to use.
+
+## Channels
+![channels component giph](https://media.giphy.com/media/WwdYhnJvQyzFCVobul/giphy.gif)
+iTube gives every user a channel that displays all his / her videos
+
+## User Authentication
+![user auth giph](https://media.giphy.com/media/fMAKVTPqQdEqPzo45i/giphy.gif)
+iTube makes use of hashing to store password_digests, so that user's can be sure that any login attempts will be authenticated in the back end in a secure way.
+
+## Search & Auto Complete
+![autocomplete gif giph](https://media.giphy.com/media/E0Rl6gNKudCK4xjQBS/giphy.gif)
 Type the video title or topic you have in mind in the **Search** field, and iTube will fetch the most relevant results. You can select the one that most suits your needs.
-
 
 # Libraries & technologies
 
@@ -72,41 +87,5 @@ Type the video title or topic you have in mind in the **Search** field, and iTub
 - ``nav_bar.jsx``  Component that renders `modal.jsx` and `dropdown.jsx`.
 
 
-# MVP Features
 
-Features to be completed, in order of planned implementation:
 
-| Feature | Description | Target Completion Date |
-| ------  | ------ | ------ |
-| Hosting on Heroku  | Project files living on Heroku | 01 / 22 / 2019 |
-| User Profiles | Users login, have a show page | 01 / 25 / 2019 |
-| Video | Video upload and playback | 01 / 27 / 2019 |
-| Likes | Likes for videos | 01 / 28 / 2019 |
-| Comments | Leaving comments on video page | 01 / 30 / 2019 |
-| Play-count | Videos display their stats | 01 / 31 / 2019 |
-| Channels | Videos live in channels | 02 / 01 / 2019 |
-
-## Target Schedule
-
-### 1. Hosting on Heroku (01/22/2019)
-### 2. User Profiles (01/23/2019, 2 days)
-* Users can sign up, sign in, log out
-* Users can use a demo login to try the site
-* Users can't use certain features without logging in 
-### 3. Video (01/25/2019, 2 days)
-* Logged in users can upload videos
-* Logged in users can edit existing videos
-### 4. Likes (01/27/2019, 1 days)
-* Logged in users can like videos
-* Logged in users can edit existing likes
-### 5. Comments (01/28/2019, 2 days)
-* Logged in users can comment on videos
-* Logged in users can edit existing comments
-### 6. Play-count (01/30/2019, 1 days)
-* Videos have play-counts
-* Videos can be sorted by popularity
-### 7. Channels (01/31/2019, 2 days)
-* Logged in users can create one channel
-* Logged in users can edit existing channel
-* Logged in users can subscribe to other user's channel
-* Videos belong to specific channels
