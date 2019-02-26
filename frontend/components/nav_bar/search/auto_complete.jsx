@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
+
 class AutoComplete extends React.Component {
   constructor(props){
     super(props)
@@ -41,6 +42,8 @@ class AutoComplete extends React.Component {
       })
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false,})
+      // get the video from backend
+      this.props.getVideo(selectedComp);
       this.props.history.push(`/videos/${selectedComp}`)
     }
     this.handleInput(e);
