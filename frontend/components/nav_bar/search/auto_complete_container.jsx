@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getSearchResults, resetSearch } from "../../../actions/search_actions";
-import { getAllVideos, getVideo } from '../../../actions/videos';
+import { getVideo } from '../../../actions/videos';
 
 
 import AutoComplete from './auto_complete'

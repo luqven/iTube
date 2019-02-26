@@ -29,10 +29,9 @@ class AutoComplete extends React.Component {
 
   handleKey(e){
     const cursorPos = this.state.cursorPos;
-    const maxPos = this.state.matchedSearch.length;
+    const maxPos = this.state.matchedSearch.length - 1;
     const selectedComp = this.state.selectedComponent 
     if (e.key === "ArrowDown" && cursorPos < maxPos) {
-      debugger
       this.setState({
         cursorPos: cursorPos + 1,
       })
@@ -44,6 +43,7 @@ class AutoComplete extends React.Component {
       this.setState({ render: false,})
       // get the video from backend
       this.props.getVideo(selectedComp);
+      // render the selected component's video show page
       this.props.history.push(`/videos/${selectedComp}`)
     }
     this.handleInput(e);
@@ -131,7 +131,10 @@ class AutoComplete extends React.Component {
 
     return(
       <form>
-        <input onKeyDown={ e => this.handleKey(e)} onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))} type="text" placeholder="Search" value={this.state.searchStr} />
+        <input onKeyDown={ e => this.handleKey(e)} 
+               onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))} 
+               type="text" placeholder="Search" 
+               value={this.state.searchStr} />
         {comps}
         <p onClick={this.handleSubmit}><FontAwesomeIcon icon={["fas", "search"]} /></p>
       </form>
