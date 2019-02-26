@@ -11,6 +11,8 @@ class AutoComplete extends React.Component {
       matchedIds: "",
       titleComponents: null,
       cursorPos: 0,
+      selectedComponent: null,
+      render: true,
     }
     this.handleKey = this.handleKey.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -23,39 +25,35 @@ class AutoComplete extends React.Component {
     this.props.getSearchResults();
     this.setState({ titleComponents: null, searchStr: '' })
   }
-  
-  // handleKeyDown(e){
-  //   // FIXME: handle arrow keypress
-  //   // this.handleKey(e);
-  //   const cursorPos = this.state.cursorPos;
-  //   const maxPos = this.state.matchedSearch.length;
-
-  //   const up = 38;
-  //   const down  = 40;
-  //   const pressedKey = e.keyCode;
-  //   // arrow key up/down move to next/prev pos in list
-  //   if (pressedKey === up && cursorPos > 0) {
-  //     this.setState({
-  //       cursorPos: cursorPos - 1,
-  //     })
-  //   } else if (pressedKey === down && cursorPos < maxPos) {
-  //     this.setState({
-  //       cursorPos: cursorPos + 1,
-  //     })
-  //   }
-  // }
 
   handleKey(e){
-    // set state first, then as a callback handle input
-    this.setState({ searchStr: e.target.value}, this.handleInput)
+    const cursorPos = this.state.cursorPos;
+    const maxPos = this.state.matchedSearch.length;
+    const selectedComp = this.state.selectedComponent 
+    if (e.key === "ArrowDown" && cursorPos < maxPos) {
+      debugger
+      this.setState({
+        cursorPos: cursorPos + 1,
+      })
+    } else if (e.key === "ArrowUp" && cursorPos > 0) {
+      this.setState({
+        cursorPos: cursorPos - 1,
+      })
+    } else if (e.key === "Enter" && selectedComp !== null) {
+      this.setState({ render: false,})
+      this.props.history.push(`/videos/${selectedComp}`)
+    }
+    this.handleInput(e);
+  };
+
+  // search hash of {title: video_id} for matching substring
+  handleInput(e){
     // if searchStr now empty, clear state and don't search again
     if (e.target.value < 1) {
-      this.setState({ titleComponents: null, searchStr: '' })
+      this.setState({ titleComponents: null, searchStr: '', render: true, })
       return;
     }
-  }
-  // search hash of {title: video_id} for matching substring
-  handleInput(){
+    
     let currentInput = this.state.searchStr.toLowerCase();
     // return null if searchStr is empty: backspacing and first render
     if(currentInput === "" || currentInput.length < 1) {return null};
@@ -74,12 +72,14 @@ class AutoComplete extends React.Component {
     let titles = [];
     let indexes = ""; // for other searchResults component that relies on url
     let cursorPos = this.state.cursorPos; // current pos of cursor
+    let selectedComp;
     for (let i = 0; i < this.state.matchedSearch.length; i++) {
       const curTitle = this.state.matchedSearch[i];
       const curIndex = this.props.search[curTitle]["id"];
       indexes = indexes.concat(`_id_${curIndex}`);
+      if (cursorPos === i) { selectedComp = `${curIndex}`}
       titles.push(
-        <li className={`search-auto-li ${cursorPos === curIndex ? 'selected' : null }`} 
+        <li className={`search-auto-li ${cursorPos === i ? 'selected' : null }`} 
         onClick={this.handleClick} key={i}> {curTitle} </li>
         )
       };
@@ -96,6 +96,7 @@ class AutoComplete extends React.Component {
       matchedSearch: matchedSearch,
       matchedIds: indexes,
       titleComponents: titlesComponents,
+      selectedComponent: selectedComp,
     })
   };
 
@@ -112,16 +113,23 @@ class AutoComplete extends React.Component {
     this.props.history.push(`/videos/${searchId}`)
   }
 
-  handleSubmit() {
-    this.props.history.push(`/search/${this.state.matchedIds}`)
+  handleSubmit(matches = this.state.matchedIds) {
+    this.props.history.push(`/search/${matches}`)
     this.setState({ titleComponents: null, searchStr: '' })
   };
 
   render() {
+    let comps;
+    if (this.state.render === false) { 
+      comps = null;
+    } else {
+      comps = this.state.titleComponents
+    };
+
     return(
-      <form onSubmit={this.handleSubmit} >
-        <input onChange={this.handleKey} type="text" placeholder="Search" value={this.state.searchStr} />
-        {this.state.titleComponents}
+      <form>
+        <input onKeyDown={ e => this.handleKey(e)} onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))} type="text" placeholder="Search" value={this.state.searchStr} />
+        {comps}
         <p onClick={this.handleSubmit}><FontAwesomeIcon icon={["fas", "search"]} /></p>
       </form>
     )
