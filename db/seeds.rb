@@ -76,16 +76,23 @@ video_18 = {title: "Fatty Teapot Coffee Bar: 5 / 10",body: "Decent. Pay more tha
 video_19 = {title: "Precious Harvest Joint: 4 /10",body: "Pretty meh, but good in a pinch.",channel_id: seed_user1.channel.id}
 video_20 = {title: "Best coffeeshops in Tokyo",body: "You wont believe what great deals you can get on coffee in Japan",channel_id: seed_user1.channel.id}
 video_21 = {title: "Do you know all your types of coffee?",body: "In this video we cover every type of coffee imaginable",channel_id: seed_user1.channel.id}
+video_22 = {title: "The basics about coffee",body: "Everything you wanted to know but didn't about coffee",channel_id: seed_user1.channel.id}
+video_23 = {title: "The most popular ways to make coffee at home",body: "Follow us as we guide you through this uncertain terrain",channel_id: seed_user1.channel.id}
 # set seed_user 2 videos
-video_22 = {title: "Teenage Sword Planet",body: "This moving arti piece illustrates how inequality makes me feel like we're loosing our inner chi.",channel_id: seed_user2.channel.id}
-video_23 = {title: "Mystic Spork Commander",body: "Meant as a commentary on what we're living through..",channel_id: seed_user2.channel.id}
-video_24 = {title: "Imperial Alligator Nitro",body: "Fun. That's we all need these day no? Some fun.",channel_id: seed_user2.channel.id}
-video_25 = {title: "Silly Baseball Dance Party",body: "That's what 'americas pastime' has become. The degredation of standards embodied in this flowing epic.",channel_id: seed_user2.channel.id}
-video_26 = {title: "Miracle Mech from Mars",body: "If only.. Comment and like!",channel_id: seed_user2.channel.id}
-video_27= {title: "Really cool music visualizer",body: "If only I could make this.. Comment and like!",channel_id: seed_user2.channel.id}
+video_24 = {title: "Teenage Sword Planet",body: "This moving arti piece illustrates how inequality makes me feel like we're loosing our inner chi.",channel_id: seed_user2.channel.id}
+video_25 = {title: "Mystic Spork Commander",body: "Meant as a commentary on what we're living through..",channel_id: seed_user2.channel.id}
+video_26 = {title: "Imperial Alligator Nitro",body: "Fun. That's we all need these day no? Some fun.",channel_id: seed_user2.channel.id}
+video_27 = {title: "Silly Baseball Dance Party",body: "That's what 'americas pastime' has become. The degredation of standards embodied in this flowing epic.",channel_id: seed_user2.channel.id}
+video_28 = {title: "Miracle Mech from Mars",body: "If only.. Comment and like!",channel_id: seed_user2.channel.id}
+video_29= {title: "Really cool music visualizer",body: "If only I could make this.. Comment and like!",channel_id: seed_user2.channel.id}
+video_30= {title: "DOUBLE KING",body: "A film about love and regicide. Made by Felix Colgrave over the course of 2 years.",channel_id: seed_user2.channel.id}
+video_31= {title: "Piper",body: "Charming pixar short by Alan Barillaro.",channel_id: seed_user2.channel.id}
+video_32= {title: "Lifted",body: "Another incredible pixar short.",channel_id: seed_user2.channel.id}
+
 videos = [ video1,video2,video3,video4,video5,video6,video7,video8,video9,video10,video_11,
            video_12,video_13,video_14,video_15,video_16,video_17,video_18,video_19,video_20,
-           video_21, video_22, video_23, video_24, video_25, video_26, video_27 ]
+           video_21, video_22, video_23, video_24, video_25, video_26, video_27, video_28,
+          video_29, video_30, video_31, video_32]
 #  store aws video urls
 videoUrls = [
   ["Chocolate_Lab_On_Boat.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/Chocolate_Lab_On_Boat.mp4"],
@@ -109,12 +116,17 @@ videoUrls = [
   ["coffee5.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee5.mp4"],
   ["coffee6.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee6.mp4"],
   ["coffee7.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee7.mp4"],
+  ["coffee8.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee8.mp4"],
+  ["coffee9.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee9.mp4"],
   ["render1.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render1.mp4"],
   ["render2.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render2.mp4"],
   ["render3.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render3.mp4"],
   ["render4.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render4.mp4"],
   ["render5.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render5.mp4"],
-  ["render6.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render6.mp4"]
+  ["render6.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render6.mp4"],
+  ["render7.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render7.mp4"],
+  ["render8.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render8.mp4"],
+  ["render9.mp4", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render9.mp4"]
 ]
 #  store aws thumbnail urls
 thumbnailUrls = [
@@ -139,12 +151,17 @@ thumbnailUrls = [
   ["coffee5.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee5.png"],
   ["coffee6.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee6.png"],
   ["coffee7.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee7.png"],
+  ["coffee8.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee8.png"],
+  ["coffee9.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/coffee9.png"],
   ["render1.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render1.png"],
   ["render2.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render2.png"],
   ["render3.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render3.png"],
   ["render4.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render4.png"],
   ["render5.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render5.png"],
-  ["render6.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render6.png"]
+  ["render6.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render6.png"],
+  ["render7.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render7.png"],
+  ["render8.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render8.png"],
+  ["render9.png", "https://s3.us-east-2.amazonaws.com/itube-dev/seed-videos/render9.png"]
 ]
 # save seed user videos to db
 videos.each_with_index do |video, i|
