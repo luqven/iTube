@@ -35,8 +35,6 @@ class App extends React.Component {
         <Route path="/search/:matchedId" component={SearchResults} />
         <Route exact path="/search/" component={NoResults} />
         <Route path="/channel/:channelId/:userId" component={Channel} />
-        {/* <Route path="/users/:userId" component={} /> */}
-        {/* <LoggedInAuth component={UserProfile} exact path={`/users/profile/`} loggedIn={this.props.loggedIn} exact={true}/> */}
         <LoggedInAuth component={VideoUpload} exact path={`/upload`} loggedIn={this.props.loggedIn} exact={true}/>
         <LoggedInAuth component={VideoEdit} path={`/update/:videoId/`} loggedIn={this.props.loggedIn} exact={true}/>
         <AuthRoute component={LoginContainer} path="/login" loggedIn={this.props.loggedIn} exact={true} />

@@ -171,4 +171,3 @@ videos.each_with_index do |video, i|
   curVideo.video_attachment.attach(io: EzDownload.open(io), filename: filename)    
   curVideo.thumbnail_attachment.attach(io: EzDownload.open(thumbnailUrls[i][1]),filename: thumbnailUrls[i][0])    
 end
-print("all videos successfully saved!")
