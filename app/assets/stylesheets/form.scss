@@ -80,13 +80,14 @@ input::placeholder, textarea::placeholder {
   font-size: medium;
   box-sizing: border-box;
   transition: color 0.4s;
-  border: 1px solid white;
+  // border: 1px solid white;
   border-radius: 5px;
   margin: 8px 0;
 }
 
 .form-input {
   border-color: none;
+  border: 2px solid transparent;
   transition: border-color .5s;
 }
 
@@ -116,4 +117,52 @@ input:focus::placeholder, textarea:focus::placeholder {
   position: inherit;
   justify-content: space-between;
   padding-top: 10px;
+}
+
+.username-label{
+    color: gray;
+    left: 250px;
+    top: 317px;
+    padding: 5px 15px;
+    margin: 10px;
+    width: 100%;
+    margin-left: 60px;
+}
+
+#namelabel{
+    color: transparent;
+    position: absolute;
+    padding-left: 20px;
+    padding-top: 30px;
+    font-size: medium;
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.password-label{
+    color: gray;
+    left: 250px;
+    top: 317px;
+    padding: 5px 15px;
+    margin: 10px;
+    width: 100%;
+    margin-left: 60px;
+}
+
+#passlabel{
+    color: transparent;
+    position: absolute;
+    padding-left: 20px;
+    padding-top: 30px;
+    font-size: medium;
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.field-selected{
+    position: absolute;
+    color: #3b8af0 !important;
+    background-color: white;
+    margin-left: 0px !important;
+    width: 70px !important;
+    font-size: smaller !important;
+    transform: translateY(-26px);
 }
