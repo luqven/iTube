@@ -32,7 +32,7 @@ a:-webkit-any-link {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 textarea {

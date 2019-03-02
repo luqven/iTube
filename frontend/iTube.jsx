@@ -10,12 +10,14 @@ import { searchForTerms } from './utils/search';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { fabYoutube } from "@fortawesome/free-brands-svg-icons";
+import { fabYoutube, fabGithub } from "@fortawesome/free-brands-svg-icons";
 import { faUserCircle, faSignOutAlt, faVideo, faFileVideo,
-         faUpload, faFileImage, faCheckCircle, faThumbsUp, faSearch, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
+         faUpload, faFileImage, faCheckCircle, faThumbsUp,
+        faSearch, faHeartBroken, faBars} from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faUserCircle, faSignOutAlt, faVideo,
-  faUpload, faFileImage, faFileVideo, faCheckCircle, faThumbsUp, faSearch, faHeartBroken);
+  faUpload, faFileImage, faFileVideo, faCheckCircle, 
+  faThumbsUp, faSearch, faHeartBroken, faBars);
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

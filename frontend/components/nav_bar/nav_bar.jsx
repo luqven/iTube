@@ -5,6 +5,7 @@ import DropDown from "../modal/modal";
 import UploadButton from "./upload_button";
 import LogoButton from "./logo_button";
 import SearchBar from "./search/search_bar";
+import { HamburgerMenu } from './hamburger_menu/hamburger';
 
 
 export default class NavBar extends React.Component{
@@ -48,7 +49,11 @@ export default class NavBar extends React.Component{
 
   return (
     <div className="nav-container">
-    {/* left hand side logo button */}
+      {/* hamburger menu */}
+        <div className="hamburger-container">
+          <HamburgerMenu />
+        </div>
+      {/* left hand side logo button */}
       <section className="title-logo"> 
          <LogoButton />
       </section>

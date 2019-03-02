@@ -72,7 +72,6 @@
 
 .title-logo svg {
   color: red;
-  margin-left: 100px;
 }
 
 .title-logo:hover {
@@ -111,3 +110,64 @@
 }
 
 
+.hamburger-container {
+  color: black;
+
+}
+
+.hamburger-btn {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 60px;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+}
+
+.hamburger-container ul {
+  position: fixed;
+  width: 192px;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column; 
+  list-style: none;
+  margin-left: 20px;
+  top: 10px;
+  box-shadow: none;
+  background-color: #eee;
+  border-right: 1px solid lightgray;
+  left: -20px;
+  top: 55px;
+  text-align: center;
+}
+
+.hamburger-container a{
+  text-align: center;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 15px !important;
+  padding-top: 15px !important;
+}
+
+.hamburger-container a:hover{
+  color: red;
+}
+
+
+.hamburger-container li {
+  color: black;
+}
+
+.hamburger-container li:hover{
+  cursor: pointer;
+  color: red;
+  background-color: #d0d0d0;
+}
+
+.hamburger-bkg{
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+}
