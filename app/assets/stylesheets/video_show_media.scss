@@ -1,7 +1,9 @@
-@media (min-width: 320px) and (max-width: 450px) {
+@media (min-width: 301px) and (max-width: 717px) {
   .video-show-container {
     width: 100vw;
     height: 100vh;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .video-show{
     width: 100vw;
@@ -9,8 +11,12 @@
     margin-bottom: 20px;
     margin-right: 0px;
     max-width: 100vw;
+    margin-left: 15px;
   }
   .video-user-info{
     width: 100vw;
+  }
+  .edit-btn{
+    margin-left: 0px;
   }
 }
