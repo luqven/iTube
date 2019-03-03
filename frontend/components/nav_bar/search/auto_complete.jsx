@@ -11,7 +11,7 @@ class AutoComplete extends React.Component {
       matchedSearch: [],
       matchedIds: "",
       titleComponents: null,
-      cursorPos: 0,
+      cursorPos: -1,
       selectedComponent: null,
       render: true,
     }
@@ -35,12 +35,16 @@ class AutoComplete extends React.Component {
       this.setState({
         cursorPos: cursorPos + 1,
       })
-    } else if (e.key === "ArrowUp" && cursorPos > 0) {
+    } else if (e.key === "ArrowUp" && cursorPos > -1) {
       this.setState({
         cursorPos: cursorPos - 1,
       })
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false,})
+      if (this.state.cursorPos === -1){
+        this.handleSubmit();
+        return
+      }
       // get the video from backend
       this.props.getVideo(selectedComp);
       // render the selected component's video show page
