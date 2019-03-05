@@ -136,7 +136,8 @@ class AutoComplete extends React.Component {
     return(
       <form>
         <input onKeyDown={ e => this.handleKey(e)} 
-               onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))} 
+               onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))}
+               onBlur={ e => this.setState({ searchStr: "",matchedSearch: [],titleComponents: null,})}
                type="text" placeholder="Search" 
                value={this.state.searchStr} />
         {comps}
