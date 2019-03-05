@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { withRouter } from 'react-router-dom';
 import { getLikes, addLike, deleteLike } from '../../actions/like_actions';
 
 class LikeButton extends React.Component {
@@ -24,6 +23,7 @@ class LikeButton extends React.Component {
   }
 
   handleClick() {
+    if (this.props.user === null) {this.props.history.push('/login/')}
     if (this.props.type === "liked") {
       this.props.deleteLike(this.props.like)
     } else {
@@ -80,4 +80,4 @@ const mdp = dispatch => {
   }
 }
 
-export default connect(msp, mdp)(LikeButton)
+export default withRouter(connect(msp, mdp)(LikeButton))
