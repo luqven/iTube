@@ -29,7 +29,6 @@ class Login extends React.Component {
     return (e) => {
       const username = document.querySelector("#namelabel")
       const password = document.querySelector("#passlabel")
-      debugger
       if (type === "username") {
         username.classList.add("field-selected")
         password.classList.remove("field-selected")

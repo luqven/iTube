@@ -16,18 +16,18 @@ end
 
 json.channels do
   json.set! @video.channel.id do
-      json.name @video.channel.name
-      json.body @video.channel.body
-      json.owner_id @video.channel.owner.id
-      json.videoIds @video.channel.videos.ids
-    end
+    json.name @video.channel.name
+    json.body @video.channel.body
+    json.owner_id @video.channel.owner.id
+    json.videoIds @video.channel.videos.ids
+  end
 end
 
 json.likes do
-  @video.likes do |like|
+  @likes.each do |like|
     json.set! like.id do
       json.liked like.liked
-      json.liker like.user_id
+      json.liker_id like.user_id
       json.video_id like.video_id
       json.id like.id
     end

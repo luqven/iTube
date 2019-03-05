@@ -9,7 +9,7 @@ export default (state = _nullLike, action) => {
     case RECEIVE_LIKES:
       return merge({}, state, action.payload.likes)
     case RECEIVE_LIKE:
-      return merge({}, state, action.payload.likes)
+    return merge({}, state, action.payload.likes)
     case RECEIVE_VIDEO:
       return merge({}, state, action.payload.likes)
     case REMOVE_LIKE:

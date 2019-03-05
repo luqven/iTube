@@ -18,11 +18,11 @@ class LikeButton extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount(){
-    this.props.getLikes(this.props.user_id)
+  componentDidMount(){
   }
 
   handleClick() {
+    // redirect to login if no logged in user
     if (this.props.user === null) {this.props.history.push('/login/')}
     if (this.props.type === "liked") {
       this.props.deleteLike(this.props.like)
@@ -38,27 +38,19 @@ class LikeButton extends React.Component {
       return <li className="video-error" key={idx}>{error}</li>
     })
     if (this.props.type === 'liked') {
-      // return <button className="button-liked" onClick={this.handleClick}>Liked!</button>
       return (
         <>
           <FontAwesomeIcon icon="thumbs-up" className="button-liked" onClick={this.handleClick} />
           <div className="error-message">
           </div>
-          <ul>
-            {/* {errors} */}
-          </ul>
         </>
       )
     } else {
-      // return <button className="button-like" onClick={this.handleClick}>Like</button>
       return (
         <>
           <FontAwesomeIcon icon="thumbs-up" className="button-like" onClick={this.handleClick} />          
           <div className="error-message">
           </div>
-          <ul>
-            {/* {errors} */}
-          </ul>
         </>
       )
     }

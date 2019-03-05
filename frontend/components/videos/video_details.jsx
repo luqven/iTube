@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getVideo } from '../../actions/videos';
 import { Link } from 'react-router-dom';
+import { getLikes } from '../../actions/like_actions';
+
 
 export class VideoDetails extends React.Component{
   constructor(props){
@@ -12,7 +14,8 @@ export class VideoDetails extends React.Component{
   }
 
   componentDidMount(){
-    this.props.getVideo(this.props.video.id);
+    // this.props.getVideo(this.props.video.id);
+    // this.props.getLikes(this.props.video.id)
   }
 
   handleClick() {
@@ -65,7 +68,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    getVideo: (videoId) => dispatch(getVideo(videoId))
+    getVideo: (videoId) => dispatch(getVideo(videoId)),
+    getLikes: (userId) => dispatch(getLikes(userId))
   }
 };
 

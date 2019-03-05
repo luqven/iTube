@@ -24,7 +24,7 @@ export default class VideoShow extends React.Component {
 
   componentDidMount(){
     this.props.getVideo(this.props.video.id).then(
-      this.props.getLikes(this.props.video.id)
+      // setTimeout(() => this.props.getLikes(this.props.user_id), 500)
     )
     document.addEventListener('keydown',this.videoPause)
   }
