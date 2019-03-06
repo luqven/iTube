@@ -6,9 +6,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def show 
-    @comment = Comment.find_by(video_id: params[:video_id])
-    if @comment
-      render :show
+    @comments = Comment.where("video_id = ?", params[:video_id])
+    if @comments
+      render :index
     else
     render json: { comments: {} }
 

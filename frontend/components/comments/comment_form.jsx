@@ -59,9 +59,11 @@ export default class CommentForm extends React.Component{
     })
   }
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault();
     const formComment = this.state.comment
     if (this.props.type === "add") { this.props.addComment(formComment) }
+    this.resetComment(e);
   }
 
   render(){

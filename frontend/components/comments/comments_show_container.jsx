@@ -9,7 +9,6 @@ const msp = (state, ownProps) => {
     if (comment.video_id === Number(ownProps.match.params.videoId)) { return comment }
     else {return null}
   })
-  debugger
   return{
     comments: videoComments,
     video_id: ownProps.match.params.videoId
