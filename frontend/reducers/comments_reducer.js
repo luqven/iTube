@@ -17,6 +17,6 @@ export default (state = _nullComment, action) => {
       delete newState[Object.values(action.payload.comments)[0].id]
       return newState;
     default:
-      return _nullComment;
+      return state;
   }
 };

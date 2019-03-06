@@ -5,7 +5,7 @@ import CommentsShow from "./comments_show";
 
 const msp = (state, ownProps) => {
   return{
-    comments: state.comments,
+    comments: Object.values(state.entities.comments),
     video_id: ownProps.match.params.videoId
   }
 }
