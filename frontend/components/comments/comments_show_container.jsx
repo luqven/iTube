@@ -4,8 +4,14 @@ import { getComments } from "../../actions/comment_actions";
 import CommentsShow from "./comments_show";
 
 const msp = (state, ownProps) => {
+  let videoComments;
+  videoComments = Object.values(state.entities.comments).map((comment) => {
+    if (comment.video_id === Number(ownProps.match.params.videoId)) { return comment }
+    else {return null}
+  })
+  debugger
   return{
-    comments: Object.values(state.entities.comments),
+    comments: videoComments,
     video_id: ownProps.match.params.videoId
   }
 }

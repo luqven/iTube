@@ -5,7 +5,6 @@ import ChannelIcon from "../channels/channel_icon"
 export default class CommentsShow extends React.Component {
   constructor(props){
     super(props)
-    this.state = {comments: null}
   }
 
   componentDidMount(){
@@ -16,6 +15,7 @@ export default class CommentsShow extends React.Component {
     let comments;
     if (this.props.comments.length !== 0) {
       comments = this.props.comments.map((comment, id) => {
+        if (comment === null) {return}
         return (
         <li 
           className="comment-body-container" 
