@@ -5,14 +5,13 @@ import { addComment } from "../../actions/comment_actions"
 import CommentForm from "./comment_form";
 
 const msp = (state, ownProps) => {
-  let currentUser = state.entities.users[state.session.id]
-  let currentVideo = state.entities.videos[ownProps.match.params.videoId]
+  let currentUser = state.session.id
   // let videoComments = state.entities.comments.map((comment, id) => {
   //   if (comment.video_id === currentVideo.id) {return comment}
   // })
   return{
-    user: currentUser,
-    video: currentVideo,
+    user_id: currentUser,
+    video_id: Number(ownProps.match.params.videoId),
     comment: {body: "", video_id: null, user_id: null},
     errors: state.errors,
     type: "add",
