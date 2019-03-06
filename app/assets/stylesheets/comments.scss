@@ -1,0 +1,36 @@
+.comment-form-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.comment-form-container a {
+  width: 50px;
+}
+
+.comment-form-container form{
+  padding-top: 10px;
+  width: 73% !important;
+  align-self: center;
+  width: fit-content;
+}
+
+.comment-form-container form input {
+  font-size: x-small;
+  width: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid lightgray;
+}
+
+.comment-form-container .channel-icon-container{
+  margin-left: 5px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+}
+.comment-form-container .channel-name {
+  display: none;
+}
+.comment-form-container .channel-icon {
+   margin-right: 0px;
+}

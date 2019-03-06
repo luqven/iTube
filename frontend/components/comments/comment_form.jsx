@@ -1,4 +1,5 @@
 import React from 'react'
+import ChannelIcon from "../channels/channel_icon"
 
 export default class CommentForm extends React.Component{
   constructor(props){
@@ -66,27 +67,30 @@ export default class CommentForm extends React.Component{
 
   render(){
     return(
-    <form onSubmit={this.handleSubmit}>
-      <input
-       onFocus={this.handleFocus}
-       onChange={this.handleInput}
-       type="text" 
-       placeholder={`${this.state.type} comment`}
-       value={this.state.comment.body}/>
-      {/* only show buttons when field is focused */}
-      <button 
-        id="cancel-cmt" 
-        className="hidden"
-        onClick={this.resetComment}>
-        Cancel
-      </button>
-      <button
-        id="commit-cmt" 
-        className="hidden"
-        onClick={this.handleSubmit}>
-        {this.state.type} Comment
-      </button>
-    </form>
+        <section className="comment-form-container">
+          <ChannelIcon userId={this.state.user_id} />
+          <form onSubmit={this.handleSubmit}>
+            <input
+              onFocus={this.handleFocus}
+              onChange={this.handleInput}
+              type="text"
+              placeholder={`${this.state.type} public comment`}
+              value={this.state.comment.body} />
+            {/* only show buttons when field is focused */}
+            <button
+              id="cancel-cmt"
+              className="hidden"
+              onClick={this.resetComment}>
+              Cancel
+          </button>
+            <button
+              id="commit-cmt"
+              className="hidden"
+              onClick={this.handleSubmit}>
+              {this.state.type} Comment
+          </button>
+          </form>
+        </section>
     )
   }
 }
