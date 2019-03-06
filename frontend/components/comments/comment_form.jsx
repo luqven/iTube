@@ -30,7 +30,7 @@ export default class CommentForm extends React.Component{
 
   handleFocus(){
     // redirect to login on focus if user not logged in
-    if (this.state.user_id === undefined) { this.props.history.push('/login/')}
+    if (this.state.user_id === null) { this.props.history.push('/login/')}
     // show the button
     let button1 = document.querySelector("#cancel-cmt")
     let button2 = document.querySelector("#commit-cmt")
