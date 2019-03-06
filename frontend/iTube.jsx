@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createStore from './store/store';
 import Root from './components/root';
-import { fetchComments, postComment } from './utils/comment'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -42,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.dispatch = store.dispatch;
   // window.login = login;
   // window.fetchLikes = fetchLikes;
-  window.fetchComments = fetchComments;
-  window.postComment = postComment;
+  // window.fetchComments = fetchComments;
+  // window.postComment = postComment;
   // window.postLike = postLike;
   // window.searchForTerms = searchForTerms;
   // TESTING END
