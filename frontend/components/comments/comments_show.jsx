@@ -1,4 +1,6 @@
 import React from 'react'
+import ChannelIcon from "../channels/channel_icon"
+
 
 export default class CommentsShow extends React.Component {
   constructor(props){
@@ -12,14 +14,19 @@ export default class CommentsShow extends React.Component {
 
   render(){
     let comments;
-    if (this.props.comments !== undefined) {
+    if (this.props.comments.length !== 0) {
       comments = this.props.comments.map((comment, id) => {
-        return <li key={id}>{comment.body}</li>
+        return (
+        <li 
+          className="comment-body-container" 
+          key={id}>
+          <ChannelIcon userId={comment.user_id} />
+            <p className="comment-body">{comment.body}</p>
+        </li>)
       }) 
     } else {
       comments = null;
     }
-    debugger
     return(
       <section className="comments-container">
         <p className="comment-show-title">Comments</p>

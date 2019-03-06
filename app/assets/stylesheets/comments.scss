@@ -17,6 +17,33 @@
   margin-top: 20px;
 }
 
+.comment-body-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-body {
+  margin-top: 20px;
+  margin-left: 10px;
+  text-transform: lowercase;
+}
+
+.comment-body-container .channel-name{
+  font-size: small;
+  font-weight: bold;
+  position: relative;
+  margin-top: 0px;
+}
+
+.comment-body-container .channel-icon-container {
+  margin: 0px;
+  padding-right: 30px;
+}
+
+.comment-body-container a {
+  width: 50px;
+}
+
 // comment form styles
 .comment-form-container{
   display: flex;
