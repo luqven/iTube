@@ -2,6 +2,7 @@ import React from 'react';
 import VideoPlayer from './video_player';
 import VideoDetails from './video_details';
 import CommentForm from '../comments/create_comment_container';
+import CommentsShow from '../comments/comments_show_container';
 
 export default class VideoShow extends React.Component {
   constructor(props) {
@@ -39,8 +40,10 @@ export default class VideoShow extends React.Component {
       <div className="video-show-container">
         <VideoPlayer user={this.props.user} errors={this.props.errors} resetErrors={this.props.resetErrors}/>
         <VideoDetails />
-        {/* comments */}
+        {/* comments add/edit */}
         <CommentForm />
+        {/* comments show */}
+        <CommentsShow />
       </div>
     )
   }

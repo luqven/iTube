@@ -1,3 +1,20 @@
+// comment show styles
+
+.comments-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-container ul {
+  position: relative;
+  box-shadow: none;
+  background-color: transparent;
+  list-style: none;
+  margin-left: 25px;
+}
+
+
+// comment form styles
 .comment-form-container{
   display: flex;
   flex-direction: row;

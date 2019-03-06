@@ -47,7 +47,6 @@ export default class CommentForm extends React.Component{
   }
 
   resetComment(e){
-    debugger
     e.preventDefault()
     this.handleBlur()
     this.setState({
@@ -62,7 +61,7 @@ export default class CommentForm extends React.Component{
 
   handleSubmit(){
     const formComment = this.state.comment
-    this.props.addComment(formComment)
+    if (this.props.type === "add") { this.props.addComment(formComment) }
   }
 
   render(){
