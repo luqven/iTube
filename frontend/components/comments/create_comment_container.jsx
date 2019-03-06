@@ -13,6 +13,7 @@ const msp = (state, ownProps) => {
   return{
     user: currentUser,
     video: currentVideo,
+    comment: {body: "", video_id: currentVideo.id, user_id: currentUser.id},
     errors: state.errors,
     type: "add",
     // comments: videoComments,

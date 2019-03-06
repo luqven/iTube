@@ -3,7 +3,13 @@ import React from 'react'
 export default class CommentForm extends React.Component{
   constructor(props){
     super(props)
-    this.state = {type: props.type}
+    this.state = {
+      type: props.type,
+      video: props.video,
+      user: props.user,
+      errors: props.errors,
+      comment: props.comment,
+    }
   }
 
   render(){
