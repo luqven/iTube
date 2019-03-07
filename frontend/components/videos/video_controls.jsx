@@ -52,6 +52,8 @@ export default class VideoControls extends React.Component {
     }
   }
 
+  // helper that changes red progress bar by
+  // setting state progressPercent
   updateProgress(){
     let playHead = (100 / this.videoEle.duration) * this.videoEle.currentTime
     let progressBar = document.querySelector(".progress")
@@ -59,12 +61,11 @@ export default class VideoControls extends React.Component {
     this.setState({ progPercent: playHead})
   }
 
-  // palyHead / (100 / this.videoEle.duration) = this.videoEle.currentTime
-
+  // helper that sets video playHead to target.value
   updateCurrentTime(e){
     e.preventDefault();
+    // playHead / (100 / this.videoEle.duration) = this.videoEle.currentTime
     let targetTime = Number(e.target.value) / (100 / this.videoEle.duration)
-    // let currentTime = this.videoEle.currentTime
     this.videoEle.currentTime = targetTime    
     this.updateProgress();
   }
@@ -148,7 +149,7 @@ export default class VideoControls extends React.Component {
             type="range" 
             min="0" 
             max="100"
-            defaultValue={`${this.state.progPercent + 0}`}
+            value={`${this.state.progPercent + 0}`}
             className="progress-timeline" id="myRange">
           </input>
           <div className="progress"></div>
