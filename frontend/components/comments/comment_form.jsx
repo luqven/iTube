@@ -62,7 +62,7 @@ export default class CommentForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     const formComment = this.state.comment
-    if (this.props.type === "add") { this.props.addComment(formComment) }
+    if (this.props.type === "comment") { this.props.addComment(formComment) }
     this.resetComment(e);
   }
 
@@ -73,22 +73,23 @@ export default class CommentForm extends React.Component{
           <form onSubmit={this.handleSubmit}>
             <input
               onFocus={this.handleFocus}
+              onBlur={()=> setTimeout(this.handleBlur, 100)}
               onChange={this.handleInput}
               type="text"
-              placeholder={`${this.state.type} public comment`}
+              placeholder={`add public comment`}
               value={this.state.comment.body} />
             {/* only show buttons when field is focused */}
             <button
               id="cancel-cmt"
-              className="hidden"
+              className=" white-btn hidden"
               onClick={this.resetComment}>
               Cancel
           </button>
             <button
               id="commit-cmt"
-              className="hidden"
+              className="gray-btn  hidden"
               onClick={this.handleSubmit}>
-              {this.state.type} Comment
+              {this.state.type}
           </button>
           </form>
         </section>

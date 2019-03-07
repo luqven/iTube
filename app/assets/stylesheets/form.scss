@@ -98,7 +98,7 @@ input::placeholder, textarea::placeholder {
 }
 
 input:focus::placeholder, textarea:focus::placeholder {
-  color: white;
+  color: transparent;
 }
 
 .form-label {

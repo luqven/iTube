@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
     video_id: Number(ownProps.match.params.videoId),
     comment: {body: "", video_id: null, user_id: null},
     errors: state.errors,
-    type: "add",
+    type: "comment",
     // comments: videoComments,
   }
 }

@@ -56,18 +56,20 @@
 }
 
 .comment-form-container form{
+  display: flex;
+  flex-direction: row;
   padding-top: 10px;
   width: 73% !important;
   align-self: center;
   width: fit-content;
 }
-
 .comment-form-container form input {
-  font-size: x-small;
+  font-size: small;
   width: 100%;
   background-color: transparent;
   border-color: transparent;
   border-bottom: 1px solid lightgray;
+  margin-right: 20px;
 }
 
 .comment-form-container .channel-icon-container{
@@ -80,4 +82,26 @@
 }
 .comment-form-container .channel-icon {
    margin-right: 0px;
+}
+
+.gray-btn {
+  margin: 2px;
+  width: 101px;
+  height: 36px;
+  color: white;
+  background-color: #cccccc;
+  border-radius: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.white-btn{
+  margin: 2px;
+  width: 101px;
+  height: 36px;
+  color: black;
+  background-color: white;
+  border-radius: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
