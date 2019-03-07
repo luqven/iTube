@@ -130,21 +130,23 @@
   height: 5px;
   background-color: black;
   position: relative;
-  top: -27px;
+  top: -30px;
 }
 .progress {
   background-color: red;
+  border-radius: 2px;
   height: 5px;
   width: 0px;
   position: relative;
   top: -19px;
 }
 .progress-timeline {
+  -webkit-appearance: none;
   color: gray;
   width: -webkit-fill-available;
   position: relative;
   height: 5px;
-  top: -10px;
+  top: -12px;
   background: transparent;
   outline: none;
   opacity: 0.1;
@@ -153,13 +155,15 @@
 
 .progress-timeline:hover {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .video-controls-container {
   width: -webkit-fill-available;
+  height: 25px;
   background-color: #000000a8;
   position: relative;
-  top: -27px; 
+  top: -30px;
 }
 
 .controls-btns button {
@@ -167,4 +171,8 @@
   border-color: transparent;
   color: white;
   padding-bottom: 2px;
+}
+
+.controls-btns button:hover {
+  cursor: pointer;
 }
