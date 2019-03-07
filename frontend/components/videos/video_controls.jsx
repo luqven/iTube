@@ -4,9 +4,9 @@ export default class VideoControls extends React.Component {
   constructor(props){
     super(props);
     this.state = { 
-      prog: 0,
+      progPercent: 0,
       duration: 0, 
-      volume: 0
+      volume: 1
     };
 
     this.clickMute = this.clickMute.bind(this);
@@ -16,6 +16,7 @@ export default class VideoControls extends React.Component {
     this.updateProgress = this.updateProgress.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.clickFullscreen = this.clickFullscreen.bind(this);
+    this.updateCurrentTime = this.updateCurrentTime.bind(this);
   }
 
   componentDidMount(){
@@ -52,10 +53,20 @@ export default class VideoControls extends React.Component {
   }
 
   updateProgress(){
-    let playHead = Math.floor((100 / this.videoEle.duration) * this.videoEle.currentTime)
+    let playHead = (100 / this.videoEle.duration) * this.videoEle.currentTime
     let progressBar = document.querySelector(".progress")
     progressBar.style.width = playHead + '%'
-    this.setState({prog: playHead})
+    this.setState({ progPercent: playHead})
+  }
+
+  // palyHead / (100 / this.videoEle.duration) = this.videoEle.currentTime
+
+  updateCurrentTime(e){
+    e.preventDefault();
+    let targetTime = Number(e.target.value) / (100 / this.videoEle.duration)
+    // let currentTime = this.videoEle.currentTime
+    this.videoEle.currentTime = targetTime    
+    this.updateProgress();
   }
 
   // --------
@@ -81,19 +92,17 @@ export default class VideoControls extends React.Component {
 
   clickSkip(e){
     e.preventDefault()
+    debugger
     // set videoEle playhead to 25% ahead of current location
-    this.videoEle.currentTime = this.state.prog + (.25 * this.state.prog)
+    this.videoEle.currentTime += 10
+    debugger
   }
 
   clickMute(e){
     e.preventDefault()
     // toggle volume between 0 and previous volume value
-    if (this.videoEle.volume = 0){
-      this.videoEle.volume = this.state.volume
-    } else {
-      this.setState({volume: this.videoEle.volume})
-      this.videoEle.volume = 0
-    }
+    if (this.videoEle.muted) {this.videoEle.muted = false}
+    else {this.videoEle.muted = true;}
   }
 
   clickFullscreen(e){
@@ -134,6 +143,14 @@ export default class VideoControls extends React.Component {
           </video>
         </div>
         <div className="progress-background">
+          <input 
+            onChange={ e => this.updateCurrentTime(e)}
+            type="range" 
+            min="0" 
+            max="100"
+            defaultValue={`${this.state.progPercent + 0}`}
+            className="progress-timeline" id="myRange">
+          </input>
           <div className="progress"></div>
         </div>
         <div className="video-controls-container">
@@ -153,6 +170,10 @@ export default class VideoControls extends React.Component {
             <button 
               onClick={ e => this.handleControl(e, 'fullscreen')} 
               className="video-full"> [ ] 
+            </button>
+            <button 
+              onClick={ e => this.handleControl(e, 'mute')} 
+              className="video-mute"> M 
             </button>
           </div>
         </div>

@@ -136,6 +136,23 @@
   background-color: red;
   height: 5px;
   width: 0px;
+  position: relative;
+  top: -19px;
+}
+.progress-timeline {
+  color: gray;
+  width: -webkit-fill-available;
+  position: relative;
+  height: 5px;
+  top: -10px;
+  background: transparent;
+  outline: none;
+  opacity: 0.1;
+  transition: opacity .2s;
+}
+
+.progress-timeline:hover {
+  opacity: 0.7;
 }
 
 .video-controls-container {
