@@ -6,7 +6,7 @@ export default class UserCircle extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUser(this.props.userId);
+    // this.props.getUser(this.props.userId);
     this.handleClick = this.handleClick.bind(this)
   }
 

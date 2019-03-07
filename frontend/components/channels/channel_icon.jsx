@@ -10,7 +10,7 @@ export class ChannelIcon extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getUser(this.props.userId);
+    // this.props.getUser(this.props.userId);
   };
 
 

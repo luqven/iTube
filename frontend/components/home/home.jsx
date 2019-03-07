@@ -11,16 +11,19 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getAllVideos().then(this.props.getAllChannels());
+    this.props.getAllVideos().then(
+      this.props.getAllChannels()).then(
+        this.props.getAllUsers())
   }
 
   render() {
     let channels;
     if (this.props.channels.length >= 1){
       channels = this.props.channels.map((channel, idx) => {
+        let owner = this.props.users[channel.owner_id]
         if(channel.videoIds.length > 0){
         return (
-          <ChannelCarousel channel={channel} classId={idx} key={idx} userId={channel.owner_id} />
+          <ChannelCarousel channel={channel} classId={idx} key={idx} owner={owner} userId={channel.owner_id} />
         )} else {
           return null;
         }

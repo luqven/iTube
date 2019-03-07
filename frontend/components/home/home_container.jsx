@@ -1,5 +1,6 @@
 import { getAllVideos } from '../../actions/videos';
 import { getAllChannels } from '../../actions/channel_actions';
+import { getUser, getAllUsers } from '../../actions/user_actions';
 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -17,7 +18,8 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     getAllVideos: () => dispatch(getAllVideos()),
-    getAllChannels: () => dispatch(getAllChannels())
+    getAllChannels: () => dispatch(getAllChannels()),
+    getAllUsers: () => dispatch(getAllUsers())
   };
 };
 

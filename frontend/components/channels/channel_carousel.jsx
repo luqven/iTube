@@ -54,7 +54,7 @@ class ChannelCarousel extends React.Component {
 
   getPreviews(){
     let components =  this.props.channel.videoIds.map((videoId, idx) => {
-      return <VideoPreview videoId={videoId} key={idx} carouselPos={idx} owner={this.props.channel.owner_id}/>
+      return <VideoPreview videoId={videoId} key={idx} carouselPos={idx} owner={this.props.owner}/>
     })
     return components
   }
@@ -82,7 +82,7 @@ class ChannelCarousel extends React.Component {
     return (
       <> 
         <div className="channel-carousel" id={`channel-carousel${this.props.channel.owner_id}`}>
-            <ChannelIcon userId={this.props.channel.owner_id} />
+          <ChannelIcon userId={this.props.channel.owner_id} owner={this.props.owner} />
           {/* the channels video carousel */}
           <div className="left-btn-placeholder">
             {leftButton}

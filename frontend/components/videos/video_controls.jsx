@@ -30,12 +30,18 @@ export default class VideoControls extends React.Component {
     this.setState({
       duration: this.videoEle.duration,
       volume: this.videoEle.volume,
+      progPercent: 0,
     })
   }
 
   componentWillUnmount(){
     document.removeEventListener('keydown', this.handleKeyPress);
     this.videoEle.removeEventListener('timeupdate', this.updateProgress)
+    this.setState({
+      duration: this.videoEle.duration,
+      volume: this.videoEle.volume,
+      progPercent: 0,
+    })
   }
 
   handleKeyPress(e) {
