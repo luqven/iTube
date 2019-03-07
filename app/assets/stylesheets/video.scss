@@ -1,6 +1,10 @@
 /* ################################### */
 /* Video page styling */
 /* ################################### */
+.video-src-container{
+  width: -webkit-fill-available;
+}
+
 .video-show-container {
   width: 70%;
   margin-right: 80px;
@@ -130,7 +134,7 @@
   height: 5px;
   background-color: black;
   position: relative;
-  top: -30px;
+  top: -20px;
 }
 .progress {
   background-color: red;
@@ -138,15 +142,15 @@
   height: 5px;
   width: 0px;
   position: relative;
-  top: -19px;
+  top: -20px;
 }
 .progress-timeline {
   -webkit-appearance: none;
   color: gray;
   width: -webkit-fill-available;
   position: relative;
-  height: 5px;
-  top: -12px;
+  height: 10px;
+  top: -10px;
   background: transparent;
   outline: none;
   opacity: 0.1;
@@ -158,12 +162,27 @@
   cursor: pointer;
 }
 
+.progress-timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background: red;
+  cursor: pointer;
+}
+
 .video-controls-container {
   width: -webkit-fill-available;
-  height: 25px;
-  background-color: #000000a8;
+  height: 30px;
+  background-color: #000000fa;
   position: relative;
   top: -30px;
+}
+
+.controls-btns{
+  position: relative;
+  top: 5px;
 }
 
 .controls-btns button {

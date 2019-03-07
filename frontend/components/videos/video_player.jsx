@@ -68,7 +68,7 @@ export class VideoPlayer extends React.Component{
     return (
       <ul className="video-show">
         {/* video source and controls */}
-        <VideoAndControls source={this.props.video.video_url} />
+        <VideoAndControls source={this.props.video.video_url} thumbnail={this.props.video.thumbnail_url} />
         <li>{this.props.video.title}</li>
         <li>{this.props.errors}</li>
         <li>

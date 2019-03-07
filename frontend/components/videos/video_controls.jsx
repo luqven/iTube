@@ -93,10 +93,8 @@ export default class VideoControls extends React.Component {
 
   clickSkip(e){
     e.preventDefault()
-    debugger
     // set videoEle playhead to 25% ahead of current location
     this.videoEle.currentTime += 10
-    debugger
   }
 
   clickMute(e){
@@ -138,21 +136,10 @@ export default class VideoControls extends React.Component {
   render(){
     return (
       <>
-        <div className="video-src-container">
+        <div onClick={e => this.clickPlay(e)} className="video-src-container">
           <video width="320" height="240" preload="metadata" controls="controls"
-            src={`${this.props.source}`} type="video/mp4">
+            poster={this.props.thumbnail} src={`${this.props.source}`} type="video/mp4">
           </video>
-        </div>
-        <div className="progress-background">
-          <input 
-            onChange={ e => this.updateCurrentTime(e)}
-            type="range" 
-            min="0" 
-            max="100"
-            value={`${this.state.progPercent + 0}`}
-            className="progress-timeline" id="myRange">
-          </input>
-          <div className="progress"></div>
         </div>
         <div className="video-controls-container">
           <div className="controls-btns">
@@ -176,6 +163,17 @@ export default class VideoControls extends React.Component {
               onClick={ e => this.handleControl(e, 'mute')} 
               className="video-mute"> M 
             </button>
+          </div>
+          <div className="progress-background">
+            <input
+              onChange={e => this.updateCurrentTime(e)}
+              type="range"
+              min="0"
+              max="100"
+              value={`${this.state.progPercent + 0}`}
+              className="progress-timeline" id="myRange">
+            </input>
+            <div className="progress"></div>
           </div>
         </div>
       </>
