@@ -11,11 +11,14 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fabYoutube, fabGithub } from "@fortawesome/free-brands-svg-icons";
 import { faUserCircle, faSignOutAlt, faVideo, faFileVideo,
          faUpload, faFileImage, faCheckCircle, faThumbsUp,
-        faSearch, faHeartBroken, faBars} from '@fortawesome/free-solid-svg-icons';
+        faSearch, faHeartBroken, faBars, faVolumeMute, faPlay,
+        faPause, faStepForward, faExpand, faVolumeUp} from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faUserCircle, faSignOutAlt, faVideo,
   faUpload, faFileImage, faFileVideo, faCheckCircle, 
-  faThumbsUp, faSearch, faHeartBroken, faBars);
+  faThumbsUp, faSearch, faHeartBroken, faBars,
+  faVolumeMute, faPlay, faPause, faStepForward,
+  faExpand, faVolumeUp);
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

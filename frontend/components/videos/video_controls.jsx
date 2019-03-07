@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 export default class VideoControls extends React.Component {
   constructor(props){
@@ -98,10 +100,20 @@ export default class VideoControls extends React.Component {
   }
 
   clickMute(e){
+    let muteBtn = document.querySelector('.video-mute')
+    let unMuteBtn = document.querySelector('.video-unmute')
     e.preventDefault()
     // toggle volume between 0 and previous volume value
-    if (this.videoEle.muted) {this.videoEle.muted = false}
-    else {this.videoEle.muted = true;}
+    if (this.videoEle.muted) {
+      this.videoEle.muted = false
+      muteBtn.classList.add("hidden")
+      unMuteBtn.classList.remove("hidden")
+    }
+    else {
+      this.videoEle.muted = true;
+      muteBtn.classList.remove("hidden")
+      unMuteBtn.classList.add("hidden")
+    }
   }
 
   clickFullscreen(e){
@@ -145,23 +157,33 @@ export default class VideoControls extends React.Component {
           <div className="controls-btns">
             <button 
               onClick={ e => this.handleControl(e, 'pause')} 
-              className="video-pause hidden"> || 
+              className="video-pause hidden">
+              <FontAwesomeIcon onClick={e => this.handleControl(e, 'pause')} icon="pause" /> 
             </button>
             <button 
               onClick={ e => this.handleControl(e, 'play')} 
-              className="video-play"> > 
+              className="video-play"> 
+              <FontAwesomeIcon onClick={e => this.handleControl(e, 'play')} icon="play" /> 
             </button>
             <button 
               onClick={ e => this.handleControl(e, 'skip')} 
-              className="video-skip"> > | 
+              className="video-skip">
+              <FontAwesomeIcon onClick={e => this.handleControl(e, 'skip')} icon="step-forward" /> 
             </button>
             <button 
               onClick={ e => this.handleControl(e, 'fullscreen')} 
-              className="video-full"> [ ] 
+              className="video-full">
+              <FontAwesomeIcon onClick={e => this.handleControl(e, 'fullscreen')} icon="expand" />
             </button>
             <button 
               onClick={ e => this.handleControl(e, 'mute')} 
-              className="video-mute"> M 
+              className="hidden video-mute">
+              <FontAwesomeIcon onClick={e => this.handleControl(e, 'mute')} icon="volume-mute"/>
+            </button>
+            <button 
+              onClick={ e => this.handleControl(e, 'mute')} 
+              className="video-unmute">
+              <FontAwesomeIcon onClick={e => this.handleControl(e, 'mute')} icon="volume-up"/>
             </button>
           </div>
           <div className="progress-background">
