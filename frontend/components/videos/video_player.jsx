@@ -5,6 +5,7 @@ import { resetErrors } from '../../actions/session';
 import { withRouter } from 'react-router-dom';
 
 import LikeButton from '../likes/like_button';
+import VideoAndControls from './video_controls';
 
 export class VideoPlayer extends React.Component{
   constructor(props){
@@ -14,6 +15,7 @@ export class VideoPlayer extends React.Component{
       user: this.props.video.uploader.id,
       errors: this.props.errors,
     };
+
     this.likers = this.likers.bind(this);
     this.likedByUser = this.likedByUser.bind(this);
     this.getUserLike = this.getUserLike.bind(this);
@@ -65,9 +67,8 @@ export class VideoPlayer extends React.Component{
     };
     return (
       <ul className="video-show">
-        <video width="320" height="240" preload="metadata" controls="controls"
-          src={`${this.props.video.video_url}`} type="video/mp4">
-        </video>
+        {/* video source and controls */}
+        <VideoAndControls source={this.props.video.video_url} />
         <li>{this.props.video.title}</li>
         <li>{this.props.errors}</li>
         <li>

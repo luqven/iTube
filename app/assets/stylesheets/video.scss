@@ -120,3 +120,34 @@
     top: 400px;
     right: 300px;
 }
+
+/* ################################### */
+/* Video Controls styling
+/* ################################### */
+
+.progress-background{
+  width: -webkit-fill-available;
+  height: 5px;
+  background-color: black;
+  position: relative;
+  top: -27px;
+}
+.progress {
+  background-color: red;
+  height: 5px;
+  width: 0px;
+}
+
+.video-controls-container {
+  width: -webkit-fill-available;
+  background-color: #000000a8;
+  position: relative;
+  top: -27px; 
+}
+
+.controls-btns button {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  padding-bottom: 2px;
+}
