@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { handleKeyPress } from "../../utils/key_event_helper";
+import { handleKeyPress, clickFullscreen, clickMute, clickPlay, clickSkip } from "../../utils/key_event_helper";
 
 export default class VideoControls extends React.Component {
   constructor(props){
@@ -10,14 +10,8 @@ export default class VideoControls extends React.Component {
       duration: 0, 
       volume: 1
     };
-
-    this.clickMute = this.clickMute.bind(this);
-    this.clickPlay = this.clickPlay.bind(this);
-    this.clickSkip = this.clickSkip.bind(this);
     this.handleControl = this.handleControl.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
-    // this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.clickFullscreen = this.clickFullscreen.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.updateCurrentTime = this.updateCurrentTime.bind(this);
@@ -74,55 +68,6 @@ export default class VideoControls extends React.Component {
     this.updateProgress();
   }
 
-  // --------
-  // HandleControl helper fns
-  // --------
-
-  clickPlay(e){
-    e.preventDefault()
-    let playBtn  = document.querySelector('.video-play')
-    let pauseBtn = document.querySelector('.video-pause')
-    // toggle videoEle play bool
-    if (this.videoEle.paused || this.videoEle.ended) {
-      this.videoEle.play();
-      playBtn.classList.add("hidden")
-      pauseBtn.classList.remove("hidden")
-    } else {
-      this.videoEle.pause();
-      pauseBtn.classList.add("hidden")
-      playBtn.classList.remove("hidden")
-    }
-    // toggle play & pause buttons hidden class
-  }
-
-  clickSkip(e){
-    e.preventDefault()
-    // set videoEle playhead to 25% ahead of current location
-    this.videoEle.currentTime += 10
-  }
-
-  clickMute(e){
-    let muteBtn = document.querySelector('.video-mute')
-    let unMuteBtn = document.querySelector('.video-unmute')
-    e.preventDefault()
-    // toggle volume between 0 and previous volume value
-    if (this.videoEle.muted) {
-      this.videoEle.muted = false
-      muteBtn.classList.add("hidden")
-      unMuteBtn.classList.remove("hidden")
-    }
-    else {
-      this.videoEle.muted = true;
-      muteBtn.classList.remove("hidden")
-      unMuteBtn.classList.add("hidden")
-    }
-  }
-
-  clickFullscreen(e){
-    e.preventDefault()
-    // set videoEle fullscreen to true
-    this.videoEle.requestFullscreen();
-  }
 
   // --------
   // HandleControl receives dom event and control type
@@ -133,15 +78,15 @@ export default class VideoControls extends React.Component {
     
     switch(type){
       case 'play':
-        return this.clickPlay(e);
+        return clickPlay(e, this.videoEle);
       case 'pause':
-        return this.clickPlay(e);
+        return clickPlay(e, this.videoEle);
       case 'skip':
-        return this.clickSkip(e);
+        return clickSkip(e, this.videoEle, 1);
       case 'mute':
-        return this.clickMute(e);
+        return clickMute(e, this.videoEle);
       case 'fullscreen':
-        return this.clickFullscreen(e);
+        return clickFullscreen(e, this.videoEle);
       default:
       return
     }
@@ -154,7 +99,7 @@ export default class VideoControls extends React.Component {
         <div 
         onMouseLeave={this.handleMouseLeave} 
         onMouseEnter={this.handleMouseEnter} 
-        onClick={e => this.clickPlay(e)} 
+        onClick={e => clickPlay(e, this.videoEle)} 
         className="video-src-container">
           <video width="320" height="240" preload="metadata" controls="controls" autoPlay={true}
             poster={this.props.thumbnail} src={`${this.props.source}`} type="video/mp4">

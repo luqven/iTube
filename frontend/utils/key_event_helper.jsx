@@ -1,6 +1,8 @@
 export const handleKeyPress = (e) => {
     let videoEle = document.getElementsByTagName('video')[0]
     let spacebar = 32
+    let lArrow   = 37
+    let rArrow   = 39
     let escape   = 27
     let fKey     = 70
     let kKey     = 75
@@ -19,14 +21,19 @@ export const handleKeyPress = (e) => {
     } else if (e.keyCode === fKey) {
       videoEle.requestFullscreen();
     } else if (e.keyCode === kKey) {
-      clickPlay(videoEle);
+      clickPlay(e, videoEle);
     } else if (e.keyCode === mKey) {
-      clickMute(videoEle);
-    } 
+      clickMute(e, videoEle);
+    } else if (e.keyCode === rArrow){
+      clickSkip(e, videoEle, 1)
+    } else if (e.keyCode === lArrow){
+      clickSkip(e, videoEle, -1)
+    }
   }
 
 
-const clickPlay = (videoEle) => {
+export const clickPlay = (e, videoEle) => {
+  e.preventDefault();
   let playBtn = document.querySelector('.video-play')
   let pauseBtn = document.querySelector('.video-pause')
   // toggle videoEle play bool
@@ -42,15 +49,16 @@ const clickPlay = (videoEle) => {
   // toggle play & pause buttons hidden class
 }
 
-const clickSkip = (videoEle) => {
+export const clickSkip = (e, videoEle, direction) => {
+  e.preventDefault();
   // set videoEle playhead to 25% ahead of current location
-  videoEle.currentTime += 10
+  videoEle.currentTime += 10 * direction
 }
 
-const clickMute = (videoEle) => {
+export const clickMute = (e, videoEle) => {
+  e.preventDefault();
   let muteBtn = document.querySelector('.video-mute')
   let unMuteBtn = document.querySelector('.video-unmute')
-  e.preventDefault()
   // toggle volume between 0 and previous volume value
   if (videoEle.muted) {
     videoEle.muted = false
@@ -64,7 +72,8 @@ const clickMute = (videoEle) => {
   }
 }
 
-const clickFullscreen = (videoEle) => {
+export const clickFullscreen = (e, videoEle) => {
+  e.preventDefault();
   // set videoEle fullscreen to true
   videoEle.requestFullscreen();
 }
