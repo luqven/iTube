@@ -11,7 +11,7 @@ export class ChannelIcon extends React.Component {
 
   componentDidMount(){
     let targetUser = this.props.users[this.props.userId];
-    if (!targetUser){
+    if (!targetUser && this.props.userId !== null){
       this.props.getUser(this.props.userId);
     }
   };

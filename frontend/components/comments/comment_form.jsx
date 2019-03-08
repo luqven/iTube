@@ -11,6 +11,7 @@ export default class CommentForm extends React.Component{
       user_id: props.user_id,
       errors: props.errors,
       comment: props.comment,
+      copy: Object.assign(props.comment),
       input: "",
     }
     this.handleBlur = this.handleBlur.bind(this)
@@ -78,7 +79,6 @@ export default class CommentForm extends React.Component{
   render(){
     return(
         <section className="comment-form-container">
-          <ChannelIcon userId={this.state.user_id} />
           <form onSubmit={this.handleSubmit}>
             <input
               onFocus={this.handleFocus}
@@ -101,6 +101,7 @@ export default class CommentForm extends React.Component{
               {this.state.type}
           </button>
           </form>
+        <ChannelIcon userId={this.state.user_id} />
         </section>
     )
   }

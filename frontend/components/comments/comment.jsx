@@ -25,7 +25,9 @@ export default class Comment extends React.Component{
   }
 
   handleSubmit(){
-    this.props.updateComment(this.state.comment)
+    this.props.updateComment(this.state.comment).then(
+      null, () => this.setState({ comment: Object.assign(this.props.comment)})
+    )
   }
 
   editClick(e) {
@@ -43,7 +45,7 @@ export default class Comment extends React.Component{
   }
 
   render(){
-    let commentForm = <form onSubmit={this.handleSubmit}>
+    let commentForm = <form onSubmit={this.saveClick}>
                         <input onChange={this.handleInput} type="text" value={this.state.comment.body} />
                       </form>
     let commentBody = <p className="comment-body">{this.state.comment.body}</p>

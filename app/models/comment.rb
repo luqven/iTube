@@ -11,7 +11,7 @@
 #
 
 class Comment < ApplicationRecord
-  validates :body, :user_id, :video_id, presence: true
+  validates :body, :user_id, :video_id, presence: true, null: false
 
   belongs_to :user,
     foreign_key: :user_id,
