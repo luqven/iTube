@@ -51,6 +51,10 @@ export default class VideoControls extends React.Component {
   handleKeyPress(e) {
     let spacebar = 32
     let escape   = 27
+    let fKey     = 70
+    let kKey     = 75
+    let mKey     = 77
+
     let playBtn = document.querySelector('.video-play')
     let pauseBtn = document.querySelector('.video-pause')
 
@@ -61,7 +65,13 @@ export default class VideoControls extends React.Component {
       pauseBtn.classList.toggle('hidden')
     } else if (e.keyCode === escape) {
       this.videoEle.exitFullscreen();
-    }
+    } else if (e.keyCode === fKey) {
+      this.videoEle.requestFullscreen();
+    } else if (e.keyCode === kKey) {
+      this.clickPlay(e);
+    } else if (e.keyCode === mKey) {
+      this.clickMute(e);
+    } 
   }
 
   handleMouseEnter(){
