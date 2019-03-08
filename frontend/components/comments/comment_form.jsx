@@ -1,5 +1,6 @@
 import React from 'react'
 import ChannelIcon from "../channels/channel_icon"
+import { handleKeyPress } from '../../utils/key_event_helper';
 
 export default class CommentForm extends React.Component{
   constructor(props){
@@ -31,6 +32,10 @@ export default class CommentForm extends React.Component{
   handleFocus(){
     // redirect to login on focus if user not logged in
     if (this.state.user_id === null) { this.props.history.push('/login/')}
+
+    // remove keybaord event listeners
+    document.removeEventListener("keydown", handleKeyPress)
+
     // show the button
     let button1 = document.querySelector("#cancel-cmt")
     let button2 = document.querySelector("#commit-cmt")
@@ -44,6 +49,10 @@ export default class CommentForm extends React.Component{
     let button2 = document.querySelector("#commit-cmt")
     button1.classList.add("hidden")
     button2.classList.add("hidden")
+    
+    // add video keyboard event listener back
+    document.addEventListener("keydown", handleKeyPress)
+
   }
 
   resetComment(e){

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { handleKeyPress } from "../../utils/key_event_helper";
 
 export default class VideoControls extends React.Component {
   constructor(props){
@@ -16,7 +16,7 @@ export default class VideoControls extends React.Component {
     this.clickSkip = this.clickSkip.bind(this);
     this.handleControl = this.handleControl.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    // this.handleKeyPress = this.handleKeyPress.bind(this);
     this.clickFullscreen = this.clickFullscreen.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
@@ -24,7 +24,7 @@ export default class VideoControls extends React.Component {
   }
 
   componentDidMount(){
-    document.addEventListener('keydown',this.handleKeyPress)
+    document.addEventListener('keydown', handleKeyPress)
     this.videoEle = document.getElementsByTagName('video')[0]
     this.videoEle.controls = false;
     this.videoEle.addEventListener('timeupdate', this.updateProgress)
@@ -39,39 +39,13 @@ export default class VideoControls extends React.Component {
   }
 
   componentWillUnmount(){
-    document.removeEventListener('keydown', this.handleKeyPress);
+    document.removeEventListener('keydown', handleKeyPress);
     this.videoEle.removeEventListener('timeupdate', this.updateProgress)
     this.setState({
       duration: this.videoEle.duration,
       volume: this.videoEle.volume,
       progPercent: 0,
     })
-  }
-
-  handleKeyPress(e) {
-    let spacebar = 32
-    let escape   = 27
-    let fKey     = 70
-    let kKey     = 75
-    let mKey     = 77
-
-    let playBtn = document.querySelector('.video-play')
-    let pauseBtn = document.querySelector('.video-pause')
-
-    if (e.keyCode === spacebar) {
-      // ternary that determines whether to pause or unpause video
-      this.videoEle.paused ? this.videoEle.play() : this.videoEle.pause();
-      playBtn.classList.toggle('hidden')
-      pauseBtn.classList.toggle('hidden')
-    } else if (e.keyCode === escape) {
-      this.videoEle.exitFullscreen();
-    } else if (e.keyCode === fKey) {
-      this.videoEle.requestFullscreen();
-    } else if (e.keyCode === kKey) {
-      this.clickPlay(e);
-    } else if (e.keyCode === mKey) {
-      this.clickMute(e);
-    } 
   }
 
   handleMouseEnter(){
