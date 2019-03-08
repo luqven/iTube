@@ -18,6 +18,8 @@ export default class VideoControls extends React.Component {
     this.updateProgress = this.updateProgress.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.clickFullscreen = this.clickFullscreen.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.updateCurrentTime = this.updateCurrentTime.bind(this);
   }
 
@@ -26,6 +28,8 @@ export default class VideoControls extends React.Component {
     this.videoEle = document.getElementsByTagName('video')[0]
     this.videoEle.controls = false;
     this.videoEle.addEventListener('timeupdate', this.updateProgress)
+    this.controls = document.querySelector(".video-controls-container")
+    setTimeout(() => this.controls.classList.add("transparent"), 700)
 
     this.setState({
       duration: this.videoEle.duration,
@@ -58,6 +62,14 @@ export default class VideoControls extends React.Component {
     } else if (e.keyCode === escape) {
       this.videoEle.exitFullscreen();
     }
+  }
+
+  handleMouseEnter(){
+    this.controls.classList.remove("transparent")
+  }
+
+  handleMouseLeave(){
+    this.controls.classList.add("transparent")
   }
 
   // helper that changes red progress bar by
@@ -154,12 +166,19 @@ export default class VideoControls extends React.Component {
   render(){
     return (
       <>
-        <div onClick={e => this.clickPlay(e)} className="video-src-container">
-          <video width="320" height="240" preload="metadata" controls="controls"
+        <div 
+        onMouseLeave={this.handleMouseLeave} 
+        onMouseEnter={this.handleMouseEnter} 
+        onClick={e => this.clickPlay(e)} 
+        className="video-src-container">
+          <video width="320" height="240" preload="metadata" controls="controls" autoPlay={true}
             poster={this.props.thumbnail} src={`${this.props.source}`} type="video/mp4">
           </video>
         </div>
-        <div className="video-controls-container">
+        <div 
+          onMouseEnter={this.handleMouseEnter} 
+          onMouseLeave={this.handleMouseLeave} 
+          className="video-controls-container">
           <div className="controls-btns">
             <button 
               onClick={ e => this.handleControl(e, 'pause')} 

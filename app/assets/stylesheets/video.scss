@@ -129,7 +129,7 @@
 .progress-background{
   width: -webkit-fill-available;
   height: 5px;
-  background-color: black;
+  background-color:#0000002e;
   position: relative;
   top: -20px;
 }
@@ -172,9 +172,10 @@
 .video-controls-container {
   width: -webkit-fill-available;
   height: 30px;
-  background-color: #000000fa;
+  background-color: #0000002e;
   position: relative;
   top: -30px;
+  transition: opacity 1s ease;
 }
 
 .controls-btns{
