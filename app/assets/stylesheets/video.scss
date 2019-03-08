@@ -181,7 +181,7 @@
 
 .controls-btns{
   position: relative;
-  top: 5px;
+  top: 0px;
 }
 
 .controls-btns button {
@@ -193,4 +193,8 @@
 
 .controls-btns button:hover {
   cursor: pointer;
+}
+
+.controls-btns button:last-of-type{
+  margin-left: 80%;
 }

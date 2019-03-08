@@ -214,23 +214,23 @@ export default class VideoControls extends React.Component {
               className="video-skip">
               <FontAwesomeIcon icon="step-forward" /> 
             </button>
+            {/* mute button */}
+            <button
+              onClick={e => this.handleControl(e, 'mute')}
+              className="hidden video-mute">
+              <FontAwesomeIcon icon="volume-mute" />
+            </button>
+            {/* unmute button */}
+            <button
+              onClick={e => this.handleControl(e, 'mute')}
+              className="video-unmute">
+              <FontAwesomeIcon icon="volume-up" />
+            </button>
             {/* fullscreen button */}
             <button 
               onClick={ e => this.handleControl(e, 'fullscreen')} 
               className="video-full">
               <FontAwesomeIcon icon="expand" />
-            </button>
-            {/* mute button */}
-            <button 
-              onClick={ e => this.handleControl(e, 'mute')} 
-              className="hidden video-mute">
-              <FontAwesomeIcon icon="volume-mute"/>
-            </button>
-            {/* unmute button */}
-            <button 
-              onClick={ e => this.handleControl(e, 'mute')} 
-              className="video-unmute">
-              <FontAwesomeIcon icon="volume-up"/>
             </button>
           </div>
         </div>
