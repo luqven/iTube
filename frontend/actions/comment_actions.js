@@ -1,4 +1,4 @@
-import { fetchComments, postComment, destroyComment } from '../utils/comment';
+import { fetchComments, postComment, patchComment , destroyComment } from '../utils/comment';
 import { receiveErrors } from "./session";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
@@ -38,6 +38,11 @@ export const addComment = (comment) => dispatch => {
   )
 }
 
+export const updateComment = (comment) => dispatch => {
+  return patchComment(comment).then(
+    comment => dispatch(receiveComment(comment))
+  )
+}
 export const deleteComment = (comment) => dispatch => {
   return destroyComment(comment).then(
     comment => dispatch(removeComment(comment))

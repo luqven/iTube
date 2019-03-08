@@ -13,6 +13,11 @@
   margin-left: 25px;
 }
 
+.comments-container li {
+  margin: auto;
+  padding-bottom: 50px;
+}
+
 .comment-show-title{
   margin-top: 20px;
 }
@@ -20,6 +25,10 @@
 .comment-body-container {
   display: flex;
   flex-direction: row;
+}
+
+.comment-body-container p {
+  margin-right: 20px;
 }
 
 .comment-body {
@@ -42,6 +51,16 @@
 
 .comment-body-container a {
   width: 50px;
+}
+
+.comment-body-container form {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.comment-body-container input {
+  font-size: medium;
+  margin-right: 20px;
 }
 
 // comment form styles
@@ -86,6 +105,7 @@
 
 .gray-btn {
   margin: 2px;
+  margin-top: 10px;
   width: 101px;
   height: 36px;
   color: white;
@@ -97,6 +117,7 @@
 
 .white-btn{
   margin: 2px;
+  margin-top: 10px;
   width: 101px;
   height: 36px;
   color: black;

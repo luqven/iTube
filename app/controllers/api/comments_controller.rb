@@ -10,8 +10,17 @@ class Api::CommentsController < ApplicationController
     if @comments
       render :index
     else
-    render json: { comments: {} }
+      render json: { comments: {} }
 
+    end
+  end
+
+  def update
+    @comment = Comment.find_by(video_id: params[:video_id])
+    if(@comment.update(comment_params))
+      render :show
+    else
+      render json: ['Invalid comment edit.'], status: 401
     end
   end
 

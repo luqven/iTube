@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getComments } from "../../actions/comment_actions";
+import { getComments, updateComment } from "../../actions/comment_actions";
 import CommentsShow from "./comments_show";
 
 const msp = (state, ownProps) => {
@@ -11,13 +11,15 @@ const msp = (state, ownProps) => {
   })
   return{
     comments: videoComments,
-    video_id: ownProps.match.params.videoId
+    video_id: ownProps.match.params.videoId,
+    session_id: state.session.id
   }
 }
 
 const mdp = dispatch => {
   return{
-    getComments: videoId => dispatch(getComments(videoId))
+    getComments: videoId => dispatch(getComments(videoId)),
+    updateComment: comment => dispatch(updateComment(comment))
   }
 }
 

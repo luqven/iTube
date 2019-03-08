@@ -13,10 +13,19 @@ export const postComment = (comment) => {
   })
 }
 
+export const patchComment = (comment) => {
+  return $.ajax({
+    method: 'patch',
+    url: `/api/videos/${comment.video_id}/comments`,
+    data: { comment }
+  })
+}
+
 export const destroyComment = (comment) => {
   return $.ajax({
     method: 'delete',
     url: `/api/videos/${comment.video_id}/comments`
   })
 }
+
 
