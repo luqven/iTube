@@ -20,7 +20,7 @@ Hi! This is the README for **iTube**. iTube is a React-Redux app that allows use
 - [x] Hosting on Heroku
 - [x] Video 
 - [x] Likes
-- [ ] Comments
+- [x] Comments
 - [ ] Play-count 
 - [x] Channels
 
