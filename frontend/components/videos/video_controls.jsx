@@ -166,6 +166,7 @@ export default class VideoControls extends React.Component {
   render(){
     return (
       <>
+      {/* video container */}
         <div 
         onMouseLeave={this.handleMouseLeave} 
         onMouseEnter={this.handleMouseEnter} 
@@ -175,42 +176,12 @@ export default class VideoControls extends React.Component {
             poster={this.props.thumbnail} src={`${this.props.source}`} type="video/mp4">
           </video>
         </div>
+        {/* controls container */}
         <div 
           onMouseEnter={this.handleMouseEnter} 
           onMouseLeave={this.handleMouseLeave} 
           className="video-controls-container">
-          <div className="controls-btns">
-            <button 
-              onClick={ e => this.handleControl(e, 'pause')} 
-              className="video-pause hidden">
-              <FontAwesomeIcon onClick={e => this.handleControl(e, 'pause')} icon="pause" /> 
-            </button>
-            <button 
-              onClick={ e => this.handleControl(e, 'play')} 
-              className="video-play"> 
-              <FontAwesomeIcon onClick={e => this.handleControl(e, 'play')} icon="play" /> 
-            </button>
-            <button 
-              onClick={ e => this.handleControl(e, 'skip')} 
-              className="video-skip">
-              <FontAwesomeIcon onClick={e => this.handleControl(e, 'skip')} icon="step-forward" /> 
-            </button>
-            <button 
-              onClick={ e => this.handleControl(e, 'fullscreen')} 
-              className="video-full">
-              <FontAwesomeIcon onClick={e => this.handleControl(e, 'fullscreen')} icon="expand" />
-            </button>
-            <button 
-              onClick={ e => this.handleControl(e, 'mute')} 
-              className="hidden video-mute">
-              <FontAwesomeIcon onClick={e => this.handleControl(e, 'mute')} icon="volume-mute"/>
-            </button>
-            <button 
-              onClick={ e => this.handleControl(e, 'mute')} 
-              className="video-unmute">
-              <FontAwesomeIcon onClick={e => this.handleControl(e, 'mute')} icon="volume-up"/>
-            </button>
-          </div>
+          {/* video progress bar container */}
           <div className="progress-background">
             <input
               onChange={e => this.updateCurrentTime(e)}
@@ -220,7 +191,47 @@ export default class VideoControls extends React.Component {
               value={`${this.state.progPercent + 0}`}
               className="progress-timeline" id="myRange">
             </input>
+            {/* video progress bar */}
             <div className="progress"></div>
+          </div>
+          {/* video control buttons */}
+          <div className="controls-btns">
+          {/* pause button */}
+            <button 
+              onClick={ e => this.handleControl(e, 'pause')} 
+              className="video-pause hidden">
+              <FontAwesomeIcon icon="pause" /> 
+            </button>
+            {/* play button */}
+            <button 
+              onClick={ e => this.handleControl(e, 'play')} 
+              className="video-play"> 
+              <FontAwesomeIcon icon="play" /> 
+            </button>
+            {/* skip button */}
+            <button 
+              onClick={ e => this.handleControl(e, 'skip')} 
+              className="video-skip">
+              <FontAwesomeIcon icon="step-forward" /> 
+            </button>
+            {/* fullscreen button */}
+            <button 
+              onClick={ e => this.handleControl(e, 'fullscreen')} 
+              className="video-full">
+              <FontAwesomeIcon icon="expand" />
+            </button>
+            {/* mute button */}
+            <button 
+              onClick={ e => this.handleControl(e, 'mute')} 
+              className="hidden video-mute">
+              <FontAwesomeIcon icon="volume-mute"/>
+            </button>
+            {/* unmute button */}
+            <button 
+              onClick={ e => this.handleControl(e, 'mute')} 
+              className="video-unmute">
+              <FontAwesomeIcon icon="volume-up"/>
+            </button>
           </div>
         </div>
       </>

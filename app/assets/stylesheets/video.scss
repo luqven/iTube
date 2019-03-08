@@ -129,9 +129,9 @@
 .progress-background{
   width: -webkit-fill-available;
   height: 5px;
-  background-color:#0000002e;
+  background-color: #0000002e;
   position: relative;
-  top: -20px;
+  top: -1px;
 }
 .progress {
   background-color: red;
@@ -174,8 +174,9 @@
   height: 30px;
   background-color: #0000002e;
   position: relative;
-  top: -30px;
+  top: -32px;
   transition: opacity 1s ease;
+  box-shadow: inset 0px -20px 20px 0px #000000fa;
 }
 
 .controls-btns{
