@@ -25,8 +25,6 @@ export default class Comment extends React.Component{
   }
 
   handleSubmit(){
-    let result = { comment: this.state.comment }
-    // debugger
     this.props.updateComment(this.state.comment)
   }
 
