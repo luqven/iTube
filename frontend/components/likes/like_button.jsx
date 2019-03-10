@@ -29,7 +29,6 @@ class LikeButton extends React.Component {
     } else {
       let like = this.state.like
       like.liked = type
-      debugger
       this.props.addLike(like).then(
         this.setState({ errors: this.props.errors })
       )      
