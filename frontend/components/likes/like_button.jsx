@@ -21,13 +21,16 @@ class LikeButton extends React.Component {
   componentDidMount(){
   }
 
-  handleClick() {
+  handleClick(type) {
     // redirect to login if no logged in user
     if (this.props.user === null) {this.props.history.push('/login/')}
-    if (this.props.type === "liked") {
+    if (this.props.type === "liked" || this.props.type === "disliked" ) {
       this.props.deleteLike(this.props.like)
     } else {
-      this.props.addLike(this.state.like).then(
+      let like = this.state.like
+      like.liked = type
+      debugger
+      this.props.addLike(like).then(
         this.setState({ errors: this.props.errors })
       )      
     }
@@ -40,7 +43,21 @@ class LikeButton extends React.Component {
     if (this.props.type === 'liked') {
       return (
         <>
-          <FontAwesomeIcon icon="thumbs-up" className="button-liked" onClick={this.handleClick} />
+          <FontAwesomeIcon icon="thumbs-up" className="button-liked" onClick={e => this.handleClick(true)} />
+          <div className="error-message">
+          </div>
+          <FontAwesomeIcon icon="thumbs-down" className="button-like" onClick={e => this.handleClick(false)} />
+          <div className="error-message">
+          </div>
+        </>
+      )
+    } else if (this.props.type === 'disliked') { 
+      return(
+        <>
+          <FontAwesomeIcon icon="thumbs-up" className="button-like" onClick={e => this.handleClick(true)} />
+          <div className="error-message">
+          </div>
+          <FontAwesomeIcon icon="thumbs-down" className="button-liked" onClick={e => this.handleClick(false)} />
           <div className="error-message">
           </div>
         </>
@@ -48,7 +65,10 @@ class LikeButton extends React.Component {
     } else {
       return (
         <>
-          <FontAwesomeIcon icon="thumbs-up" className="button-like" onClick={this.handleClick} />          
+          <FontAwesomeIcon icon="thumbs-up" className="button-like" onClick={ e => this.handleClick(true)} />
+          <div className="error-message">
+          </div>
+          <FontAwesomeIcon icon="thumbs-down" className="button-like" onClick={ e => this.handleClick(false)} />          
           <div className="error-message">
           </div>
         </>

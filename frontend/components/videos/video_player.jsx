@@ -50,20 +50,27 @@ export class VideoPlayer extends React.Component{
   }
 
   render(){
-    let likeCount = Object.values(this.props.likes).length;
+    const likeCount = Object.values(this.props.likes).length;
+    let userLike = this.props.likes[this.getUserLike()]
     let likeButton;
+    let dislikeButton;
     
     if (likeCount >= 1) {
       if (this.likedByUser()) {
+        let likeType = userLike.liked
         // display like button as selected
-        likeButton = <LikeButton type="liked" like={this.props.likes[this.getUserLike()]} />
-      } else {
+        if (likeType === true) { 
+          likeButton = <LikeButton type="liked" like={userLike} />
+        } else if (likeType === false) { 
+          likeButton = <LikeButton type="disliked" like={userLike} /> 
+        } else {
         // display liked button as unselected
-        likeButton = <LikeButton type="like" video_id={this.props.video.id} />
+        likeButton = <LikeButton type="unselected" video_id={this.props.video.id}/>
+        }
       };
     } else {
       // display liked button as unselected
-      likeButton = <LikeButton type="like" video_id={this.props.video.id} resetErrors={this.props.resetErrors} user={this.props.user} />
+      likeButton = <LikeButton type="unselected" video_id={this.props.video.id} resetErrors={this.props.resetErrors} user={this.props.user} />
     };
     return (
       <ul className="video-show">

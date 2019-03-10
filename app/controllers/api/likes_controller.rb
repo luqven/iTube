@@ -21,7 +21,7 @@ class Api::LikesController < ApplicationController
       render :show
     else
       # redirect to create page or render errors
-      render json: ['Sign in to like this video.'], status: 401
+      render json: @like.errors.full_messages, status: 401
     end
   end
 

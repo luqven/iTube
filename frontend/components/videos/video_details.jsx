@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { getVideo } from '../../actions/videos';
 import { Link } from 'react-router-dom';
 import { getLikes } from '../../actions/like_actions';
+import { channelIcon } from "../channels/channel_icon"
 
 
 export class VideoDetails extends React.Component{

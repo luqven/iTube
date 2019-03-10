@@ -11,7 +11,7 @@
 #
 
 class Like < ApplicationRecord
-  validates :liked, :user_id, :video_id, presence: true
+  # validates :liked, :user_id, :video_id, presence: true
 
   belongs_to :user,
     foreign_key: :user_id,
