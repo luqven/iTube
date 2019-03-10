@@ -1,5 +1,5 @@
 
-# iTube
+# [iTube](https://github.com/luqven/iTube)
 #### Fullstack Project
 ##### A YouTube Inspired React.js Application
 
@@ -13,7 +13,7 @@
 
 # Welcome to iTube
 
-Hi! This is the README for **iTube**. iTube is a React-Redux app that allows users to share videos with one another. The goal of this app is to display the power of the React-Redux cycle using AWS S3 APIs for video hosting, and a Rails backend for database management.
+Hi! This is the README for [**iTube**](https://github.com/luqven/iTube). iTube is a React-Redux app that allows users to share videos with one another. The goal of this app is to display the power of the React-Redux cycle using AWS S3 APIs for video hosting, and a Rails backend for database management.
 
 #### Progress
 
