@@ -38,7 +38,7 @@ export class VideoDetails extends React.Component{
       <Link to={`/channel/${video.channel_id}/${video.uploader.id}`}>
         <div 
         className="dropdown-user-icon" 
-        onClick={e => this.history.push(`/channel/${video.channel_id}/${video.uploader.id}`)}>
+        onClick={e => this.props.history.push(`/channel/${video.channel_id}/${video.uploader.id}`)}>
           <p>{userInitial}</p>
             <p className="user-initial">{video.uploader.username}</p>
         </div>
