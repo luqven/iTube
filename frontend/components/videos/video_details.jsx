@@ -33,12 +33,13 @@ export class VideoDetails extends React.Component{
   if (user === video.uploader.id) {
     editButton = <button onClick={this.handleClick} className="edit-btn">Edit Video</button>
   }
-  return (
+  return (  
     <div className="video-user-info">
       <Link to={`/channel/${video.channel_id}/${video.uploader.id}`}>
         <div 
         className="dropdown-user-icon" 
-        onClick={e => this.props.history.push(`/channel/${video.channel_id}/${video.uploader.id}`)}>
+        // onClick={e => this.props.history.push(`/channel/${video.channel_id}/${video.uploader.id}`)}>
+        >
           <p>{userInitial}</p>
             <p className="user-initial">{video.uploader.username}</p>
         </div>
