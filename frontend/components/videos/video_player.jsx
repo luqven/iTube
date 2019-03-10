@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 import LikeButton from '../likes/like_button';
 import VideoAndControls from './video_controls';
+import { getLikes } from '../../actions/like_actions';
 
 export class VideoPlayer extends React.Component{
   constructor(props){
@@ -23,6 +24,7 @@ export class VideoPlayer extends React.Component{
 
   componentDidMount(){
     this.props.resetErrors();
+    this.props.getLikes(this.props.video.id)
   }
 
   componentWillReceiveProps(){
@@ -108,6 +110,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return {
     getVideo: (videoId) => dispatch(getVideo(videoId)),
+    getLikes: (videoId) => dispatch(getLikes(videoId)),
     resetErrors: () => dispatch(resetErrors()),
   }
 };

@@ -17,6 +17,6 @@ export default (state = _nullLike, action) => {
       delete newState[Object.values(action.payload.likes)[0].id]
       return newState;
     default:
-      return _nullLike;
+      return state;
   }
 };
