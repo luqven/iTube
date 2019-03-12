@@ -1,6 +1,5 @@
 
 # [iTube](https://github.com/luqven/iTube)
-#### Fullstack Project
 ##### A YouTube Inspired React.js Application
 
 
