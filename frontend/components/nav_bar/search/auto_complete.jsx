@@ -111,6 +111,7 @@ class AutoComplete extends React.Component {
   // take the user to the video show page for that video id
   handleClick(e){
     let classes = e.currentTarget.classList
+    debugger
     let target = classes[classes.length - 1]
     let searchId = Number(target.slice(4))
     // reset the component to not render at next url
@@ -130,7 +131,8 @@ class AutoComplete extends React.Component {
     })
   }
 
-  handleSubmit(matches = this.state.matchedIds) {
+  handleSubmit() {
+    matches = this.state.matchedIds
     this.props.history.push(`/search/${matches}`)
     this.setState({ titleComponents: null, searchStr: '' })
   };
