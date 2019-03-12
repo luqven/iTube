@@ -2,4 +2,15 @@
   .search-container{
     display: none;
   }
+  .search-reults-container {
+    width: 100vw;
+    margin: none;
+  }
+
+  .search-container > p, h3 {
+    text-align: right;
+    margin-left: 20px;
+    width: 50vw;
+  }
+
 }

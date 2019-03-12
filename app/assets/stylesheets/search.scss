@@ -80,7 +80,7 @@
 }
 
 .search-blurb-container{
-    margin-left: -15px;
+    margin-left: -35px;
     margin-top: 70px;
 }
 
@@ -90,14 +90,21 @@
     height: 10px;
 }
 
+.search > .temp-image {
+  margin-right: 20px;
+}
+
 .search p {
-  white-space: initial !important;
+  text-align: left;
+}
+
+.search > .video-title {
+  height: 20px;
+  width: 200px;
 }
 
 .search-blurb{
     font-size: smaller;
-    white-space: initial !important;
-    text-align: left;
 }
 
 .search-auto-li:hover{

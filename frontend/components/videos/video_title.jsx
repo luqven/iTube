@@ -2,7 +2,7 @@ import React from 'react'
 
 export const VideoTitle = ({ title, update }) => {
   return (
-    <p onClick={update} > {title} </p>
+    <p className="video-title" onClick={update} > {title} </p>
   )
 }
 
