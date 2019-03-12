@@ -124,6 +124,7 @@ class AutoComplete extends React.Component {
   }
 
   handleBlur(){
+    if (this.state.selectedComponent !== null) {return}
     let results = document.querySelectorAll(".search-auto-li")
     results.forEach( result => {
       result.classList.toggle("hidden")
@@ -131,7 +132,7 @@ class AutoComplete extends React.Component {
   }
 
   handleSubmit() {
-    matches = this.state.matchedIds
+    let matches = this.state.matchedIds
     this.props.history.push(`/search/${matches}`)
     this.setState({ titleComponents: null, searchStr: '' })
   };
