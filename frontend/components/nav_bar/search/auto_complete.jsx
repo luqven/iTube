@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { handleKeyPress} from "../../../utils/key_event_helper";
 
 
 
@@ -124,11 +125,12 @@ class AutoComplete extends React.Component {
   }
 
   handleBlur(){
-    if (this.state.selectedComponent !== null) {return}
+    if (this.state.selectedComponent !== undefined) { return }
     let results = document.querySelectorAll(".search-auto-li")
     results.forEach( result => {
       result.classList.toggle("hidden")
     })
+    document.addEventListener('keydown', handleKeyPress)
   }
 
   handleSubmit() {
@@ -148,11 +150,11 @@ class AutoComplete extends React.Component {
     return(
       <form>
         <input onKeyDown={ e => this.handleKey(e)} 
-              // onFocus = {e => this.handleBlur()}
-               onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))}
-               onBlur={e => this.handleBlur()}
-               type="text" placeholder="Search" 
-               value={this.state.searchStr} />
+          onFocus={e => document.removeEventListener('keydown', handleKeyPress)}
+          onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))}
+          onBlur={this.handleBlur}
+          type="text" placeholder="Search" 
+          value={this.state.searchStr} />
         {comps}
         <p onClick={this.handleSubmit}><FontAwesomeIcon icon={["fas", "search"]} /></p>
       </form>
