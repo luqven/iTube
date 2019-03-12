@@ -125,10 +125,8 @@ class AutoComplete extends React.Component {
 
   handleBlur(){
     let results = document.querySelectorAll(".search-auto-li")
-    debugger
     results.forEach( result => {
       result.classList.toggle("hidden")
-      debugger
     })
   }
 
