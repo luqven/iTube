@@ -16,6 +16,7 @@ class AutoComplete extends React.Component {
       render: true,
     }
     this.handleKey = this.handleKey.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -86,7 +87,7 @@ class AutoComplete extends React.Component {
       indexes = indexes.concat(`_id_${curIndex}`);
       if (cursorPos === i) { selectedComp = `${curIndex}`}
       titles.push(
-        <li className={`search-auto-li ${cursorPos === i ? 'selected' : null }`} 
+        <li className={`search-auto-li ${cursorPos === i ? 'selected' : `res-${curIndex}` }`} 
         onClick={this.handleClick} key={i}> {curTitle} </li>
         )
       };
@@ -109,15 +110,26 @@ class AutoComplete extends React.Component {
 
   // take the user to the video show page for that video id
   handleClick(e){
-    let searchId = (this.props.search[e.currentTarget.innerText])
-    searchId = searchId["id"];
+    let classes = e.currentTarget.classList
+    let target = classes[classes.length - 1]
+    let searchId = Number(target.slice(4))
     // reset the component to not render at next url
     this.setState({
         searchStr: "",
         matchedSearch: [],
         titleComponents: null,
       })
-    this.props.history.push(`/videos/${searchId}`)
+    this.props.getVideo(searchId).then(
+      this.props.history.push(`/videos/${searchId}`))
+  }
+
+  handleBlur(){
+    let results = document.querySelectorAll(".search-auto-li")
+    debugger
+    results.forEach( result => {
+      result.classList.toggle("hidden")
+      debugger
+    })
   }
 
   handleSubmit(matches = this.state.matchedIds) {
@@ -136,8 +148,9 @@ class AutoComplete extends React.Component {
     return(
       <form>
         <input onKeyDown={ e => this.handleKey(e)} 
+              // onFocus = {e => this.handleBlur()}
                onChange={e => this.setState({ searchStr: e.target.value }, this.handleInput(e))}
-               onBlur={ e => this.setState({ searchStr: "",matchedSearch: [],titleComponents: null,})}
+               onBlur={e => this.handleBlur()}
                type="text" placeholder="Search" 
                value={this.state.searchStr} />
         {comps}
