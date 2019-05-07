@@ -4,3 +4,27 @@
   height: 80vh;
   width: 400px;
 }
+
+.up-next-header {
+  text-align: center;
+  height: 20px;
+  width: 60px;
+  grid-row: 1;
+  margin-top: 70px;
+}
+
+.up-next-ul {
+  list-style: none;
+  background-color: transparent;
+  box-shadow: none;
+  grid-row: 1;
+  height: 910px;
+  position: relative;
+  width: fit-content;
+  top: 100px;
+  overflow-y: scroll;
+}
+
+.up-next-container {
+  display: grid;
+}
