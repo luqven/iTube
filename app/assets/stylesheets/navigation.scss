@@ -2,7 +2,6 @@
 /* Navigation styling */
 /* ################################### */
 
-
 .nav-container {
   width: 100%;
   height: 55px;
@@ -31,15 +30,16 @@
 
 .nav-auth-buttons .btn:active {
   box-shadow: 0px 12px 12px -14px lightgray;
-  background-color:  lightgray;
+  background-color: lightgray;
   border: 1px solid lightgray;
 }
 
-.title-logo+.nav-auth-buttons {
+.title-logo + .nav-auth-buttons {
   /* margin-left: 900px; */
 }
 
-.title-logo, h1 {
+.title-logo,
+h1 {
   display: flex;
   flex-direction: row;
   margin-top: 5px;
@@ -56,7 +56,7 @@
   align-items: center;
 }
 
-.title-logo::first-letter{
+.title-logo::first-letter {
   color: black;
 }
 
@@ -79,17 +79,17 @@
 }
 
 .logo-image {
-    margin-top: 18px;
-    margin-left: 55px;
-    height: 20px;
-    left: 10px;
-    position: fixed;
+  margin-top: 18px;
+  margin-left: 55px;
+  height: 20px;
+  left: 10px;
+  position: fixed;
 }
 
 .upload-button {
-    margin: auto;
-    margin-right: 20px;
-    color: #a3a3a3
+  margin: auto;
+  margin-right: 20px;
+  color: #a3a3a3;
 }
 
 .upload-button:hover {
@@ -109,10 +109,8 @@
   width: 20px;
 }
 
-
 .hamburger-container {
   color: black;
-
 }
 
 .hamburger-btn {
@@ -130,7 +128,7 @@
   height: 100vh;
   margin: auto;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   list-style: none;
   margin-left: 20px;
   top: 10px;
@@ -140,9 +138,10 @@
   left: -20px;
   top: 55px;
   text-align: center;
+  transition: left 0.5s ease-in-out;
 }
 
-.hamburger-container a{
+.hamburger-container a {
   text-align: center;
   margin: auto;
   height: 100%;
@@ -151,22 +150,21 @@
   padding-top: 15px !important;
 }
 
-.hamburger-container a:hover{
+.hamburger-container a:hover {
   color: red;
 }
-
 
 .hamburger-container li {
   color: black;
 }
 
-.hamburger-container li:hover{
+.hamburger-container li:hover {
   cursor: pointer;
   color: red;
   background-color: #d0d0d0;
 }
 
-.hamburger-bkg{
+.hamburger-bkg {
   width: 100vw;
   height: 100vw;
   position: absolute;
