@@ -21,6 +21,7 @@ export default class UpNext extends React.Component {
       videos = (
         <VideoList
           channelVideos={this.props.videos}
+          channelId={this.props.channelId}
           videoId={this.props.videoId}
         />
       );

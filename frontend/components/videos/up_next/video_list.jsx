@@ -1,11 +1,11 @@
 import React from "react";
 import VideoPreview from "../video_preview_container";
 
-export default function VideoList({ videoId, channelVideos }) {
+export default function VideoList({ videoId, channelId, channelVideos }) {
   const getList = (channelVideos, videoId) => {
     let videoList = [];
     Object.values(channelVideos).forEach((video, idx) => {
-      if (video.id !== videoId) {
+      if (video.id !== videoId && video.channel_id === channelId) {
         videoList.push(
           <li id={idx}>
             <VideoPreview videoId={video.id} />
