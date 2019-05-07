@@ -26,7 +26,7 @@ class AutoComplete extends React.Component {
     this.props.getSearchResults();
     this.setState({ titleComponents: null, searchStr: "" });
   }
-
+  // helper that handles up / down / or enter keypress
   handleKey(e) {
     const cursorPos = this.state.cursorPos;
     const maxPos = this.state.matchedSearch.length - 1;
@@ -79,9 +79,9 @@ class AutoComplete extends React.Component {
     }
     // store array of title components
     let titles = [];
-    let indexes = ""; // for other searchResults component that relies on url
+    let indexes = ""; // used by other searchResults component that relies on url
     let cursorPos = this.state.cursorPos; // current pos of cursor
-    let selectedComp;
+    let selectedComp; // var that stores idx of selected component
     for (let i = 0; i < this.state.matchedSearch.length; i++) {
       const curTitle = this.state.matchedSearch[i];
       const curIndex = this.props.search[curTitle]["id"];
@@ -134,7 +134,7 @@ class AutoComplete extends React.Component {
       .getVideo(searchId)
       .then(this.props.history.push(`/videos/${searchId}`));
   }
-
+  // remove event listeners when not searching
   handleBlur() {
     if (this.state.selectedComponent !== undefined) {
       return;
@@ -145,7 +145,7 @@ class AutoComplete extends React.Component {
     });
     document.addEventListener("keydown", handleKeyPress);
   }
-
+  // take user to search results page
   handleSubmit() {
     let matches = this.state.matchedIds;
     this.props.history.push(`/search/${matches}`);
@@ -154,6 +154,7 @@ class AutoComplete extends React.Component {
 
   render() {
     let comps;
+    // only render autocomplete results when render flag set to true
     if (this.state.render === false) {
       comps = null;
     } else {
