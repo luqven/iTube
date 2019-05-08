@@ -19,6 +19,7 @@ class AutoComplete extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.matchedSearchParams = this.matchedSearchParams.bind(this);
     this.storeMatchingTitles = this.storeMatchingTitles.bind(this);
     // this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -44,7 +45,7 @@ class AutoComplete extends React.Component {
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false });
       if (this.state.cursorPos === -1) {
-        this.handleSubmit;
+        this.handleSubmit();
         return;
       }
       // get the video from backend
@@ -160,6 +161,14 @@ class AutoComplete extends React.Component {
     this.setState({ titleComponents: null, searchStr: "" });
   }
 
+  handleChange(e) {
+    if (e.target.value < 1) {
+      this.setState({ titleComponents: null, searchStr: "", render: true });
+    } else {
+      this.setState({ searchStr: e.target.value });
+    }
+  }
+
   render() {
     let comps;
     // only render autocomplete results when render flag set to true
@@ -174,9 +183,7 @@ class AutoComplete extends React.Component {
         <input
           onKeyDown={e => this.handleKey(e)}
           onFocus={e => document.removeEventListener("keydown", handleKeyPress)}
-          onChange={e =>
-            this.setState({ searchStr: e.target.value }, this.handleInput(e))
-          }
+          onChange={e => this.handleChange(e)}
           onBlur={this.handleBlur}
           type="text"
           placeholder="Search"
