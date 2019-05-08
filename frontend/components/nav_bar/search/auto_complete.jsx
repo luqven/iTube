@@ -54,24 +54,21 @@ class AutoComplete extends React.Component {
     }
     this.handleInput(e);
   }
-
+  // helper that stores matching titles array
   matchedSearchParams(currentInput) {
     let matchedSearch = [];
-    // get array of all titles in state
     let allTitles = Object.keys(this.props.search);
     // add titles that match search string to matchedSearch arr
     for (let i = 0; i < allTitles.length; i++) {
       const curTitle = allTitles[i];
-      // push into array if title matched
       if (curTitle.toLowerCase().includes(currentInput)) {
         matchedSearch.push(curTitle);
       }
     }
     return matchedSearch;
   }
-
+  // helper that stores array of title components
   storeMatchingTitles(matchedSearch) {
-    // store array of title components
     let titles = [];
     let indexes = ""; // used by other searchResults component that relies on url
     let cursorPos = this.state.cursorPos; // current pos of cursor
@@ -96,9 +93,8 @@ class AutoComplete extends React.Component {
         </li>
       );
     }
-    // store the array of lis inside a ul element
+    // store inside a ul element, if no matches, do not render ul
     let titlesComponents;
-    // if no matches, do not render ul
     if (titles.length < 1) {
       titlesComponents = null;
     } else {
@@ -113,7 +109,7 @@ class AutoComplete extends React.Component {
     });
   }
 
-  // search hash of {title: video_id} for matching substring
+  // on every input change, search for matching titles
   handleInput(e) {
     // if searchStr now empty, clear state and don't search again
     if (e.target.value < 1) {
@@ -122,7 +118,7 @@ class AutoComplete extends React.Component {
     }
 
     let currentInput = this.state.searchStr.toLowerCase();
-    // return null if searchStr is empty: backspacing and first render
+    // return null if searchStr is empty: e.g. backspacing and first render
     if (currentInput === "" || currentInput.length < 1) {
       return null;
     }
