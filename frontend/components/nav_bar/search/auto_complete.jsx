@@ -57,6 +57,20 @@ class AutoComplete extends React.Component {
     this.handleInput(e);
   }
 
+  // on every input change, search for matching titles
+  handleInput(e) {
+    // if searchStr now empty, clear state and don't search again
+    if (e.target.value < 1) {
+      this.setState({ titleComponents: null, searchStr: "", render: true });
+      return;
+    }
+
+    let currentInput = this.state.searchStr.toLowerCase();
+
+    let matchedSearch = this.matchedSearchParams(currentInput);
+    this.storeMatchingTitles(matchedSearch);
+  }
+
   // helper that stores matching titles array
   matchedSearchParams(currentInput) {
     let matchedSearch = [];
@@ -112,20 +126,6 @@ class AutoComplete extends React.Component {
       titleComponents: titlesComponents,
       selectedComponent: selectedComp
     });
-  }
-
-  // on every input change, search for matching titles
-  handleInput(e) {
-    // if searchStr now empty, clear state and don't search again
-    if (e.target.value < 1) {
-      this.setState({ titleComponents: null, searchStr: "", render: true });
-      return;
-    }
-
-    let currentInput = this.state.searchStr.toLowerCase();
-
-    let matchedSearch = this.matchedSearchParams(currentInput);
-    this.storeMatchingTitles(matchedSearch);
   }
 
   // take the user to the video show page for that video id
