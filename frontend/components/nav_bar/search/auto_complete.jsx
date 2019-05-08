@@ -42,7 +42,7 @@ class AutoComplete extends React.Component {
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false });
       if (this.state.cursorPos === -1) {
-        this.handleSubmit();
+        this.handleSubmit;
         return;
       }
       // get the video from backend
