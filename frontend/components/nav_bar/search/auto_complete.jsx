@@ -35,6 +35,7 @@ class AutoComplete extends React.Component {
     const cursorPos = this.state.cursorPos;
     const maxPos = this.state.matchedSearch.length - 1;
     const selectedComp = this.state.selectedComponent;
+
     if (e.key === "ArrowDown" && cursorPos < maxPos) {
       this.setState({
         cursorPos: cursorPos + 1
@@ -49,9 +50,8 @@ class AutoComplete extends React.Component {
         this.handleSubmit();
         return;
       }
-      // get the video from backend
+      // get the video and render it's show page
       this.props.getVideo(selectedComp);
-      // render the selected component's video show page
       this.props.history.push(`/videos/${selectedComp}`);
     }
     this.handleInput(e);
@@ -144,7 +144,7 @@ class AutoComplete extends React.Component {
       .then(this.props.history.push(`/videos/${searchId}`));
   }
 
-  // remove event listeners when not searching
+  // hide search results when no selection made
   handleBlur() {
     if (this.state.selectedComponent === undefined) {
       let results = document.querySelectorAll(".search-auto-li");
