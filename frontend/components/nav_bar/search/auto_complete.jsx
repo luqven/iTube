@@ -19,6 +19,8 @@ class AutoComplete extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.matchedSearchParams = this.matchedSearchParams.bind(this);
+    this.storeMatchingTitles = this.storeMatchingTitles.bind(this);
     // this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
@@ -53,19 +55,7 @@ class AutoComplete extends React.Component {
     this.handleInput(e);
   }
 
-  // search hash of {title: video_id} for matching substring
-  handleInput(e) {
-    // if searchStr now empty, clear state and don't search again
-    if (e.target.value < 1) {
-      this.setState({ titleComponents: null, searchStr: "", render: true });
-      return;
-    }
-
-    let currentInput = this.state.searchStr.toLowerCase();
-    // return null if searchStr is empty: backspacing and first render
-    if (currentInput === "" || currentInput.length < 1) {
-      return null;
-    }
+  matchedSearchParams(currentInput) {
     let matchedSearch = [];
     // get array of all titles in state
     let allTitles = Object.keys(this.props.search);
@@ -77,6 +67,10 @@ class AutoComplete extends React.Component {
         matchedSearch.push(curTitle);
       }
     }
+    return matchedSearch;
+  }
+
+  storeMatchingTitles(matchedSearch) {
     // store array of title components
     let titles = [];
     let indexes = ""; // used by other searchResults component that relies on url
@@ -117,6 +111,24 @@ class AutoComplete extends React.Component {
       titleComponents: titlesComponents,
       selectedComponent: selectedComp
     });
+  }
+
+  // search hash of {title: video_id} for matching substring
+  handleInput(e) {
+    // if searchStr now empty, clear state and don't search again
+    if (e.target.value < 1) {
+      this.setState({ titleComponents: null, searchStr: "", render: true });
+      return;
+    }
+
+    let currentInput = this.state.searchStr.toLowerCase();
+    // return null if searchStr is empty: backspacing and first render
+    if (currentInput === "" || currentInput.length < 1) {
+      return null;
+    }
+
+    let matchedSearch = this.matchedSearchParams(currentInput);
+    this.storeMatchingTitles(matchedSearch);
   }
 
   // take the user to the video show page for that video id
