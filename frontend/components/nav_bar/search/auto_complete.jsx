@@ -29,6 +29,7 @@ class AutoComplete extends React.Component {
     this.props.getSearchResults();
     this.setState({ titleComponents: null, searchStr: "" });
   }
+
   // helper that handles up / down / or enter keypress
   handleKey(e) {
     const cursorPos = this.state.cursorPos;
@@ -55,6 +56,7 @@ class AutoComplete extends React.Component {
     }
     this.handleInput(e);
   }
+
   // helper that stores matching titles array
   matchedSearchParams(currentInput) {
     let matchedSearch = [];
@@ -68,12 +70,14 @@ class AutoComplete extends React.Component {
     }
     return matchedSearch;
   }
+
   // helper that stores array of title components
   storeMatchingTitles(matchedSearch) {
     let titles = [];
     let indexes = ""; // used by other searchResults component that relies on url
     let cursorPos = this.state.cursorPos; // current pos of cursor
     let selectedComp; // var that stores idx of selected component
+
     for (let i = 0; i < this.state.matchedSearch.length; i++) {
       const curTitle = this.state.matchedSearch[i];
       const curIndex = this.props.search[curTitle]["id"];
@@ -119,10 +123,6 @@ class AutoComplete extends React.Component {
     }
 
     let currentInput = this.state.searchStr.toLowerCase();
-    // return null if searchStr is empty: e.g. backspacing and first render
-    if (currentInput === "" || currentInput.length < 1) {
-      return null;
-    }
 
     let matchedSearch = this.matchedSearchParams(currentInput);
     this.storeMatchingTitles(matchedSearch);
@@ -143,17 +143,18 @@ class AutoComplete extends React.Component {
       .getVideo(searchId)
       .then(this.props.history.push(`/videos/${searchId}`));
   }
+
   // remove event listeners when not searching
   handleBlur() {
-    if (this.state.selectedComponent !== undefined) {
-      return;
+    if (this.state.selectedComponent === undefined) {
+      let results = document.querySelectorAll(".search-auto-li");
+      results.forEach(result => {
+        result.classList.toggle("hidden");
+      });
+      document.addEventListener("keydown", handleKeyPress);
     }
-    let results = document.querySelectorAll(".search-auto-li");
-    results.forEach(result => {
-      result.classList.toggle("hidden");
-    });
-    document.addEventListener("keydown", handleKeyPress);
   }
+
   // take user to search results page
   handleSubmit() {
     let matches = this.state.matchedIds;
@@ -161,6 +162,7 @@ class AutoComplete extends React.Component {
     this.setState({ titleComponents: null, searchStr: "" });
   }
 
+  // on every input change, update searchStr in state
   handleChange(e) {
     if (e.target.value < 1) {
       this.setState({ titleComponents: null, searchStr: "", render: true });
