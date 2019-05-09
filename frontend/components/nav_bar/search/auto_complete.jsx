@@ -60,7 +60,7 @@ class AutoComplete extends React.Component {
     this.handleInput(e);
   }
 
-  // on every input change, search for matching titles
+  // on every keypress, search for matching titles to current input
   handleInput(e) {
     let currentInput = e.target.value;
     let searchStr = currentInput;
