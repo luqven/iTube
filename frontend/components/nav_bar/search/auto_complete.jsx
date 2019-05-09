@@ -35,11 +35,18 @@ class AutoComplete extends React.Component {
     const cursorPos = this.cursorPos;
     const maxPos = this.state.matchedSearch.length - 1;
     const selectedComp = this.state.selectedComponent;
-
+    debugger;
     if (e.key === "ArrowDown" && cursorPos < maxPos) {
       this.cursorPos += 1;
     } else if (e.key === "ArrowUp" && cursorPos > -1) {
       this.cursorPos -= 1;
+    } else if (e.key === "Backspace" && e.target.value.length < 1) {
+      this.setState({
+        searchStr: "",
+        matchedSearch: [],
+        titleComponents: null
+      });
+      return;
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false });
       if (this.cursorPos === -1) {
