@@ -1,23 +1,28 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { getSearchResults, resetSearch } from "../../../actions/search_actions";
-import { getVideo } from '../../../actions/videos';
+import { getVideo } from "../../../actions/videos";
 
-
-import AutoComplete from './auto_complete'
+import AutoComplete from "./autocomplete";
+// import AutoComplete from './auto_complete'
 
 const msp = state => {
   return {
-    search: state.search || {},
-  }
-}
+    search: state.search || {}
+  };
+};
 
 const mdp = dispatch => {
   return {
     resetSearch: () => dispatch(resetSearch()),
     getSearchResults: () => dispatch(getSearchResults()),
-    getVideo: id => dispatch(getVideo(id)),
-  }
-}
+    getVideo: id => dispatch(getVideo(id))
+  };
+};
 
-export default withRouter(connect(msp, mdp)(AutoComplete));
+export default withRouter(
+  connect(
+    msp,
+    mdp
+  )(AutoComplete)
+);
