@@ -18,6 +18,7 @@ class AutoComplete extends React.Component {
 
     this.handleKey = this.handleKey.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -158,6 +159,20 @@ class AutoComplete extends React.Component {
       });
     }
   }
+  // hides results on click outside and removes event listeners
+  handleFocus() {
+    let searchBkg = document.querySelector(".search-bkg");
+    let results = document.querySelector(".search-results-ul");
+
+    if (searchBkg) {
+      searchBkg.classList.toggle("hidden");
+    }
+    if (results) {
+      results.classList.toggle("hidden");
+    }
+    // remove video player keypress event from DOM
+    document.removeEventListener("keydown", handleKeyPress);
+  }
 
   // take user to search results page
   handleSubmit() {
@@ -185,13 +200,7 @@ class AutoComplete extends React.Component {
         />
         <input
           onKeyDown={e => this.handleKey(e)}
-          onFocus={e => {
-            document.removeEventListener("keydown", handleKeyPress);
-            document.querySelector(".search-bkg").classList.toggle("hidden");
-            document
-              .querySelector(".search-results-ul")
-              .classList.toggle("hidden");
-          }}
+          onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           type="text"
           placeholder="Search"
