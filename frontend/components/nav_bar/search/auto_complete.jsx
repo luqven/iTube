@@ -21,10 +21,8 @@ class AutoComplete extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.matchedSearchParams = this.matchedSearchParams.bind(this);
     this.storeMatchingTitles = this.storeMatchingTitles.bind(this);
-    // this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
@@ -57,34 +55,29 @@ class AutoComplete extends React.Component {
 
   // on every input change, search for matching titles
   handleInput(e) {
-    // if searchStr now empty, clear state and don't search again
-    if (e.target.value < 1) {
-      this.setState({ titleComponents: null, searchStr: "", render: true });
-      return;
-    }
-
-    let currentInput = this.state.searchStr.toLowerCase();
-
-    let matchedSearch = this.matchedSearchParams(currentInput);
-    this.storeMatchingTitles(matchedSearch);
+    let currentInput = e.target.value;
+    let searchStr = currentInput;
+    let matchedSearch = this.matchedSearchParams(searchStr);
+    this.storeMatchingTitles(matchedSearch, searchStr);
   }
 
   // helper that stores matching titles array
-  matchedSearchParams(currentInput) {
+  matchedSearchParams(searchStr) {
     let matchedSearch = [];
     let allTitles = Object.keys(this.props.search);
     // add titles that match search string to matchedSearch arr
     for (let i = 0; i < allTitles.length; i++) {
       const curTitle = allTitles[i];
-      if (curTitle.toLowerCase().includes(currentInput)) {
+      if (curTitle.toLowerCase().includes(searchStr)) {
         matchedSearch.push(curTitle);
       }
     }
+    debugger;
     return matchedSearch;
   }
 
   // helper that stores array of title components
-  storeMatchingTitles(matchedSearch) {
+  storeMatchingTitles(matchedSearch, searchStr) {
     let titles = [];
     let indexes = ""; // used by other searchResults component that relies on url
     let cursorPos = this.cursorPos; // current pos of cursor
@@ -122,7 +115,8 @@ class AutoComplete extends React.Component {
       matchedSearch: matchedSearch,
       matchedIds: indexes,
       titleComponents: titlesComponents,
-      selectedComponent: selectedComp
+      selectedComponent: selectedComp,
+      searchStr: searchStr
     });
   }
 
@@ -160,22 +154,13 @@ class AutoComplete extends React.Component {
     this.setState({ titleComponents: null, searchStr: "" });
   }
 
-  // on every input change, update searchStr in state
-  handleChange(e) {
-    if (e.target.value < 1) {
-      this.setState({ titleComponents: null, searchStr: "", render: true });
-    } else {
-      this.setState({ searchStr: e.target.value });
-    }
-  }
-
   render() {
-    let comps;
+    let searchResults;
     // only render autocomplete results when render flag set to true
     if (this.state.render === false) {
-      comps = null;
+      searchResults = null;
     } else {
-      comps = this.state.titleComponents;
+      searchResults = this.state.titleComponents;
     }
 
     return (
@@ -183,13 +168,13 @@ class AutoComplete extends React.Component {
         <input
           onKeyDown={e => this.handleKey(e)}
           onFocus={e => document.removeEventListener("keydown", handleKeyPress)}
-          onChange={e => this.handleChange(e)}
+          // onChange={e => this.handleInput(e)}
           onBlur={this.handleBlur}
           type="text"
           placeholder="Search"
-          value={this.state.searchStr}
+          defaultValue={this.state.searchStr}
         />
-        {comps}
+        {searchResults}
         <p onClick={this.handleSubmit}>
           <FontAwesomeIcon icon={["fas", "search"]} />
         </p>
