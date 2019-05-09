@@ -21,6 +21,7 @@ class AutoComplete extends React.Component {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.matchedSearchParams = this.matchedSearchParams.bind(this);
     this.storeMatchingTitles = this.storeMatchingTitles.bind(this);
@@ -31,22 +32,28 @@ class AutoComplete extends React.Component {
     this.setState({ titleComponents: null, searchStr: "" });
   }
 
+  resetState() {
+    this.setState({
+      searchStr: "",
+      matchedSearch: [],
+      matchedIds: "",
+      titleComponents: null,
+      selectedComponent: null,
+      render: true
+    });
+  }
+
   // helper that handles up / down / or enter keypress
   handleKey(e) {
     const cursorPos = this.cursorPos;
     const maxPos = this.state.matchedSearch.length - 1;
     const selectedComp = this.state.selectedComponent;
-    debugger;
     if (e.key === "ArrowDown" && cursorPos < maxPos) {
       this.cursorPos += 1;
     } else if (e.key === "ArrowUp" && cursorPos > -1) {
       this.cursorPos -= 1;
     } else if (e.key === "Backspace" && e.target.value.length < 1) {
-      this.setState({
-        searchStr: "",
-        matchedSearch: [],
-        titleComponents: null
-      });
+      this.resetState();
       return;
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false });
@@ -80,7 +87,6 @@ class AutoComplete extends React.Component {
         matchedSearch.push(curTitle);
       }
     }
-    debugger;
     return matchedSearch;
   }
 
@@ -134,11 +140,7 @@ class AutoComplete extends React.Component {
     let target = classes[classes.length - 1];
     let searchId = Number(target.slice(4));
     // reset the component to not render at next url
-    this.setState({
-      searchStr: "",
-      matchedSearch: [],
-      titleComponents: null
-    });
+    this.resetState();
     this.props
       .getVideo(searchId)
       .then(this.props.history.push(`/videos/${searchId}`));
@@ -160,7 +162,11 @@ class AutoComplete extends React.Component {
     }
   }
   // hides results on click outside and removes event listeners
-  handleFocus() {
+  handleFocus(e) {
+    // select entire field when clicking back into search box
+    if (e.target.value.length > 1) {
+      e.target.select();
+    }
     let searchBkg = document.querySelector(".search-bkg");
     let results = document.querySelector(".search-results-ul");
 
@@ -178,7 +184,7 @@ class AutoComplete extends React.Component {
   handleSubmit() {
     let matches = this.state.matchedIds;
     this.props.history.push(`/search/${matches}`);
-    this.setState({ titleComponents: null, searchStr: "" });
+    this.resetState();
   }
 
   render() {
@@ -204,7 +210,7 @@ class AutoComplete extends React.Component {
           onBlur={this.handleBlur}
           type="text"
           placeholder="Search"
-          defaultValue={this.state.searchStr}
+          defaultValue={""}
         />
         {searchResults}
         <p onClick={this.handleSubmit}>
