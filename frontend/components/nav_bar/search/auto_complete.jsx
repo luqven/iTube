@@ -10,10 +10,12 @@ class AutoComplete extends React.Component {
       matchedSearch: [],
       matchedIds: "",
       titleComponents: null,
-      cursorPos: -1,
       selectedComponent: null,
       render: true
     };
+
+    this.cursorPos = -1;
+
     this.handleKey = this.handleKey.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -32,21 +34,17 @@ class AutoComplete extends React.Component {
 
   // helper that handles up / down / or enter keypress
   handleKey(e) {
-    const cursorPos = this.state.cursorPos;
+    const cursorPos = this.cursorPos;
     const maxPos = this.state.matchedSearch.length - 1;
     const selectedComp = this.state.selectedComponent;
 
     if (e.key === "ArrowDown" && cursorPos < maxPos) {
-      this.setState({
-        cursorPos: cursorPos + 1
-      });
+      this.cursorPos += 1;
     } else if (e.key === "ArrowUp" && cursorPos > -1) {
-      this.setState({
-        cursorPos: cursorPos - 1
-      });
+      this.cursorPos -= 1;
     } else if (e.key === "Enter" && selectedComp !== null) {
       this.setState({ render: false });
-      if (this.state.cursorPos === -1) {
+      if (this.cursorPos === -1) {
         this.handleSubmit();
         return;
       }
@@ -89,7 +87,7 @@ class AutoComplete extends React.Component {
   storeMatchingTitles(matchedSearch) {
     let titles = [];
     let indexes = ""; // used by other searchResults component that relies on url
-    let cursorPos = this.state.cursorPos; // current pos of cursor
+    let cursorPos = this.cursorPos; // current pos of cursor
     let selectedComp; // var that stores idx of selected component
 
     for (let i = 0; i < this.state.matchedSearch.length; i++) {
