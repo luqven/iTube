@@ -115,7 +115,7 @@ class AutoComplete extends React.Component {
     if (titles.length < 1) {
       titlesComponents = null;
     } else {
-      titlesComponents = <ul>{titles}</ul>;
+      titlesComponents = <ul className="search-results-ul">{titles}</ul>;
     }
     // store the created ul component in state
     this.setState({
@@ -145,12 +145,17 @@ class AutoComplete extends React.Component {
 
   // hide search results when no selection made
   handleBlur() {
+    let results = document.querySelectorAll(".search-auto-li");
     if (this.state.selectedComponent === undefined) {
-      let results = document.querySelectorAll(".search-auto-li");
       results.forEach(result => {
-        result.classList.toggle("hidden");
+        result.classList.add("hidden");
       });
+      // add video player keypress event back to DOM
       document.addEventListener("keydown", handleKeyPress);
+    } else {
+      results.forEach(result => {
+        result.classList.remove("hidden");
+      });
     }
   }
 
@@ -172,10 +177,21 @@ class AutoComplete extends React.Component {
 
     return (
       <form>
+        <section
+          className="search-bkg hidden"
+          onClick={() => {
+            document.querySelector(".search-bkg").classList.toggle("hidden");
+          }}
+        />
         <input
           onKeyDown={e => this.handleKey(e)}
-          onFocus={e => document.removeEventListener("keydown", handleKeyPress)}
-          // onChange={e => this.handleInput(e)}
+          onFocus={e => {
+            document.removeEventListener("keydown", handleKeyPress);
+            document.querySelector(".search-bkg").classList.toggle("hidden");
+            document
+              .querySelector(".search-results-ul")
+              .classList.toggle("hidden");
+          }}
           onBlur={this.handleBlur}
           type="text"
           placeholder="Search"
