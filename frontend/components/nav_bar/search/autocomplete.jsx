@@ -94,7 +94,7 @@ export default class Autocomplete extends React.Component {
     if (searchBkg) {
       searchBkg.classList.toggle("hidden");
     }
-    if (results) {
+    if (results !== null) {
       results.classList.remove("hidden");
     }
     // remove video player keypress event from DOM
@@ -103,7 +103,7 @@ export default class Autocomplete extends React.Component {
 
   handleBlur() {
     let results = document.querySelector(".search-results-ul");
-    if (results) {
+    if (results !== null) {
       results.classList.add("hidden");
     }
     // add video player keypress event back to DOM
@@ -173,7 +173,7 @@ export default class Autocomplete extends React.Component {
           onBlur={this.handleBlur}
         />
         {this.renderSuggestions()}
-        <p>
+        <p onClick={this.handleSubmit}>
           <FontAwesomeIcon icon={["fas", "search"]} />
         </p>
       </div>
