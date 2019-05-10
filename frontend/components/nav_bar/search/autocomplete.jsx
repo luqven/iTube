@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { handleKeyPress } from "../../../utils/key_event_helper";
 
 export default class Autocomplete extends React.Component {
   constructor(props) {
@@ -81,6 +82,34 @@ export default class Autocomplete extends React.Component {
     );
   }
 
+  // hides results on click outside and removes event listeners
+  handleFocus(e) {
+    // select entire field when clicking back into search box
+    if (e.target.value.length > 1) {
+      e.target.select();
+    }
+    let searchBkg = document.querySelector(".search-bkg");
+    let results = document.querySelector(".search-results-ul");
+
+    if (searchBkg) {
+      searchBkg.classList.toggle("hidden");
+    }
+    if (results) {
+      results.classList.remove("hidden");
+    }
+    // remove video player keypress event from DOM
+    document.removeEventListener("keydown", handleKeyPress);
+  }
+
+  handleBlur() {
+    let results = document.querySelector(".search-results-ul");
+    if (results) {
+      results.classList.add("hidden");
+    }
+    // add video player keypress event back to DOM
+    document.addEventListener("keydown", handleKeyPress);
+  }
+
   handleSubmit(e) {
     // e.preventDefault();
     let suggestions = this.state.suggestions;
@@ -107,7 +136,7 @@ export default class Autocomplete extends React.Component {
       return null;
     } else {
       return (
-        <ul>
+        <ul className="search-results-ul">
           {suggestions.map((item, idx) => (
             <li
               onClick={() => this.suggestionSelected(item)}
@@ -127,6 +156,12 @@ export default class Autocomplete extends React.Component {
   render() {
     return (
       <div className="search-bar">
+        <section
+          className="search-bkg hidden"
+          onClick={() => {
+            document.querySelector(".search-bkg").classList.toggle("hidden");
+          }}
+        />
         <input
           className="search-input"
           type="text"
@@ -134,6 +169,8 @@ export default class Autocomplete extends React.Component {
           defaultValue={this.state.text}
           onChange={this.handleInputChange}
           onKeyDown={this.handleKeyDown}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
         />
         {this.renderSuggestions()}
         <p>
