@@ -126,7 +126,7 @@ export default class Autocomplete extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input
           className="search-input"
           type="text"

@@ -4,35 +4,55 @@
 
 .search-container {
   width: 65%;
-  height: 32px;
-}
-
-.search-container div {
-  display: flex;
-  justify-content: center;
-  height: 48px;
-}
-
-.search-container form {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
   height: 100%;
-  width: 50%;
-  margin-right: 10%;
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+  height: 100%;
+  /* width: 50%; */
+  /* margin-right: 10%; */
+}
+.search-outline {
+  border: 1px solid lightgray;
+  height: fit-content;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 55vw;
 }
 
 .search-container input {
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 4px;
+  max-width: 100%;
+  text-align: inherit;
   width: 100%;
-  height: 50%;
-  padding-left: 10px;
-  margin-right: 0.8px;
-  font-weight: lighter;
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px;
+  max-width: 55vw;
 }
 
-.search-container form p:first-of-type {
+.seasrch-input input {
+  margin-left: 5px;
+}
+
+.search-container p:first-of-type {
   width: 20px;
-  height: 50%;
   padding-top: 6px;
   padding-left: 20px;
   padding-right: 20px;
@@ -40,18 +60,18 @@
   box-shadow: inset 0px 0px 3px 0px #ccc;
 }
 
-.search-container form p:first-of-type svg {
+.search-container p:first-of-type svg {
   color: gray;
 }
 
-.search-container form p:first-of-type:hover {
+.search-container p:first-of-type:hover {
   cursor: pointer;
 }
 
 .search-container ul {
-  left: 35%;
+  left: 27%;
   list-style: none;
-  right: 38%;
+  right: 22%;
   overflow-y: scroll;
   max-height: 500px;
 }
