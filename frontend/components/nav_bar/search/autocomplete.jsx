@@ -28,9 +28,19 @@ export default class Autocomplete extends React.Component {
     let items = Object.keys(this.props.search);
 
     if (searchString.length > 0) {
-      const regex = new RegExp(`^${searchString}`, "i");
+      const regex = new RegExp(`^${searchString}`, ["i"]);
       // filter suggestions by those that return true for regex
-      suggestions = items.sort().filter(v => regex.test(v.toLocaleLowerCase()));
+      suggestions = items.sort().filter(suggestion => {
+        let words = suggestion.split(" ");
+        let matched = false;
+        for (let i = 0; i < words.length; i++) {
+          const curWord = words[i];
+          if (regex.test(curWord.toLowerCase())) {
+            matched = true;
+          }
+        }
+        return matched;
+      });
     }
     this.setState({ suggestions: suggestions, text: searchString });
   }
