@@ -10,8 +10,9 @@ json.videos do
         json.id video.uploader.id
         json.username video.uploader.username
       end
-      json.id video.id
       json.like_ids video.likes.ids
+      json.views video.play_count
+      json.id video.id
     end
   end
 end

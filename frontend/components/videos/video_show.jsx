@@ -15,10 +15,21 @@ export default class VideoShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getVideo(this.props.video.id);
-    // .then(
-    // setTimeout(() => this.props.getLikes(this.props.user_id), 500)
-    // )
+    let timeForViewCount = 5000; // ms
+    this.props.getVideo(this.props.video.id).then(
+      setTimeout(() => {
+        let formData = new FormData();
+        let currentViews = this.props.video.views;
+        if (this.props.video.views === undefined) {
+          currentViews = 0;
+          debugger;
+        }
+        currentViews += 1;
+        formData.append("video[id]", this.props.video.id);
+        formData.append("video[play_count]", currentViews);
+        this.props.updateVideo(formData);
+      }, timeForViewCount)
+    );
   }
 
   render() {
@@ -29,6 +40,7 @@ export default class VideoShow extends React.Component {
             user={this.props.user}
             errors={this.props.errors}
             resetErrors={this.props.resetErrors}
+            updateViews={this.props.updateVideo}
           />
           <VideoDetails />
           {/* comments add/edit */}
