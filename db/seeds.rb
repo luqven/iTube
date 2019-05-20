@@ -79,11 +79,11 @@ video_21 = {title: "Do you know all your types of coffee?",body: "In this video 
 video_22 = {title: "The basics about coffee",body: "Everything you wanted to know but didn't about coffee",channel_id: seed_user1.channel.id}
 video_23 = {title: "The most popular ways to make coffee at home",body: "Follow us as we guide you through this uncertain terrain",channel_id: seed_user1.channel.id}
 # set seed_user 2 videos
-video_24 = {title: "Teenage Sword Planet",body: "This moving arti piece illustrates how inequality makes me feel like we're loosing our inner chi.",channel_id: seed_user2.channel.id}
-video_25 = {title: "Mystic Spork Commander",body: "Meant as a commentary on what we're living through..",channel_id: seed_user2.channel.id}
-video_26 = {title: "Imperial Alligator Nitro",body: "Fun. That's we all need these day no? Some fun.",channel_id: seed_user2.channel.id}
-video_27 = {title: "Silly Baseball Dance Party",body: "That's what 'americas pastime' has become. The degredation of standards embodied in this flowing epic.",channel_id: seed_user2.channel.id}
-video_28 = {title: "Miracle Mech from Mars",body: "If only.. Comment and like!",channel_id: seed_user2.channel.id}
+video_24 = {title: "Groovy Planet Scenery",body: "This moving arti piece illustrates how inequality makes me feel like we're loosing our inner chi.",channel_id: seed_user2.channel.id}
+video_25 = {title: "Mystic Loop",body: "Meant as a commentary on what we're living through..",channel_id: seed_user2.channel.id}
+video_26 = {title: "Imperial Nitro Visualizer",body: "Fun. That's we all need these day no? Some fun.",channel_id: seed_user2.channel.id}
+video_27 = {title: "Silly Dance Party Vibes",body: "That's what 'americas pastime' has become. The degredation of standards embodied in this flowing epic.",channel_id: seed_user2.channel.id}
+video_28 = {title: "Mars Inspired Rendering",body: "If only.. Comment and like!",channel_id: seed_user2.channel.id}
 video_29= {title: "Really cool music visualizer",body: "If only I could make this.. Comment and like!",channel_id: seed_user2.channel.id}
 video_30= {title: "DOUBLE KING",body: "A film about love and regicide. Made by Felix Colgrave over the course of 2 years.",channel_id: seed_user2.channel.id}
 video_31= {title: "Piper",body: "Charming pixar short by Alan Barillaro.",channel_id: seed_user2.channel.id}
