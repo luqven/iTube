@@ -25,6 +25,7 @@ export class VideoPlayer extends React.Component {
   componentDidMount() {
     this.props.resetErrors();
     this.props.getLikes(this.props.video.id);
+    this.props.updateViewCount();
   }
 
   componentWillReceiveProps() {
@@ -91,6 +92,7 @@ export class VideoPlayer extends React.Component {
           thumbnail={this.props.video.thumbnail_url}
         />
         <li>{this.props.video.title}</li>
+        <li className="video-views">{this.props.video.views} views</li>
         <li>{this.props.errors}</li>
         <li>
           <div className="video-like-btn">

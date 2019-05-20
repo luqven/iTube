@@ -1,16 +1,38 @@
 @media (min-width: 301px) and (max-width: 717px) {
-  .search-container{
+  .search-container {
     display: none;
   }
   .search-reults-container {
     width: 100vw;
     margin: none;
+    margin-right: -5%;
   }
 
-  .search-container > p, h3 {
+  .search-container > p,
+  h3 {
     text-align: right;
     margin-left: 20px;
     width: 50vw;
   }
 
+  .search-blurb-container {
+    margin-top: none;
+  }
+
+  .search-blurb {
+    word-break: normal !important;
+    white-space: normal !important;
+    margin-top: -80px !important;
+  }
+
+  .temp-image-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-channel-name {
+    margin-left: none;
+    margin-top: none;
+    height: 0px;
+  }
 }

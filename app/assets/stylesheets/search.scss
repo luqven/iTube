@@ -83,11 +83,11 @@
 .search-reults-container {
   display: flex;
   flex-direction: column;
-  margin-right: 35%;
+  // margin-right: 35%;
 }
 
 .search:first-child {
-  margin-top: 30%;
+  margin-top: 10vh;
 }
 .search {
   display: flex;
@@ -124,6 +124,8 @@
 
 .search-blurb {
   font-size: smaller;
+  word-break: normal !important;
+  white-space: normal !important;
 }
 
 .search-auto-li:hover {

@@ -10,25 +10,40 @@ export default class VideoShow extends React.Component {
     super(props);
     this.state = {
       video: this.props.video,
-      videoUrl: this.props.video.video_url
+      videoUrl: this.props.video.video_url,
+      views: this.props.video.views || null
     };
+    this.updated = false;
+    this.updateViewCount = this.updateViewCount.bind(this);
   }
 
   componentDidMount() {
-    let timeForViewCount = 5000; // ms
-    this.props.getVideo(this.props.video.id).then(
-      setTimeout(() => {
-        let formData = new FormData();
-        let currentViews = this.props.video.views;
-        if (this.props.video.views === undefined) {
-          currentViews = 0;
-        }
-        currentViews += 1;
-        formData.append("video[id]", this.props.video.id);
-        formData.append("video[play_count]", currentViews);
-        this.props.updateVideo(formData);
-      }, timeForViewCount)
-    );
+    this.props.getVideo(this.props.videoId);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.video.title !== this.props.video.title) {
+      let curViews = this.props.video.views;
+      this.updateViewCount(curViews);
+    }
+  }
+
+  updateViewCount(curViews) {
+    let currentViews = curViews ? curViews : this.props.video.views;
+    if (currentViews === undefined) {
+      return;
+    }
+    console.log(currentViews);
+    currentViews += 1;
+    console.log(currentViews);
+
+    let formData = new FormData();
+    formData.append("video[id]", this.props.video.id);
+    formData.append("video[play_count]", currentViews);
+    this.updated = true;
+    this.props
+      .updateVideo(formData)
+      .then(this.setState({ views: currentViews }));
   }
 
   render() {
@@ -39,7 +54,7 @@ export default class VideoShow extends React.Component {
             user={this.props.user}
             errors={this.props.errors}
             resetErrors={this.props.resetErrors}
-            updateViews={this.props.updateVideo}
+            updateViewCount={this.updateViewCount}
           />
           <VideoDetails />
           {/* comments add/edit */}

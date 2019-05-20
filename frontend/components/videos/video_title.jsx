@@ -17,7 +17,7 @@ export default class VideoTitle extends React.Component {
           {this.props.video.title}
         </p>
         <p className="video-views">
-          {this.props.video.views} {viewText}
+          {this.state.viewCount} {viewText}
         </p>
       </>
     );

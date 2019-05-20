@@ -54,40 +54,40 @@ Channel.create!(channel3)
 
 
 # set guest user's videos -- puppy videos
-video1  = {title: "Charlie the chocolate Lab On Boat", body: "Charlie loves riding in the lake on a boat", channel_id: guest_user.channel.id}
-video2  = {title: "Buddy loves swimming", body: "this chocolate lab is quite fond of water", channel_id: guest_user.channel.id}
-video3  = {title: "Max: the cutest lab puppy ever!", body: "Max doesn't know it, but he's barely a few months old", channel_id: guest_user.channel.id}
-video4  = {title: "Archie loves the fresh air.. we think", body: "That or he really, really hates the smell of the passenger..", channel_id: guest_user.channel.id}
-video5  = {title: "Oscar's ball is kinda nasty, but it's his favorite", body: "Just tru and take it from him... not a fun.", channel_id: guest_user.channel.id}
-video6  = {title: "Toby the red shar pei. That's not his name but..", body: "It really should be his name. Can you relly just every say Toby and not 'the red shar pei'?", channel_id: guest_user.channel.id}
-video7  = {title: "Ollie loves that winter is coming!", body: "Just look at his tail wag haha", channel_id: guest_user.channel.id}
-video8  = {title: "Brown puppies like Bailey are just the cutest", body: "even when they can't seem to understand playtime haha", channel_id: guest_user.channel.id}
-video9  = {title: "Frankie's pups are so cute! 11 / 10", body: "Need we say more?", channel_id: guest_user.channel.id}
-video10 = {title: "Jack begs us to take him to the beach", body: "We obliged. Naturally", channel_id: guest_user.channel.id}
-video_11 = {title: "You wont be able to stop laghing at the cute puppies", body: "Simply the funniest puppies in the planet.", channel_id: guest_user.channel.id}
-video_12 = {title: "Puppy cuteness overload", body: "You were warned!", channel_id: guest_user.channel.id}
-video_13 = {title: "These great danes love playing by the lake", body: "You can tell they hardly know their size", channel_id: guest_user.channel.id}
-video_14 = {title: "Talkative cat meeting great dane for the first time", body: "The unlikeliest of friends", channel_id: guest_user.channel.id}
+video1  = {title: "Charlie the chocolate Lab On Boat", body: "Charlie loves riding in the lake on a boat", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video2  = {title: "Buddy loves swimming", body: "this chocolate lab is quite fond of water", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video3  = {title: "Max: the cutest lab puppy ever!", body: "Max doesn't know it, but he's barely a few months old", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video4  = {title: "Archie loves the fresh air.. we think", body: "That or he really, really hates the smell of the passenger..", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video5  = {title: "Oscar's ball is kinda nasty, but it's his favorite", body: "Just tru and take it from him... not a fun.", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video6  = {title: "Toby the red shar pei. That's not his name but..", body: "It really should be his name. Can you relly just every say Toby and not 'the red shar pei'?", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video7  = {title: "Ollie loves that winter is coming!", body: "Just look at his tail wag haha", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video8  = {title: "Brown puppies like Bailey are just the cutest", body: "even when they can't seem to understand playtime haha", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video9  = {title: "Frankie's pups are so cute! 11 / 10", body: "Need we say more?", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video10 = {title: "Jack begs us to take him to the beach", body: "We obliged. Naturally", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video_11 = {title: "You wont be able to stop laghing at the cute puppies", body: "Simply the funniest puppies in the planet.", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video_12 = {title: "Puppy cuteness overload", body: "You were warned!", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video_13 = {title: "These great danes love playing by the lake", body: "You can tell they hardly know their size", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
+video_14 = {title: "Talkative cat meeting great dane for the first time", body: "The unlikeliest of friends", channel_id: guest_user.channel.id, play_count: 12 + Random.rand(11)}
 # set seed_user 1 videos
-video_15 = {title: "Zig Zag Coffee Bar: 3 / 10",body: "No respect from the baristas here. Cannot reccomend.",channel_id: seed_user1.channel.id}
-video_16 = {title: "New Blue Cafe: 6 / 10",body: "Decent blends, but terrible ambiance.",channel_id: seed_user1.channel.id}
-video_17 = {title: "Hazelnut Drop Cafe: 9 / 10",body: "Good beans, great milk, even better baristas. Bad decoration though.",channel_id: seed_user1.channel.id}
-video_18 = {title: "Fatty Teapot Coffee Bar: 5 / 10",body: "Decent. Pay more than $3 a cup and you were robbed though.",channel_id: seed_user1.channel.id}
-video_19 = {title: "Precious Harvest Joint: 4 /10",body: "Pretty meh, but good in a pinch.",channel_id: seed_user1.channel.id}
-video_20 = {title: "Best coffeeshops in Tokyo",body: "You wont believe what great deals you can get on coffee in Japan",channel_id: seed_user1.channel.id}
-video_21 = {title: "Do you know all your types of coffee?",body: "In this video we cover every type of coffee imaginable",channel_id: seed_user1.channel.id}
-video_22 = {title: "The basics about coffee",body: "Everything you wanted to know but didn't about coffee",channel_id: seed_user1.channel.id}
-video_23 = {title: "The most popular ways to make coffee at home",body: "Follow us as we guide you through this uncertain terrain",channel_id: seed_user1.channel.id}
+video_15 = {title: "Zig Zag Coffee Bar: 3 / 10",body: "No respect from the baristas here. Cannot reccomend.",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_16 = {title: "New Blue Cafe: 6 / 10",body: "Decent blends, but terrible ambiance.",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_17 = {title: "Hazelnut Drop Cafe: 9 / 10",body: "Good beans, great milk, even better baristas. Bad decoration though.",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_18 = {title: "Fatty Teapot Coffee Bar: 5 / 10",body: "Decent. Pay more than $3 a cup and you were robbed though.",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_19 = {title: "Precious Harvest Joint: 4 /10",body: "Pretty meh, but good in a pinch.",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_20 = {title: "Best coffeeshops in Tokyo",body: "You wont believe what great deals you can get on coffee in Japan",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_21 = {title: "Do you know all your types of coffee?",body: "In this video we cover every type of coffee imaginable",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_22 = {title: "The basics about coffee",body: "Everything you wanted to know but didn't about coffee",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
+video_23 = {title: "The most popular ways to make coffee at home",body: "Follow us as we guide you through this uncertain terrain",channel_id: seed_user1.channel.id, play_count: 12 + Random.rand(11)}
 # set seed_user 2 videos
-video_24 = {title: "Groovy Planet Scenery",body: "This moving arti piece illustrates how inequality makes me feel like we're loosing our inner chi.",channel_id: seed_user2.channel.id}
-video_25 = {title: "Mystic Loop",body: "Meant as a commentary on what we're living through..",channel_id: seed_user2.channel.id}
-video_26 = {title: "Imperial Nitro Visualizer",body: "Fun. That's we all need these day no? Some fun.",channel_id: seed_user2.channel.id}
-video_27 = {title: "Silly Dance Party Vibes",body: "That's what 'americas pastime' has become. The degredation of standards embodied in this flowing epic.",channel_id: seed_user2.channel.id}
-video_28 = {title: "Mars Inspired Rendering",body: "If only.. Comment and like!",channel_id: seed_user2.channel.id}
-video_29= {title: "Really cool music visualizer",body: "If only I could make this.. Comment and like!",channel_id: seed_user2.channel.id}
-video_30= {title: "DOUBLE KING",body: "A film about love and regicide. Made by Felix Colgrave over the course of 2 years.",channel_id: seed_user2.channel.id}
-video_31= {title: "Piper",body: "Charming pixar short by Alan Barillaro.",channel_id: seed_user2.channel.id}
-video_32= {title: "Lifted",body: "Another incredible pixar short.",channel_id: seed_user2.channel.id}
+video_24 = {title: "Groovy Planet Scenery",body: "This moving arti piece illustrates how inequality makes me feel like we're loosing our inner chi.",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_25 = {title: "Mystic Loop",body: "Meant as a commentary on what we're living through..",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_26 = {title: "Imperial Nitro Visualizer",body: "Fun. That's we all need these day no? Some fun.",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_27 = {title: "Silly Dance Party Vibes",body: "That's what 'americas pastime' has become. The degredation of standards embodied in this flowing epic.",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_28 = {title: "Mars Inspired Rendering",body: "If only.. Comment and like!",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_29= {title: "Really cool music visualizer",body: "If only I could make this.. Comment and like!",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_30= {title: "DOUBLE KING",body: "A film about love and regicide. Made by Felix Colgrave over the course of 2 years.",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_31= {title: "Piper",body: "Charming pixar short by Alan Barillaro.",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
+video_32= {title: "Lifted",body: "Another incredible pixar short.",channel_id: seed_user2.channel.id, play_count: 12 + Random.rand(11)}
 
 videos = [ video1,video2,video3,video4,video5,video6,video7,video8,video9,video10,video_11,
            video_12,video_13,video_14,video_15,video_16,video_17,video_18,video_19,video_20,
