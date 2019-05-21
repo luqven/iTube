@@ -220,3 +220,35 @@ ul {
 .controls-btns button:last-of-type {
   margin-left: 80%;
 }
+
+// Trending videos
+
+.trending-container {
+  /* position: absolute; */
+  /* left: 11vw; */
+  /* margin-bottom: 50px; */
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.trending-label {
+  margin-left: 6vw;
+  margin-top: -71vh;
+}
+
+.trending-videos {
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 35% 35%;
+  list-style: none;
+  display: grid;
+  left: 11vw;
+  top: 10vh;
+  width: -webkit-fill-available;
+  height: 90%;
+  overflow: scroll;
+  box-shadow: none;
+  background-color: transparent;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const HamburgerMenu = props => {
   const menu = document.querySelector(".hamburger-ul");
@@ -23,6 +24,17 @@ export const HamburgerMenu = props => {
         <FontAwesomeIcon icon={["fas", "bars"]} />
       </p>
       <ul className="hamburger-ul slide">
+        <li
+          onClick={() => {
+            menu.classList.toggle("slide");
+            outSideMenu.classList.toggle("hidden");
+          }}
+        >
+          <Link to="/trending">
+            Trending <FontAwesomeIcon icon={["fas", "fire"]} />
+          </Link>
+        </li>
+        <li className="hmbg-separator" />
         <li>
           <a href="https://github.com/luqven/iTube">
             Github <FontAwesomeIcon icon={["fab", "github"]} />

@@ -24,15 +24,14 @@
   height: 100%;
   background: transparent;
   box-shadow: none;
- 
 }
 
-.home-container h2{
-    width: 75%;
-    margin: auto;
-    margin-top: 20px;
-    font-weight: 600;
-    padding-bottom: 20px;
+.home-container h2 {
+  width: 75%;
+  margin: auto;
+  margin-top: 20px;
+  font-weight: 600;
+  padding-bottom: 20px;
 }
 
 .home-user-initial {
@@ -48,89 +47,89 @@
   cursor: pointer;
 }
 
-.temp-image-container p{
-    margin-top: 5px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 190px;
-    white-space: nowrap;
+.temp-image-container p {
+  margin-top: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 190px;
+  white-space: nowrap;
 }
 
 // carousel component styling
 
-#home-carousel-container{
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    margin-top: 60px;
-    height: 180px;
-    max-width: 1080px;
+#home-carousel-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 60px;
+  height: 180px;
+  max-width: 1080px;
 }
 
-.home-channel-scroll-btn{
-    height: 40px;
-    width: 40px;
-    margin: 100px 10px 10px;
-    border-radius: 100%;
-    outline: transparent;
-    border-color: aliceblue;
-    box-shadow: inset 0px 0px 3px 0px #ccc;
-    transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-.left-btn-placeholder{
-    height: 10px;
-    width: 50px;
-    padding-right: 28px;
+.home-channel-scroll-btn {
+  height: 40px;
+  width: 40px;
+  margin: 100px 10px 10px;
+  border-radius: 100%;
+  outline: transparent;
+  border-color: aliceblue;
+  box-shadow: inset 0px 0px 3px 0px #ccc;
+  transition: background-color 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.home-channel-scroll-btn:hover{
+.left-btn-placeholder {
+  height: 10px;
+  width: 50px;
+  padding-right: 28px;
+}
+
+.home-channel-scroll-btn:hover {
   cursor: pointer;
 }
 
-.home-channel-scroll-btn.active{
+.home-channel-scroll-btn.active {
   outline: transparent;
   background-color: rgb(196, 196, 196);
-  transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: background-color 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.home-channel-scroll-btn.inactive{
+.home-channel-scroll-btn.inactive {
   outline: transparent;
   background-color: white;
-  transition: background-color .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: background-color 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .channel-carousel button:last-of-type {
   padding-right: 12px;
 }
 .arrow-left {
-    padding-bottom: 5px;
-    padding-right: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
 }
 
-.channel-icon-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 50px;
-    position: absolute;
-    padding-right: 55%;
-    margin-left: 7%;
+.channel-icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 50px;
+  position: absolute;
+  padding-right: 55%;
+  margin-left: 7%;
 }
 
-.channel-icon{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 10px;
-    border: 1px solid #3b8af0;
-    border-radius: 50px;
-    background-color: #3b8af0;
-    width: 15px;
-    height: 15px;
-    margin: auto;
-    margin-right: 25px;
-  }
+.channel-icon {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #3b8af0;
+  border-radius: 50px;
+  background-color: #3b8af0;
+  width: 15px;
+  height: 15px;
+  margin: auto;
+  margin-right: 25px;
+}
 
 .channel-name {
   margin: auto;
@@ -143,15 +142,19 @@
   margin-top: 10px;
 }
 
-.channel-icon p:first-child{
-    text-align: center;
-    margin: auto;
-    width: auto;
-    color: white;
+.channel-icon p:first-child {
+  text-align: center;
+  margin: auto;
+  width: auto;
+  color: white;
 }
 
-.placeholder-btn{
-    height: 40px;
-    width: 40px;
-    margin: 100px 10px 10px;
+.placeholder-btn {
+  height: 40px;
+  width: 40px;
+  margin: 100px 10px 10px;
+}
+
+.hmbg-separator {
+  border-bottom: 2px solid rgba(204, 204, 204, 0.797);
 }

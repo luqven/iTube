@@ -8,6 +8,7 @@
 #  channel_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  play_count :integer
 #
 
 class Video < ApplicationRecord

@@ -36,6 +36,9 @@ class Api::VideosController < ApplicationController
   def search_index
     @videos = Video.all
   end
+  def trending_index
+    @videos = Video.order(:play_count)
+  end
 
   def destroy
   end

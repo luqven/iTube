@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :channels, only: [:index, :show, :new, :create, :destroy]
     resource :session, only: [:new, :create, :destroy]
     get '/search', :to => 'videos#search_index'
+    get '/trending', :to => 'videos#trending_index'
   end
 end
