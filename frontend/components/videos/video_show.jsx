@@ -33,10 +33,7 @@ export default class VideoShow extends React.Component {
     if (currentViews === undefined) {
       return;
     }
-    console.log(currentViews);
     currentViews += 1;
-    console.log(currentViews);
-
     let formData = new FormData();
     formData.append("video[id]", this.props.video.id);
     formData.append("video[play_count]", currentViews);
