@@ -1,4 +1,4 @@
-# [iTube](https://github.com/luqven/iTube)
+# [iTube](https://itube-luis.herokuapp.com/#/)
 
 ##### A YouTube Inspired React.js Application
 
